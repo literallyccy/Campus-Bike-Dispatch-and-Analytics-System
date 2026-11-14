@@ -1,0 +1,44 @@
+{
+  "source": "https://map.sjtu.edu.cn/geoserver/jmap/wms",
+  "layer": "jmap:minhang_2d",
+  "srs": "EPSG:4326",
+  "bbox": [
+    121.4179,
+    31.0183,
+    121.4467,
+    31.037
+  ],
+  "retrieved_on": "2026-11-03",
+  "use": "Local course prototype; credit SJTU official map",
+  "routes": [
+    {
+      "file": "route-pao-upper.json",
+      "start": "包玉刚图书馆",
+      "end": "上院"
+    },
+    {
+      "file": "route-upper-canteen2.json",
+      "start": "上院",
+      "end": "第二餐饮大楼"
+    },
+    {
+      "file": "route-canteen2-library.json",
+      "start": "第二餐饮大楼",
+      "end": "图书馆主馆"
+    }
+  ],
+  "detail_basemap": {
+    "file": "campus-four-points.png",
+    "bbox": [
+      121.4237,
+      31.0202,
+      121.4343,
+      31.0295
+    ],
+    "width": 1280,
+    "height": 1120,
+    "retrieved_on": "2026-11-03",
+    "source": "https://map.sjtu.edu.cn/geoserver/jmap/wms",
+    "layer": "jmap:minhang_2d"
+  }
+}

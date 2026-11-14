@@ -1,0 +1,49 @@
+/* Compact hierarchy; all overrides are scoped to the existing operator views. */
+.results-view{max-width:1160px;padding:22px 24px;margin:auto}
+.results-view>h2{font-size:23px;margin:0 0 6px}
+.results-view>.scope-note{margin:0 0 14px;font-size:13px}
+.decision-steps{margin-bottom:18px;gap:0 24px}
+.review-sheet{background:#fff;padding:22px 26px;border:1px solid #e0e5eb;border-radius:10px}
+.review-sheet:has(.evidence-history){padding-top:22px}
+.evidence-live .decision-reading h3{font-size:21px;margin:0 0 6px}
+.evidence-live .decision-reading{margin-bottom:12px}
+.evidence-live h4{font-size:13px;color:#536070;margin:12px 0 2px}
+.evidence-live .decision-evidence button{grid-template-columns:minmax(200px,1.3fr) minmax(80px,1fr) 106px;padding:11px 0;gap:16px}
+.decision-evidence strong{text-align:right;font-variant-numeric:tabular-nums}
+.ops-incoming{font-size:12px;line-height:1.6;margin-top:3px}
+.decision-risks{max-height:330px;overflow:auto;overscroll-behavior:contain}
+.decision-risks button{min-height:52px;gap:10px}
+.decision-risks button>span{min-width:0;text-align:left}
+.decision-risks strong{white-space:nowrap}
+.evidence-live{margin-bottom:20px}
+.evidence-history{padding:20px 0 0}
+.evidence-heading{margin-bottom:16px}
+.evidence-heading h3{font-size:18px}
+.evidence-history .evidence-takeaway{font-size:15px}
+.evidence-layout{gap:26px}
+.decision-history{margin-top:16px;padding:12px 0}
+.review-empty,.trial-empty{min-height:0;padding:12px 0 20px;max-width:720px}
+.review-empty p,.trial-empty p{max-width:65ch}
+.review-split{gap:24px;margin-top:20px;padding-top:20px}
+.review-actions{margin-top:16px;padding-top:16px}
+.workbench-resource{padding:12px 14px;background:#eef3f8;font-size:13px;border-radius:6px;color:#304153}
+.workbench-task{padding:16px 0;border-bottom:1px solid #e1e6ec}
+.workbench-task>div{display:flex;justify-content:space-between;gap:12px;font-size:15px}
+.workbench-task>div span{white-space:nowrap;color:#40546a;font-size:13px}
+.workbench-task p,.workbench-receipt p{font-size:13px;line-height:1.7;color:#536070;margin:8px 0}
+.workbench-task summary,.workbench-receipt summary{font-size:13px;cursor:pointer;min-height:36px;line-height:36px;color:#075bc1}
+.workbench-task button{font-size:13px;min-height:44px;color:#8d3434;border:1px solid #d9bcbc;background:#fff;padding:8px 12px;border-radius:6px}
+.workbench-receipt{margin-top:12px}
+.trial-efficiency{font-size:14px;line-height:1.7;padding:12px 0;border-top:1px solid #e0e5eb;color:#304153}
+.manager-task summary .ops-incoming{font-weight:400}
+@media(max-width:720px){
+ .results-view{padding:18px 12px}.review-sheet{padding:18px 14px}
+ .decision-steps{gap:0;justify-content:space-between}.decision-steps button{font-size:13px}
+ .evidence-live .decision-evidence button{grid-template-columns:minmax(0,1fr) 86px;gap:8px}
+ .evidence-live .decision-bar{display:none}.evidence-live .decision-reading h3{font-size:18px}
+ .workbench-task>div{flex-direction:column;gap:6px}.review-section-heading{display:block}
+ .review-actions>button,.trial-decision>button{min-height:44px}.time-browser{flex-wrap:wrap}
+ .trial-summary-facts{flex-wrap:wrap}.review-cost{flex-wrap:wrap}
+}
+
+@media(max-width:720px){.decision-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px}.decision-steps button{min-width:0;width:100%;padding:12px 2px;font-size:12px;white-space:nowrap}.decision-evidence button>strong{white-space:nowrap;font-size:12px}}

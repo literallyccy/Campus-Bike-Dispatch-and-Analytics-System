@@ -1,0 +1,238 @@
+{
+  "target": "target_completed_borrows_next_hour",
+  "dataset": {
+    "name": "campus_v2_spark_prepared",
+    "kind": "synthetic"
+  },
+  "input_contract": {
+    "schema_version": 2,
+    "dataset": {
+      "name": "campus_v2_spark_prepared",
+      "kind": "synthetic"
+    },
+    "time": {
+      "days": 56,
+      "start_weekday": 0,
+      "continuous_coverage_confirmed": true
+    },
+    "split_ranges_s": {
+      "train": [
+        604800,
+        2419200
+      ],
+      "validation": [
+        2419200,
+        3628800
+      ],
+      "test": [
+        3628800,
+        4838400
+      ]
+    },
+    "rows": {
+      "train": 71568,
+      "validation": 47712,
+      "test": 47712
+    },
+    "feature_columns": [
+      "hour",
+      "weekday",
+      "is_weekend",
+      "function_type",
+      "borrow_lag_1h",
+      "borrow_lag_2h",
+      "borrow_lag_24h",
+      "borrow_lag_168h",
+      "borrow_mean_3h",
+      "borrow_mean_24h",
+      "return_lag_1h",
+      "return_lag_24h"
+    ],
+    "id_columns": [
+      "node_id",
+      "forecast_origin_s"
+    ],
+    "source_sha256": {
+      "nodes.jsonl": "c1c29274a52a6b4ca7d1415704b791675d9493901718b02c7468111d29162631",
+      "trips.jsonl": "79e65c8e165e73bc5aa3a839aaee60802fcd4a2b2cf46629fb6f7f4418b469b6"
+    },
+    "evaluation": "rolling one-hour ahead; only preceding realized order bins in features",
+    "zero_fill": "Confirmed complete synthetic acquisition grid only; missing real collection is not zero",
+    "processing_engine": "Spark SQL / DataFrame and Window",
+    "limitations": [
+      "Synthetic topology and assumptions, not real campus demand",
+      "Completed orders are censored by availability, not all latent demand"
+    ],
+    "target": "target_completed_borrows_next_hour"
+  },
+  "training_parameters": {
+    "depths": [
+      5,
+      8
+    ],
+    "trees": 40,
+    "label_column": "target_completed_borrows_next_hour",
+    "baseline_feature": "borrow_lag_168h",
+    "baseline_name": "previous_week",
+    "min_instances": 5,
+    "seed": 42
+  },
+  "prepared_input_sha256": {
+    "test_features.jsonl": "103a5d809b35257841f6469a2bc3781bcd00874363405757b7117833127af0ad",
+    "test_labels.jsonl": "3e805b77d95aff68fdd7856bd8eeaec71c7afb0690d11259fdf7c9cc0d9fc6fd",
+    "train_features.jsonl": "cce9bc91201ba1b380251595ea71949d4db71c775169d608f739a0ecc2e6c2e8",
+    "train_labels.jsonl": "3d0353037c8f6df0b0eee4be563b83082b1ca46450777acf9b67f89c75995993",
+    "validation_features.jsonl": "eff31e89aafef0fc06bebe353e4bcbd48c7fbabd30b00601ecc5eaa4995183ae",
+    "validation_labels.jsonl": "ca8a6bd3eba8bfe1a7e049d803fb2520360c84fcb02ef3f724c30eabdf540152"
+  },
+  "training_code_sha256": "5bdb0bade0b6386a1d5f69f83c54d98e343f0307dc3bf0f1804026dca7213d59",
+  "data_uri": "outputs/campus_spark_v2/prepared/borrow",
+  "distributed_output_uri": "outputs/dispatch_models_v2/borrow",
+  "feature_columns": [
+    "hour",
+    "weekday",
+    "is_weekend",
+    "function_type",
+    "borrow_lag_1h",
+    "borrow_lag_2h",
+    "borrow_lag_24h",
+    "borrow_lag_168h",
+    "borrow_mean_3h",
+    "borrow_mean_24h",
+    "return_lag_1h",
+    "return_lag_24h"
+  ],
+  "vector_columns": [
+    "hour",
+    "weekday",
+    "is_weekend",
+    "borrow_lag_1h",
+    "borrow_lag_2h",
+    "borrow_lag_24h",
+    "borrow_lag_168h",
+    "borrow_mean_3h",
+    "borrow_mean_24h",
+    "return_lag_1h",
+    "return_lag_24h",
+    "function_index"
+  ],
+  "split_rows": {
+    "train": 71568,
+    "validation": 47712,
+    "test": 47712
+  },
+  "validation_trials": [
+    {
+      "maxDepth": 5,
+      "numTrees": 40,
+      "validation": {
+        "rows": 47712,
+        "mae": 0.5949896731487146,
+        "rmse": 2.1468335809186088,
+        "absolute_error_sum": 28388.147285271472,
+        "actual_borrows": 57054.0,
+        "wape": 0.49756629307798705
+      },
+      "elapsed_seconds": 2.268419915999999
+    },
+    {
+      "maxDepth": 8,
+      "numTrees": 40,
+      "validation": {
+        "rows": 47712,
+        "mae": 0.4558605303378378,
+        "rmse": 1.8515762850205868,
+        "absolute_error_sum": 21750.017623478918,
+        "actual_borrows": 57054.0,
+        "wape": 0.3812181025603624
+      },
+      "elapsed_seconds": 2.3129716249999994
+    }
+  ],
+  "selected_max_depth": 8,
+  "final_fit": "train + validation after validation-only model selection",
+  "test_metrics": {
+    "random_forest": {
+      "rows": 47712,
+      "mae": 0.4720325416529172,
+      "rmse": 1.9212377354706431,
+      "absolute_error_sum": 22521.616627343985,
+      "actual_borrows": 58833.0,
+      "wape": 0.3828058509228492
+    },
+    "previous_week": {
+      "rows": 47712,
+      "mae": 0.4896881287726358,
+      "rmse": 2.170477868674029,
+      "absolute_error_sum": 23364.0,
+      "actual_borrows": 58833.0,
+      "wape": 0.39712406302585285
+    },
+    "zero": {
+      "rows": 47712,
+      "mae": 1.2330860160965795,
+      "rmse": 7.523068424371355,
+      "absolute_error_sum": 58833.0,
+      "actual_borrows": 58833.0,
+      "wape": 1.0
+    }
+  },
+  "busy_test_metrics_label_at_least_5": {
+    "random_forest": {
+      "rows": 1557,
+      "mae": 6.621270634317254,
+      "rmse": 10.179665860121942,
+      "absolute_error_sum": 10309.318377631964,
+      "actual_borrows": 43903.0,
+      "wape": 0.23482036256365085
+    },
+    "previous_week": {
+      "rows": 1557,
+      "mae": 7.158638407193321,
+      "rmse": 11.254286274018991,
+      "absolute_error_sum": 11146.0,
+      "actual_borrows": 43903.0,
+      "wape": 0.2538778671161424
+    },
+    "zero": {
+      "rows": 1557,
+      "mae": 28.197174052665382,
+      "rmse": 41.35187445417045,
+      "absolute_error_sum": 43903.0,
+      "actual_borrows": 43903.0,
+      "wape": 1.0
+    }
+  },
+  "importance": {
+    "hour": 0.019843123624418254,
+    "weekday": 0.010753899575921908,
+    "is_weekend": 0.004301181931132122,
+    "borrow_lag_1h": 0.002054421508353799,
+    "borrow_lag_2h": 0.0003274185635119265,
+    "borrow_lag_24h": 0.345166633201738,
+    "borrow_lag_168h": 0.5101824816931273,
+    "borrow_mean_3h": 0.005344128138861842,
+    "borrow_mean_24h": 0.029492533582345076,
+    "return_lag_1h": 0.034545844384901755,
+    "return_lag_24h": 0.0003504556815854369,
+    "function_index": 0.03763787811410255
+  },
+  "runtime": {
+    "spark": "3.5.7",
+    "python": "3.9.6 (default, Jan  9 2026, 11:03:41) \n[Clang 17.0.0 (clang-1700.6.4.2)]",
+    "master": "local[2]",
+    "application_id": "local-1794390998522",
+    "java": "11.0.29",
+    "elapsed_seconds": 21.680767834
+  },
+  "model_reload_verified": true,
+  "test_used_for_tuning": false,
+  "evaluation_mode": "rolling one-hour ahead; realized prior test-period orders are available",
+  "limitations": [
+    "Results apply only to the supplied dataset and declared provenance.",
+    "Synthetic input cannot establish real-campus prediction accuracy.",
+    "Deployment mode and paths are recorded in runtime and URI fields.",
+    "no out-of-scenario robustness run yet",
+    "busy-hour slice selected by actual labels for diagnostic reporting only"
+  ]
+}

@@ -1,0 +1,425 @@
+{
+  "nodes": 142,
+  "node_types": {
+    "dormitory": 108,
+    "teaching": 7,
+    "library": 3,
+    "dining": 9,
+    "sports": 3,
+    "research": 3,
+    "gate_transfer": 9
+  },
+  "observation_demands": 232902,
+  "observation_trips": 224290,
+  "unmet_demands": 8612,
+  "service_rate": 0.9630230740826614,
+  "results": {
+    "served_here": 221077,
+    "served_nearby": 3213,
+    "no_bike": 5263,
+    "no_bike_after_walk": 3349
+  },
+  "origin_types": {
+    "dormitory": 67266,
+    "dining": 70723,
+    "teaching": 43068,
+    "library": 30578,
+    "research": 2251,
+    "gate_transfer": 8183,
+    "sports": 10833
+  },
+  "core_origin_share": 0.9086869155267022,
+  "daily": [
+    {
+      "day_index": 0,
+      "served_here": 4591,
+      "served_nearby": 87,
+      "no_bike": 79,
+      "no_bike_after_walk": 93
+    },
+    {
+      "day_index": 1,
+      "served_here": 5388,
+      "served_nearby": 106,
+      "no_bike_after_walk": 179,
+      "no_bike": 134
+    },
+    {
+      "day_index": 2,
+      "served_here": 2925,
+      "served_nearby": 20,
+      "no_bike": 12,
+      "no_bike_after_walk": 7
+    },
+    {
+      "day_index": 3,
+      "served_here": 5510,
+      "served_nearby": 140,
+      "no_bike_after_walk": 138,
+      "no_bike": 256
+    },
+    {
+      "day_index": 4,
+      "served_here": 2325,
+      "served_nearby": 13,
+      "no_bike_after_walk": 2
+    },
+    {
+      "day_index": 5,
+      "served_here": 3822,
+      "served_nearby": 31,
+      "no_bike": 14,
+      "no_bike_after_walk": 16
+    },
+    {
+      "day_index": 6,
+      "served_here": 4037,
+      "served_nearby": 41,
+      "no_bike": 15,
+      "no_bike_after_walk": 9
+    },
+    {
+      "day_index": 7,
+      "served_here": 4307,
+      "served_nearby": 38,
+      "no_bike_after_walk": 55,
+      "no_bike": 21
+    },
+    {
+      "day_index": 8,
+      "served_here": 4980,
+      "served_nearby": 92,
+      "no_bike_after_walk": 180,
+      "no_bike": 135
+    },
+    {
+      "day_index": 9,
+      "served_here": 3390,
+      "served_nearby": 31,
+      "no_bike": 24,
+      "no_bike_after_walk": 11
+    },
+    {
+      "day_index": 10,
+      "served_here": 2251,
+      "no_bike_after_walk": 1,
+      "served_nearby": 15
+    },
+    {
+      "day_index": 11,
+      "served_here": 4813,
+      "served_nearby": 92,
+      "no_bike": 195,
+      "no_bike_after_walk": 91
+    },
+    {
+      "day_index": 12,
+      "served_here": 3454,
+      "no_bike_after_walk": 19,
+      "served_nearby": 28,
+      "no_bike": 10
+    },
+    {
+      "day_index": 13,
+      "served_here": 3689,
+      "served_nearby": 42,
+      "no_bike_after_walk": 12,
+      "no_bike": 13
+    },
+    {
+      "day_index": 14,
+      "served_here": 3341,
+      "served_nearby": 36,
+      "no_bike_after_walk": 23,
+      "no_bike": 55
+    },
+    {
+      "day_index": 15,
+      "served_here": 4523,
+      "served_nearby": 59,
+      "no_bike_after_walk": 60,
+      "no_bike": 161
+    },
+    {
+      "day_index": 16,
+      "served_here": 4814,
+      "served_nearby": 59,
+      "no_bike_after_walk": 75,
+      "no_bike": 149
+    },
+    {
+      "day_index": 17,
+      "served_here": 4492,
+      "served_nearby": 40,
+      "no_bike_after_walk": 56,
+      "no_bike": 55
+    },
+    {
+      "day_index": 18,
+      "served_here": 4485,
+      "no_bike_after_walk": 91,
+      "served_nearby": 69,
+      "no_bike": 108
+    },
+    {
+      "day_index": 19,
+      "served_here": 3724,
+      "served_nearby": 48,
+      "no_bike_after_walk": 25,
+      "no_bike": 7
+    },
+    {
+      "day_index": 20,
+      "served_here": 3055,
+      "served_nearby": 19,
+      "no_bike_after_walk": 3,
+      "no_bike": 4
+    },
+    {
+      "day_index": 21,
+      "served_here": 3664,
+      "served_nearby": 23,
+      "no_bike_after_walk": 25,
+      "no_bike": 32
+    },
+    {
+      "day_index": 22,
+      "served_here": 3834,
+      "served_nearby": 48,
+      "no_bike_after_walk": 61,
+      "no_bike": 69
+    },
+    {
+      "day_index": 23,
+      "served_here": 4621,
+      "served_nearby": 86,
+      "no_bike_after_walk": 90,
+      "no_bike": 117
+    },
+    {
+      "day_index": 24,
+      "served_here": 3623,
+      "served_nearby": 24,
+      "no_bike_after_walk": 33,
+      "no_bike": 31
+    },
+    {
+      "day_index": 25,
+      "served_here": 3246,
+      "served_nearby": 29,
+      "no_bike_after_walk": 16,
+      "no_bike": 29
+    },
+    {
+      "day_index": 26,
+      "served_here": 1746,
+      "served_nearby": 5,
+      "no_bike_after_walk": 1
+    },
+    {
+      "day_index": 27,
+      "served_here": 2403,
+      "served_nearby": 29,
+      "no_bike_after_walk": 7,
+      "no_bike": 4
+    },
+    {
+      "day_index": 28,
+      "served_here": 4165,
+      "served_nearby": 47,
+      "no_bike_after_walk": 30,
+      "no_bike": 151
+    },
+    {
+      "day_index": 29,
+      "served_here": 4354,
+      "no_bike_after_walk": 55,
+      "no_bike": 104,
+      "served_nearby": 54
+    },
+    {
+      "day_index": 30,
+      "served_here": 3666,
+      "served_nearby": 31,
+      "no_bike_after_walk": 42,
+      "no_bike": 25
+    },
+    {
+      "day_index": 31,
+      "served_here": 4551,
+      "no_bike": 139,
+      "no_bike_after_walk": 96,
+      "served_nearby": 73
+    },
+    {
+      "day_index": 32,
+      "served_here": 4637,
+      "served_nearby": 91,
+      "no_bike_after_walk": 77,
+      "no_bike": 179
+    },
+    {
+      "day_index": 33,
+      "served_here": 3442,
+      "served_nearby": 21,
+      "no_bike_after_walk": 5,
+      "no_bike": 6
+    },
+    {
+      "day_index": 34,
+      "served_here": 3374,
+      "served_nearby": 34,
+      "no_bike_after_walk": 20,
+      "no_bike": 8
+    },
+    {
+      "day_index": 35,
+      "served_here": 3641,
+      "served_nearby": 57,
+      "no_bike": 48,
+      "no_bike_after_walk": 62
+    },
+    {
+      "day_index": 36,
+      "served_here": 4621,
+      "served_nearby": 86,
+      "no_bike_after_walk": 88,
+      "no_bike": 165
+    },
+    {
+      "day_index": 37,
+      "served_here": 3069,
+      "served_nearby": 38,
+      "no_bike_after_walk": 9,
+      "no_bike": 18
+    },
+    {
+      "day_index": 38,
+      "served_here": 3714,
+      "served_nearby": 39,
+      "no_bike": 57,
+      "no_bike_after_walk": 33
+    },
+    {
+      "day_index": 39,
+      "served_here": 5262,
+      "served_nearby": 150,
+      "no_bike_after_walk": 321,
+      "no_bike": 528
+    },
+    {
+      "day_index": 40,
+      "served_here": 3403,
+      "served_nearby": 46,
+      "no_bike": 11,
+      "no_bike_after_walk": 17
+    },
+    {
+      "day_index": 41,
+      "served_here": 4288,
+      "served_nearby": 100,
+      "no_bike_after_walk": 58,
+      "no_bike": 68
+    },
+    {
+      "day_index": 42,
+      "served_here": 4125,
+      "no_bike": 82,
+      "served_nearby": 57,
+      "no_bike_after_walk": 79
+    },
+    {
+      "day_index": 43,
+      "served_here": 5153,
+      "served_nearby": 129,
+      "no_bike": 443,
+      "no_bike_after_walk": 123
+    },
+    {
+      "day_index": 44,
+      "served_here": 3745,
+      "served_nearby": 50,
+      "no_bike_after_walk": 21,
+      "no_bike": 54
+    },
+    {
+      "day_index": 45,
+      "served_here": 4075,
+      "served_nearby": 50,
+      "no_bike_after_walk": 25,
+      "no_bike": 83
+    },
+    {
+      "day_index": 46,
+      "served_here": 4500,
+      "served_nearby": 87,
+      "no_bike": 164,
+      "no_bike_after_walk": 125
+    },
+    {
+      "day_index": 47,
+      "served_here": 4035,
+      "served_nearby": 43,
+      "no_bike_after_walk": 29,
+      "no_bike": 32
+    },
+    {
+      "day_index": 48,
+      "served_here": 2284,
+      "served_nearby": 4,
+      "no_bike_after_walk": 1
+    },
+    {
+      "day_index": 49,
+      "served_here": 3380,
+      "served_nearby": 37,
+      "no_bike_after_walk": 28,
+      "no_bike": 18
+    },
+    {
+      "day_index": 50,
+      "served_here": 4647,
+      "served_nearby": 88,
+      "no_bike_after_walk": 97,
+      "no_bike": 303
+    },
+    {
+      "day_index": 51,
+      "served_here": 4247,
+      "served_nearby": 71,
+      "no_bike_after_walk": 37,
+      "no_bike": 107
+    },
+    {
+      "day_index": 52,
+      "served_here": 4022,
+      "served_nearby": 64,
+      "no_bike_after_walk": 91,
+      "no_bike": 125
+    },
+    {
+      "day_index": 53,
+      "served_here": 4471,
+      "served_nearby": 78,
+      "no_bike_after_walk": 58,
+      "no_bike": 212
+    },
+    {
+      "day_index": 54,
+      "served_here": 4994,
+      "served_nearby": 159,
+      "no_bike_after_walk": 305,
+      "no_bike": 342
+    },
+    {
+      "day_index": 55,
+      "served_here": 4159,
+      "served_nearby": 79,
+      "no_bike_after_walk": 38,
+      "no_bike": 62
+    }
+  ],
+  "cross_day_activities": 0,
+  "event_conservation_checks": 466330,
+  "validation_passed": true
+}

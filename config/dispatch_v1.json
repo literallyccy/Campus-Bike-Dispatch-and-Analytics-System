@@ -1,0 +1,21 @@
+{
+  "role": "explicit_operator_scenario_assumptions_not_real_Hello_parameters",
+  "test_start_day": 42,
+  "test_end_day": 56,
+  "training_start_day": 7,
+  "training_end_day": 28,
+  "truck_count": 1,
+  "truck_capacity": 20,
+  "daily_move_budget": 200,
+  "truck_speed_kmh": 12,
+  "handling_seconds_per_bicycle_per_end": 20,
+  "decision_interval_minutes": 60,
+  "lookahead_minutes": 60,
+  "operating_hours": [6, 23],
+  "reserve_bicycles": 2,
+  "depot_node": "BLD-C02",
+  "walking_radius_m": 400,
+  "walking_speed_mps": 1.2,
+  "max_nearby_candidates": 3,
+  "note": "Hypothetical transport uses the original synthetic zone graph. Costs reported as bicycle moves, distance and working time; no uncalibrated monetary savings. One truck in initial version."
+}

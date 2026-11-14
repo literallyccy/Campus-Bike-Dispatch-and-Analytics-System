@@ -1,0 +1,5753 @@
+{
+  "kind": "training_only_within_hour_profiles",
+  "slot_minutes": 15,
+  "training_range_s": [
+    604800,
+    2419200
+  ],
+  "profiles": {
+    "dormitory": {
+      "0": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "1": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "2": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "3": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "4": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "5": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "6": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            1577,
+            1613
+          ],
+          "total": 3190,
+          "fractions": [
+            0.0,
+            0.0,
+            0.4943573667711599,
+            0.5056426332288402
+          ],
+          "fallback": null
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "7": {
+        "borrow": {
+          "counts": [
+            0,
+            4447,
+            0,
+            0
+          ],
+          "total": 4447,
+          "fractions": [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "fallback": null
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "8": {
+        "borrow": {
+          "counts": [
+            1033,
+            20,
+            1758,
+            10
+          ],
+          "total": 2821,
+          "fractions": [
+            0.3661822048918823,
+            0.007089684509039348,
+            0.6231832683445586,
+            0.003544842254519674
+          ],
+          "fallback": null
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "9": {
+        "borrow": {
+          "counts": [
+            0,
+            1220,
+            0,
+            0
+          ],
+          "total": 1220,
+          "fractions": [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "fallback": null
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "10": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "11": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            419,
+            0
+          ],
+          "total": 419,
+          "fractions": [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          "fallback": null
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            1304,
+            1036
+          ],
+          "total": 2340,
+          "fractions": [
+            0.0,
+            0.0,
+            0.5572649572649573,
+            0.4427350427350427
+          ],
+          "fallback": null
+        }
+      },
+      "12": {
+        "borrow": {
+          "counts": [
+            0,
+            3,
+            0,
+            5448
+          ],
+          "total": 5451,
+          "fractions": [
+            0.0,
+            0.000550357732526142,
+            0.0,
+            0.9994496422674739
+          ],
+          "fallback": null
+        },
+        "return": {
+          "counts": [
+            369,
+            7339,
+            626,
+            7
+          ],
+          "total": 8341,
+          "fractions": [
+            0.04423929984414339,
+            0.8798705191224074,
+            0.07505095312312672,
+            0.0008392279103225033
+          ],
+          "fallback": null
+        }
+      },
+      "13": {
+        "borrow": {
+          "counts": [
+            3225,
+            3,
+            0,
+            0
+          ],
+          "total": 3228,
+          "fractions": [
+            0.9990706319702602,
+            0.0009293680297397769,
+            0.0,
+            0.0
+          ],
+          "fallback": null
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "14": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            1664
+          ],
+          "total": 1664,
+          "fractions": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "fallback": null
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "15": {
+        "borrow": {
+          "counts": [
+            5,
+            0,
+            0,
+            0
+          ],
+          "total": 5,
+          "fractions": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "fallback": null
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "16": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "17": {
+        "borrow": {
+          "counts": [
+            170,
+            228,
+            0,
+            0
+          ],
+          "total": 398,
+          "fractions": [
+            0.4271356783919598,
+            0.5728643216080402,
+            0.0,
+            0.0
+          ],
+          "fallback": null
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "18": {
+        "borrow": {
+          "counts": [
+            26,
+            0,
+            14,
+            0
+          ],
+          "total": 40,
+          "fractions": [
+            0.65,
+            0.0,
+            0.35,
+            0.0
+          ],
+          "fallback": null
+        },
+        "return": {
+          "counts": [
+            1831,
+            2279,
+            386,
+            49
+          ],
+          "total": 4545,
+          "fractions": [
+            0.40286028602860285,
+            0.5014301430143014,
+            0.08492849284928493,
+            0.01078107810781078
+          ],
+          "fallback": null
+        }
+      },
+      "19": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "20": {
+        "borrow": {
+          "counts": [
+            0,
+            23,
+            0,
+            0
+          ],
+          "total": 23,
+          "fractions": [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "fallback": null
+        },
+        "return": {
+          "counts": [
+            0,
+            1773,
+            447,
+            0
+          ],
+          "total": 2220,
+          "fractions": [
+            0.0,
+            0.7986486486486486,
+            0.20135135135135135,
+            0.0
+          ],
+          "fallback": null
+        }
+      },
+      "21": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            52,
+            0
+          ],
+          "total": 52,
+          "fractions": [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          "fallback": null
+        },
+        "return": {
+          "counts": [
+            0,
+            6,
+            5261,
+            185
+          ],
+          "total": 5452,
+          "fractions": [
+            0.0,
+            0.0011005135730007337,
+            0.9649669845928099,
+            0.03393250183418929
+          ],
+          "fallback": null
+        }
+      },
+      "22": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "23": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      }
+    },
+    "research": {
+      "0": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "1": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "2": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "3": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "4": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "5": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "6": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "7": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "8": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            2,
+            255,
+            49,
+            0
+          ],
+          "total": 306,
+          "fractions": [
+            0.006535947712418301,
+            0.8333333333333334,
+            0.16013071895424835,
+            0.0
+          ],
+          "fallback": null
+        }
+      },
+      "9": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "10": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "11": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            308,
+            0
+          ],
+          "total": 308,
+          "fractions": [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          "fallback": null
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "12": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "13": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            62,
+            420,
+            1,
+            0
+          ],
+          "total": 483,
+          "fractions": [
+            0.12836438923395446,
+            0.8695652173913043,
+            0.002070393374741201,
+            0.0
+          ],
+          "fallback": null
+        }
+      },
+      "14": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "total": 1,
+          "fractions": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "fallback": null
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "15": {
+        "borrow": {
+          "counts": [
+            4,
+            0,
+            0,
+            0
+          ],
+          "total": 4,
+          "fractions": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "fallback": null
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "16": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "17": {
+        "borrow": {
+          "counts": [
+            259,
+            220,
+            0,
+            0
+          ],
+          "total": 479,
+          "fractions": [
+            0.5407098121085595,
+            0.4592901878914405,
+            0.0,
+            0.0
+          ],
+          "fallback": null
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "18": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "19": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "20": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "21": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "22": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "23": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      }
+    },
+    "teaching": {
+      "0": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "1": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "2": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "3": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "4": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "5": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "6": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "7": {
+        "borrow": {
+          "counts": [
+            0,
+            3,
+            0,
+            0
+          ],
+          "total": 3,
+          "fractions": [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "fallback": null
+        },
+        "return": {
+          "counts": [
+            0,
+            3220,
+            2768,
+            26
+          ],
+          "total": 6014,
+          "fractions": [
+            0.0,
+            0.5354173594945129,
+            0.46025939474559363,
+            0.004323245759893582
+          ],
+          "fallback": null
+        }
+      },
+      "8": {
+        "borrow": {
+          "counts": [
+            0,
+            2,
+            0,
+            0
+          ],
+          "total": 2,
+          "fractions": [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "fallback": null
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "9": {
+        "borrow": {
+          "counts": [
+            0,
+            17,
+            0,
+            0
+          ],
+          "total": 17,
+          "fractions": [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "fallback": null
+        },
+        "return": {
+          "counts": [
+            0,
+            949,
+            771,
+            0
+          ],
+          "total": 1720,
+          "fractions": [
+            0.0,
+            0.5517441860465117,
+            0.44825581395348835,
+            0.0
+          ],
+          "fallback": null
+        }
+      },
+      "10": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "11": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            7721,
+            0
+          ],
+          "total": 7721,
+          "fractions": [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          "fallback": null
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "12": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            242
+          ],
+          "total": 242,
+          "fractions": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "fallback": null
+        }
+      },
+      "13": {
+        "borrow": {
+          "counts": [
+            15,
+            0,
+            0,
+            0
+          ],
+          "total": 15,
+          "fractions": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "fallback": null
+        },
+        "return": {
+          "counts": [
+            4939,
+            77,
+            0,
+            0
+          ],
+          "total": 5016,
+          "fractions": [
+            0.9846491228070176,
+            0.015350877192982455,
+            0.0,
+            0.0
+          ],
+          "fallback": null
+        }
+      },
+      "14": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            7
+          ],
+          "total": 7,
+          "fractions": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "fallback": null
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            99
+          ],
+          "total": 99,
+          "fractions": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "fallback": null
+        }
+      },
+      "15": {
+        "borrow": {
+          "counts": [
+            15,
+            0,
+            0,
+            0
+          ],
+          "total": 15,
+          "fractions": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "fallback": null
+        },
+        "return": {
+          "counts": [
+            1698,
+            19,
+            0,
+            0
+          ],
+          "total": 1717,
+          "fractions": [
+            0.9889341875364007,
+            0.0110658124635993,
+            0.0,
+            0.0
+          ],
+          "fallback": null
+        }
+      },
+      "16": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "17": {
+        "borrow": {
+          "counts": [
+            3632,
+            3358,
+            0,
+            0
+          ],
+          "total": 6990,
+          "fractions": [
+            0.5195994277539342,
+            0.4804005722460658,
+            0.0,
+            0.0
+          ],
+          "fallback": null
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "18": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "19": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "20": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "21": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "22": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "23": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      }
+    },
+    "library": {
+      "0": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "1": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "2": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "3": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "4": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "5": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "6": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "7": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "8": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            56,
+            1085,
+            74,
+            961
+          ],
+          "total": 2176,
+          "fractions": [
+            0.025735294117647058,
+            0.49862132352941174,
+            0.03400735294117647,
+            0.4416360294117647
+          ],
+          "fallback": null
+        }
+      },
+      "9": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            3,
+            0,
+            0,
+            0
+          ],
+          "total": 3,
+          "fractions": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "fallback": null
+        }
+      },
+      "10": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "11": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            2198,
+            0
+          ],
+          "total": 2198,
+          "fractions": [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          "fallback": null
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "12": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "13": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            1962,
+            822,
+            0,
+            0
+          ],
+          "total": 2784,
+          "fractions": [
+            0.7047413793103449,
+            0.2952586206896552,
+            0.0,
+            0.0
+          ],
+          "fallback": null
+        }
+      },
+      "14": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "15": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "16": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "17": {
+        "borrow": {
+          "counts": [
+            1477,
+            1336,
+            0,
+            0
+          ],
+          "total": 2813,
+          "fractions": [
+            0.52506221116246,
+            0.47493778883754,
+            0.0,
+            0.0
+          ],
+          "fallback": null
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "18": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            2046,
+            2954,
+            427,
+            29
+          ],
+          "total": 5456,
+          "fractions": [
+            0.375,
+            0.5414222873900293,
+            0.0782624633431085,
+            0.00531524926686217
+          ],
+          "fallback": null
+        }
+      },
+      "19": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "20": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "21": {
+        "borrow": {
+          "counts": [
+            0,
+            2725,
+            2675,
+            0
+          ],
+          "total": 5400,
+          "fractions": [
+            0.0,
+            0.5046296296296297,
+            0.49537037037037035,
+            0.0
+          ],
+          "fallback": null
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "22": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "23": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      }
+    },
+    "dining": {
+      "0": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "1": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "2": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "3": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "4": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "5": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "6": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "total": 1,
+          "fractions": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "fallback": null
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            2971
+          ],
+          "total": 2971,
+          "fractions": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "fallback": null
+        }
+      },
+      "7": {
+        "borrow": {
+          "counts": [
+            0,
+            1521,
+            43,
+            0
+          ],
+          "total": 1564,
+          "fractions": [
+            0.0,
+            0.9725063938618926,
+            0.027493606138107418,
+            0.0
+          ],
+          "fallback": null
+        },
+        "return": {
+          "counts": [
+            221,
+            0,
+            0,
+            0
+          ],
+          "total": 221,
+          "fractions": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "fallback": null
+        }
+      },
+      "8": {
+        "borrow": {
+          "counts": [
+            375,
+            21,
+            589,
+            10
+          ],
+          "total": 995,
+          "fractions": [
+            0.3768844221105528,
+            0.021105527638190954,
+            0.5919597989949749,
+            0.010050251256281407
+          ],
+          "fallback": null
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "9": {
+        "borrow": {
+          "counts": [
+            0,
+            471,
+            0,
+            0
+          ],
+          "total": 471,
+          "fractions": [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "fallback": null
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "10": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "11": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            186,
+            0
+          ],
+          "total": 186,
+          "fractions": [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          "fallback": null
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            5556,
+            4286
+          ],
+          "total": 9842,
+          "fractions": [
+            0.0,
+            0.0,
+            0.5645194066246698,
+            0.43548059337533024
+          ],
+          "fallback": null
+        }
+      },
+      "12": {
+        "borrow": {
+          "counts": [
+            7677,
+            661,
+            0,
+            898
+          ],
+          "total": 9236,
+          "fractions": [
+            0.831203984408835,
+            0.07156777825898658,
+            0.0,
+            0.09722823733217843
+          ],
+          "fallback": null
+        },
+        "return": {
+          "counts": [
+            2,
+            0,
+            0,
+            0
+          ],
+          "total": 2,
+          "fractions": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "fallback": null
+        }
+      },
+      "13": {
+        "borrow": {
+          "counts": [
+            437,
+            0,
+            0,
+            0
+          ],
+          "total": 437,
+          "fractions": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "fallback": null
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "14": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            120
+          ],
+          "total": 120,
+          "fractions": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "fallback": null
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "15": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "16": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "17": {
+        "borrow": {
+          "counts": [
+            25,
+            80,
+            0,
+            0
+          ],
+          "total": 105,
+          "fractions": [
+            0.23809523809523808,
+            0.7619047619047619,
+            0.0,
+            0.0
+          ],
+          "fallback": null
+        },
+        "return": {
+          "counts": [
+            5,
+            10422,
+            713,
+            0
+          ],
+          "total": 11140,
+          "fractions": [
+            0.0004488330341113106,
+            0.9355475763016158,
+            0.06400359066427289,
+            0.0
+          ],
+          "fallback": null
+        }
+      },
+      "18": {
+        "borrow": {
+          "counts": [
+            11060,
+            0,
+            1,
+            0
+          ],
+          "total": 11061,
+          "fractions": [
+            0.9999095922610975,
+            0.0,
+            9.040773890245005e-05,
+            0.0
+          ],
+          "fallback": null
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "19": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "20": {
+        "borrow": {
+          "counts": [
+            0,
+            8,
+            0,
+            0
+          ],
+          "total": 8,
+          "fractions": [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "fallback": null
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "21": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "22": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "23": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      }
+    },
+    "sports": {
+      "0": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "1": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "2": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "3": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "4": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "5": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "6": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "total": 1,
+          "fractions": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "fallback": null
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "7": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "8": {
+        "borrow": {
+          "counts": [
+            4,
+            0,
+            0,
+            1
+          ],
+          "total": 5,
+          "fractions": [
+            0.8,
+            0.0,
+            0.0,
+            0.2
+          ],
+          "fallback": null
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            45,
+            538
+          ],
+          "total": 583,
+          "fractions": [
+            0.0,
+            0.0,
+            0.07718696397941681,
+            0.9228130360205832
+          ],
+          "fallback": null
+        }
+      },
+      "9": {
+        "borrow": {
+          "counts": [
+            0,
+            12,
+            0,
+            0
+          ],
+          "total": 12,
+          "fractions": [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "fallback": null
+        },
+        "return": {
+          "counts": [
+            5,
+            0,
+            0,
+            0
+          ],
+          "total": 5,
+          "fractions": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "fallback": null
+        }
+      },
+      "10": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "11": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            600,
+            0
+          ],
+          "total": 600,
+          "fractions": [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          "fallback": null
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "12": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "13": {
+        "borrow": {
+          "counts": [
+            1,
+            0,
+            0,
+            0
+          ],
+          "total": 1,
+          "fractions": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "fallback": null
+        },
+        "return": {
+          "counts": [
+            727,
+            41,
+            0,
+            0
+          ],
+          "total": 768,
+          "fractions": [
+            0.9466145833333334,
+            0.053385416666666664,
+            0.0,
+            0.0
+          ],
+          "fallback": null
+        }
+      },
+      "14": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "15": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "16": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "17": {
+        "borrow": {
+          "counts": [
+            376,
+            392,
+            0,
+            0
+          ],
+          "total": 768,
+          "fractions": [
+            0.4895833333333333,
+            0.5104166666666666,
+            0.0,
+            0.0
+          ],
+          "fallback": null
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "18": {
+        "borrow": {
+          "counts": [
+            33,
+            0,
+            2,
+            0
+          ],
+          "total": 35,
+          "fractions": [
+            0.9428571428571428,
+            0.0,
+            0.05714285714285714,
+            0.0
+          ],
+          "fallback": null
+        },
+        "return": {
+          "counts": [
+            939,
+            1114,
+            217,
+            14
+          ],
+          "total": 2284,
+          "fractions": [
+            0.41112084063047283,
+            0.48774080560420313,
+            0.09500875656742556,
+            0.006129597197898424
+          ],
+          "fallback": null
+        }
+      },
+      "19": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "20": {
+        "borrow": {
+          "counts": [
+            0,
+            2189,
+            0,
+            0
+          ],
+          "total": 2189,
+          "fractions": [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "fallback": null
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "21": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "22": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "23": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      }
+    },
+    "gate_transfer": {
+      "0": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "1": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "2": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "3": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "4": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "5": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "6": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "7": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "8": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            38,
+            694
+          ],
+          "total": 732,
+          "fractions": [
+            0.0,
+            0.0,
+            0.05191256830601093,
+            0.9480874316939891
+          ],
+          "fallback": null
+        }
+      },
+      "9": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            18,
+            0,
+            0,
+            0
+          ],
+          "total": 18,
+          "fractions": [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "fallback": null
+        }
+      },
+      "10": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "11": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            752,
+            0
+          ],
+          "total": 752,
+          "fractions": [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          "fallback": null
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "12": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "13": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            661,
+            73,
+            0,
+            0
+          ],
+          "total": 734,
+          "fractions": [
+            0.9005449591280654,
+            0.0994550408719346,
+            0.0,
+            0.0
+          ],
+          "fallback": null
+        }
+      },
+      "14": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "15": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "16": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "17": {
+        "borrow": {
+          "counts": [
+            388,
+            352,
+            0,
+            0
+          ],
+          "total": 740,
+          "fractions": [
+            0.5243243243243243,
+            0.4756756756756757,
+            0.0,
+            0.0
+          ],
+          "fallback": null
+        },
+        "return": {
+          "counts": [
+            1,
+            1065,
+            87,
+            0
+          ],
+          "total": 1153,
+          "fractions": [
+            0.0008673026886383347,
+            0.9236773633998265,
+            0.07545533391153512,
+            0.0
+          ],
+          "fallback": null
+        }
+      },
+      "18": {
+        "borrow": {
+          "counts": [
+            53,
+            0,
+            1096,
+            0
+          ],
+          "total": 1149,
+          "fractions": [
+            0.04612706701479547,
+            0.0,
+            0.9538729329852045,
+            0.0
+          ],
+          "fallback": null
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "19": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "20": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "21": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "22": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      },
+      "23": {
+        "borrow": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        },
+        "return": {
+          "counts": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "total": 0,
+          "fractions": [
+            0.25,
+            0.25,
+            0.25,
+            0.25
+          ],
+          "fallback": "uniform_no_training_events"
+        }
+      }
+    }
+  },
+  "event_totals": {
+    "borrow": 79367,
+    "return": 79367
+  },
+  "orders_sha256": "d685a229858b0889798a2c7fa16123908633fff7e3f142e8ed5f84f19b066eca",
+  "nodes_sha256": "c1c29274a52a6b4ca7d1415704b791675d9493901718b02c7468111d29162631",
+  "runtime": {
+    "spark": "3.5.7",
+    "master": "local[2]",
+    "application_id": "local-1794391145344"
+  },
+  "limitations": [
+    "Training completed-order timing pattern, not latent demand or true future trajectory",
+    "Same functional type and hour pooled across training dates; no real-campus calibration",
+    "Slot-level linear interpolation is an estimate; unknown exact order within each slot",
+    "Profiles are frozen and contain no validation/test period orders"
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "version": "campus-synthetic-v2",
+  "seed": 42,
+  "observation_days": 56,
+  "warmup_days": 1,
+  "calendar": "relative day 0 Monday, no actual academic calendar",
+  "bikes": 1000,
+  "weekday_gross_activity_legs": 6000,
+  "weekend_gross_activity_legs": 4200,
+  "distance_model": "hypothetical zone graph plus access legs, not measured campus routes",
+  "walking_radius_m": 400,
+  "walking_speed_mps": 1.2,
+  "max_alternatives": 3,
+  "max_retries": 1,
+  "nearby_information": "current stock known, not reserved during walk",
+  "split": {
+    "train_days": [
+      0,
+      27
+    ],
+    "validation_days": [
+      28,
+      41
+    ],
+    "test_days": [
+      42,
+      55
+    ]
+  },
+  "generator_only_parameters": {
+    "role": "generator_only_not_model_features",
+    "behavior_model": "linked_student_day_v2",
+    "total_bikes": 1000,
+    "initial_dorm_share": 0.85,
+    "weekday_students": 1000,
+    "weekend_students": 850,
+    "cycling_preference": 0.78,
+    "minimum_cycling_distance_m": 250,
+    "weekday_activity_legs": 6000,
+    "weekend_activity_legs": 4200,
+    "weekday_activity_shares": [
+      0.35,
+      0.28,
+      0.22,
+      0.05,
+      0.03,
+      0.07
+    ],
+    "weekend_activity_shares": [
+      0.12,
+      0.32,
+      0.3,
+      0.05,
+      0.09,
+      0.12
+    ],
+    "class_start_hours": [
+      8,
+      10,
+      13.5,
+      15.5,
+      18.5
+    ],
+    "class_start_weights": [
+      0.4,
+      0.15,
+      0.2,
+      0.2,
+      0.05
+    ],
+    "class_minutes": 95,
+    "walking_radius_m": 400,
+    "walking_speed_mps": 1.2,
+    "max_nearby_candidates": 3,
+    "note": "Linked student days use weekday_students/weekend_students and day-level mode preferences. Legacy activity shares are retained only for schema compatibility, not used by v2. No real timetable or Hello demand calibration."
+  },
+  "generator_sha256": "5464bc8d25994417837a8d31f0620c84bb20084d6239572e17cea4f2992fc51d",
+  "behavior_builder_sha256": "e6790434b0969cede3c86fc969c200bdb461986f0443b386b5b56e303cb15125",
+  "note": "No dispatch. No hard parking capacity. No bikes outside campus. No real user identity."
+}

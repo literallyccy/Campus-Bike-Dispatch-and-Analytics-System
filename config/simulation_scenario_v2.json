@@ -1,0 +1,21 @@
+{
+  "role":"generator_only_not_model_features",
+  "behavior_model":"linked_student_day_v2",
+  "total_bikes":1000,
+  "initial_dorm_share":0.85,
+  "weekday_students":1000,
+  "weekend_students":850,
+  "cycling_preference":0.78,
+  "minimum_cycling_distance_m":250,
+  "weekday_activity_legs":6000,
+  "weekend_activity_legs":4200,
+  "weekday_activity_shares":[0.35,0.28,0.22,0.05,0.03,0.07],
+  "weekend_activity_shares":[0.12,0.32,0.30,0.05,0.09,0.12],
+  "class_start_hours":[8,10,13.5,15.5,18.5],
+  "class_start_weights":[0.4,0.15,0.2,0.2,0.05],
+  "class_minutes":95,
+  "walking_radius_m":400,
+  "walking_speed_mps":1.2,
+  "max_nearby_candidates":3,
+  "note":"Linked student days use weekday_students/weekend_students and day-level mode preferences. Legacy activity shares are retained only for schema compatibility, not used by v2. No real timetable or Hello demand calibration."
+}

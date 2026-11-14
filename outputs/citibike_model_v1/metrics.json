@@ -1,0 +1,263 @@
+{
+  "target": "target_completed_borrows_next_hour",
+  "dataset": {
+    "name": "JC published orders Jan-Feb 2025",
+    "kind": "real",
+    "city": "Jersey City/Hoboken system archive; retain official station identity"
+  },
+  "input_contract": {
+    "schema_version": 2,
+    "dataset": {
+      "name": "JC published orders Jan-Feb 2025",
+      "kind": "real",
+      "city": "Jersey City/Hoboken system archive; retain official station identity"
+    },
+    "feature_columns": [
+      "hour",
+      "weekday",
+      "is_weekend",
+      "function_type",
+      "borrow_lag_1h",
+      "borrow_lag_2h",
+      "borrow_lag_24h",
+      "borrow_lag_168h",
+      "borrow_mean_3h",
+      "borrow_mean_24h",
+      "return_lag_1h",
+      "return_lag_24h"
+    ],
+    "id_columns": [
+      "node_id",
+      "forecast_origin_s"
+    ],
+    "split_ranges_s": {
+      "train": [
+        604800,
+        2678400
+      ],
+      "validation": [
+        2678400,
+        3888000
+      ],
+      "test": [
+        3888000,
+        5097600
+      ]
+    },
+    "rows": {
+      "train": 34560,
+      "validation": 20160,
+      "test": 20160
+    },
+    "time": {
+      "days": 59,
+      "start_weekday": 2,
+      "calendar_start": "2025-01-01",
+      "timezone_semantics": "NY local wall clock, no DST transition in selected months"
+    },
+    "target": "published valid completed-trip departures in next hour; not latent demand",
+    "zero_fill": "Zero means no published qualifying records, not guaranteed service availability.",
+    "population_fit": "January only: >=20 observed departure days; busiest up to max_stations",
+    "evaluation": "rolling one-hour ahead; preceding realized orders available",
+    "source_provenance": {
+      "provider": "Citi Bike official system data",
+      "kind": "real",
+      "files": [
+        {
+          "archive": "JC-202501-citibike-tripdata.csv.zip",
+          "url": "https://s3.amazonaws.com/tripdata/JC-202501-citibike-tripdata.csv.zip",
+          "sha256": "85c2011b564d7b76653f464380ac1d61a93cd6e2abe1a46d103b58c447bb0ed4",
+          "csv": "JC-202501-citibike-tripdata.csv",
+          "csv_bytes": 11081709
+        },
+        {
+          "archive": "JC-202502-citibike-tripdata.csv.zip",
+          "url": "https://s3.amazonaws.com/tripdata/JC-202502-citibike-tripdata.csv.zip",
+          "sha256": "0a7b88d9e1a4ba627f4b2b02739a62790bf35335151adb6658e32355dcd5b234",
+          "csv": "JC-202502-citibike-tripdata.csv",
+          "csv_bytes": 9758674
+        }
+      ],
+      "downloaded_on": "2026-11-03",
+      "source": "https://citibikenyc.com/system-data",
+      "policy": "https://citibikenyc.com/data-sharing-policy",
+      "use": "Course analysis; raw archives excluded from redistribution bundles",
+      "calendar": "2025-01-01 to 2025-03-01 exclusive; America/New_York local wall time, no DST change"
+    },
+    "limitations": [
+      "No official station operating-state history available.",
+      "Closed stations or publication gaps cannot be distinguished from zero records.",
+      "Offline archive cleaning assumes retrospective trip validity.",
+      "Does not measure unmet demand or SJTU performance."
+    ]
+  },
+  "training_parameters": {
+    "depths": [
+      5,
+      8
+    ],
+    "trees": 40,
+    "label_column": "target_completed_borrows_next_hour",
+    "baseline_feature": "borrow_lag_168h",
+    "baseline_name": "previous_week",
+    "min_instances": 5,
+    "seed": 42
+  },
+  "prepared_input_sha256": {
+    "test_features.jsonl": "ece0b5612ec547b58e956518eb72b99d9a26dc66d3119c6aaa9d32fde8aa0262",
+    "test_labels.jsonl": "56f5c061f27accb2b584cc51b2bcb45c23c9a696111843785fe671a39a444b04",
+    "train_features.jsonl": "31b76078a1f3c0be7140c4cc0cf86211e46dd2c82fe1bd0ce6058461c549fe91",
+    "train_labels.jsonl": "aa6eb0349396b165c6dcbf008b922c5d97e6eb94ba786431924aac14deec8f2a",
+    "validation_features.jsonl": "ad679e622bbcd4eb1c293fa2ad4b4f2ca1c4e32ade7a57f4e18db3e5671d6582",
+    "validation_labels.jsonl": "dc8b5b7512cd42f0b0320ea277528549430cbc1e15922a5186963c51ebde350f"
+  },
+  "training_code_sha256": "62eb079acb5d31be68c414be7f5194bcf7c957ac3984c871f7ab3f79f750bb28",
+  "data_uri": "outputs/citibike_local_v1/prepared",
+  "distributed_output_uri": "outputs/citibike_model_v1",
+  "feature_columns": [
+    "hour",
+    "weekday",
+    "is_weekend",
+    "function_type",
+    "borrow_lag_1h",
+    "borrow_lag_2h",
+    "borrow_lag_24h",
+    "borrow_lag_168h",
+    "borrow_mean_3h",
+    "borrow_mean_24h",
+    "return_lag_1h",
+    "return_lag_24h"
+  ],
+  "vector_columns": [
+    "hour",
+    "weekday",
+    "is_weekend",
+    "borrow_lag_1h",
+    "borrow_lag_2h",
+    "borrow_lag_24h",
+    "borrow_lag_168h",
+    "borrow_mean_3h",
+    "borrow_mean_24h",
+    "return_lag_1h",
+    "return_lag_24h",
+    "function_index"
+  ],
+  "split_rows": {
+    "train": 34560,
+    "validation": 20160,
+    "test": 20160
+  },
+  "validation_trials": [
+    {
+      "maxDepth": 5,
+      "numTrees": 40,
+      "validation": {
+        "rows": 20160,
+        "mae": 0.7995468570853821,
+        "rmse": 1.1991345583028346,
+        "absolute_error_sum": 16118.864638841304,
+        "actual_borrows": 19173.0,
+        "wape": 0.8407064433756483
+      },
+      "elapsed_seconds": 1.7405025000000016
+    },
+    {
+      "maxDepth": 8,
+      "numTrees": 40,
+      "validation": {
+        "rows": 20160,
+        "mae": 0.7660631957695433,
+        "rmse": 1.172892773936024,
+        "absolute_error_sum": 15443.834026713992,
+        "actual_borrows": 19173.0,
+        "wape": 0.8054990886514365
+      },
+      "elapsed_seconds": 1.6606310420000003
+    }
+  ],
+  "selected_max_depth": 8,
+  "final_fit": "train + validation after validation-only model selection",
+  "test_metrics": {
+    "random_forest": {
+      "rows": 20160,
+      "mae": 0.796282163296724,
+      "rmse": 1.2874184379948488,
+      "absolute_error_sum": 16053.048412061955,
+      "actual_borrows": 20897.0,
+      "wape": 0.7681987085257193
+    },
+    "previous_week": {
+      "rows": 20160,
+      "mae": 0.909375,
+      "rmse": 1.6641200782757941,
+      "absolute_error_sum": 18333.0,
+      "actual_borrows": 20897.0,
+      "wape": 0.8773029621476767
+    },
+    "zero": {
+      "rows": 20160,
+      "mae": 1.0365575396825397,
+      "rmse": 2.1118171856003127,
+      "absolute_error_sum": 20897.0,
+      "actual_borrows": 20897.0,
+      "wape": 1.0
+    }
+  },
+  "busy_test_metrics_label_at_least_5": {
+    "random_forest": {
+      "rows": 837,
+      "mae": 3.7944002950176747,
+      "rmse": 4.496645814738682,
+      "absolute_error_sum": 3175.913046929794,
+      "actual_borrows": 6000.0,
+      "wape": 0.5293188411549656
+    },
+    "previous_week": {
+      "rows": 837,
+      "mae": 4.341696535244922,
+      "rmse": 5.431445237831743,
+      "absolute_error_sum": 3634.0,
+      "actual_borrows": 6000.0,
+      "wape": 0.6056666666666667
+    },
+    "zero": {
+      "rows": 837,
+      "mae": 7.168458781362007,
+      "rmse": 8.199863040497394,
+      "absolute_error_sum": 6000.0,
+      "actual_borrows": 6000.0,
+      "wape": 1.0
+    }
+  },
+  "importance": {
+    "hour": 0.06332902598469627,
+    "weekday": 0.019868662237413095,
+    "is_weekend": 0.004015722582451022,
+    "borrow_lag_1h": 0.16685003648451888,
+    "borrow_lag_2h": 0.018153762457352816,
+    "borrow_lag_24h": 0.3156851606679098,
+    "borrow_lag_168h": 0.2841922874095898,
+    "borrow_mean_3h": 0.06375384440177959,
+    "borrow_mean_24h": 0.02212386452396982,
+    "return_lag_1h": 0.029243860888512652,
+    "return_lag_24h": 0.01278377236180613,
+    "function_index": 0.0
+  },
+  "runtime": {
+    "spark": "3.5.7",
+    "python": "3.9.6 (default, Jan  9 2026, 11:03:41) \n[Clang 17.0.0 (clang-1700.6.4.2)]",
+    "master": "local[2]",
+    "java": "11.0.29",
+    "elapsed_seconds": 20.82829925
+  },
+  "model_reload_verified": true,
+  "test_used_for_tuning": false,
+  "evaluation_mode": "rolling one-hour ahead; realized prior test-period orders are available",
+  "limitations": [
+    "Results apply only to the supplied dataset and declared provenance.",
+    "Synthetic input cannot establish real-campus prediction accuracy.",
+    "Deployment mode and paths are recorded in runtime and URI fields.",
+    "no out-of-scenario robustness run yet",
+    "busy-hour slice selected by actual labels for diagnostic reporting only"
+  ]
+}
