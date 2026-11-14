@@ -1,0 +1,28 @@
+{
+  "dataset": {
+    "name": "campus_retraining_14d",
+    "kind": "synthetic",
+    "source": "data/simulated/campus_retraining_14d",
+    "continuous_coverage_confirmed": true,
+    "days": 14,
+    "start_weekday": 0
+  },
+  "split": {
+    "train_end_day": 10,
+    "validation_end_day": 12
+  },
+  "model": {
+    "depths": [
+      3,
+      5
+    ],
+    "num_trees": 12,
+    "min_instances_per_node": 5,
+    "seed": 42
+  },
+  "spark": {
+    "master": "local[2]",
+    "shuffle_partitions": 4
+  },
+  "output_root": "outputs/training_runs"
+}

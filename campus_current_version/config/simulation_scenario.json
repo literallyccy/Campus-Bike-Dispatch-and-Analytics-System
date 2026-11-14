@@ -1,0 +1,15 @@
+{
+  "role": "generator_only_not_model_features",
+  "total_bikes": 1000,
+  "initial_dorm_share": 0.7,
+  "weekday_activity_legs": 6000,
+  "weekend_activity_legs": 4200,
+  "weekday_activity_shares": [0.35, 0.28, 0.22, 0.05, 0.03, 0.07],
+  "weekend_activity_shares": [0.12, 0.32, 0.30, 0.05, 0.09, 0.12],
+  "class_start_hours": [8, 10, 13.5, 15.5, 18.5],
+  "class_start_weights": [0.4, 0.15, 0.2, 0.2, 0.05],
+  "class_minutes": 95,
+  "walking_radius_m": 400,
+  "walking_speed_mps": 1.2,
+  "max_nearby_candidates": 3
+}

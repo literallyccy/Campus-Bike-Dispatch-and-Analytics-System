@@ -1,0 +1,21 @@
+{
+  "purpose": "Predeclared frozen-model checks on newly generated synthetic scenarios",
+  "independent_seeds": [43, 44, 45, 46, 47],
+  "independent_days": 21,
+  "history_days": 7,
+  "evaluation_days": [7, 21],
+  "policies": ["none", "fixed", "historical", "model"],
+  "sensitivity": [
+    {"name": "budget100", "daily_move_budget": 100},
+    {"name": "budget400", "daily_move_budget": 400},
+    {"name": "capacity10", "truck_capacity": 10},
+    {"name": "capacity30", "truck_capacity": 30}
+  ],
+  "rules": [
+    "Freeze fitted models and policy code before new independent scenarios",
+    "One independently seeded scenario is the repetition unit, not one node-hour",
+    "Report the development scenario separately from new transfer scenarios",
+    "Within each scenario all policies share potential demands, initial bicycles and operating constraints",
+    "Do not tune on these outputs or claim real-campus effectiveness"
+  ]
+}

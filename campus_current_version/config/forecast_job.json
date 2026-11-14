@@ -1,0 +1,14 @@
+{
+  "dataset": {
+    "name": "campus_v1",
+    "kind": "synthetic",
+    "source": "data/simulated/campus_v1",
+    "continuous_coverage_confirmed": true,
+    "days": 56,
+    "start_weekday": 0
+  },
+  "split": {"train_end_day": 28, "validation_end_day": 42},
+  "model": {"depths": [5, 8], "num_trees": 40, "min_instances_per_node": 5, "seed": 42},
+  "spark": {"master": "local[2]", "shuffle_partitions": 4},
+  "output_root": "outputs/training_runs"
+}
