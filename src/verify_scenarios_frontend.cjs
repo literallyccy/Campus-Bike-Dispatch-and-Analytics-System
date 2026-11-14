@@ -1,0 +1,25 @@
+const fs=require('fs'),vm=require('vm'),assert=require('assert');
+const element={hidden:false,textContent:'',querySelector:()=>null,querySelectorAll:()=>[],append(){}};
+const calls=[];let release;
+const ctx={console,structuredClone,URL,crypto:require('crypto').webcrypto,setTimeout,clearTimeout,location:{href:'http://localhost/v1/'},history:{replaceState(){}},window:{addEventListener(){}},document:{querySelector:()=>element,querySelectorAll:()=>[],createElement:()=>({...element,dataset:{}})},$:()=>element,stopLivePolling(){},renderTimeline(){},renderTask(){},applySnapshot(){},historical:false,initialized:true,data:{},liveSnapshot:{manager:{state_version:0}},trialResult:null,trialDraftDirty:false,managerBusy:false,reviewMode:'draft',planDraft:null,fetch:async(url,args)=>{const b=JSON.parse(args.body);calls.push(b);if(calls.length===1)await new Promise(r=>release=r);return {ok:true,json:async()=>({draft:{revision:b.revision+1,tasks:b.tasks}})};}};
+vm.createContext(ctx);vm.runInContext(fs.readFileSync(require('path').join(__dirname,'../dashboard/v1/scenarios.js'),'utf8'),ctx);
+const run=s=>vm.runInContext(s,ctx),checks=[];
+(async()=>{
+ run("scene={id:'scene-a',draft:{revision:0}};sceneTasks=[{quantity:2}];sceneDirty=true;sceneEditSerial=1");
+ const saving=run('sceneSave()');run('sceneTasks[0].quantity=4;sceneEditSerial=2;sceneDirty=true');release();await saving;
+ assert.equal(calls.length,2);assert.equal(calls[0].tasks[0].quantity,2);assert.equal(calls[1].tasks[0].quantity,4);assert.equal(calls[1].revision,1);assert.equal(run('sceneDirty'),false);checks.push('edits during save flush sequentially without lost changes');
+ run('sceneTasks[0].quantity=6;sceneChanged();clearTimeout(sceneSaveTimer)');assert.equal(run('trialDraftDirty'),true);checks.push('editing invalidates displayed trial immediately');
+ ctx.fetch=async()=>({ok:false,json:async()=>({error:'conflict'})});await assert.rejects(run('sceneSave()'),/conflict/);assert.equal(run('sceneDirty'),true);checks.push('save failure retains unsaved draft');
+ run('sceneDirty=false;sceneSavePromise=null;renderTimeBrowser=function(){};renderManagerReview=function(){};loadSnapshot=async()=>true;scene.trial={id:"persisted-trial"}');
+ run('renderTask=function(){};data={manager:{}}');
+ ctx.fetch=async(url,args)=>{calls.push(JSON.parse(args.body));return {ok:true,json:async()=>({ok:true})}};
+ await run("managerAction({action:'confirm',tasks:[{quantity:999}]})");const c=calls.at(-1);assert.equal(c.trial_id,'persisted-trial');assert.equal(c.tasks,undefined);checks.push('confirmation sends saved trial identity instead of mutable task payload');
+ assert.equal(element.disabled,false);checks.push('advance button reenabled after operation completes');
+ ctx.esc=x=>String(x).replaceAll('<','&lt;').replaceAll('>','&gt;');ctx.simTime=t=>'第43日 '+Math.floor(t/3600)%24+':00';ctx.trialShortTime=t=>'18:00';ctx.trialFresh=()=>true;
+ run("scene={id:'s-a',decision:null};sceneCatalog={scenarios:[{id:'s-a',start_s:0,clock_s:900,status:'已确认',updated_at:'2026-11-13T01:00:00Z'},{id:'s-b',start_s:0,clock_s:0,status:'草稿待模拟',updated_at:'2026-11-13T00:00:00Z'}]}");
+ assert.match(run('sceneSavedList()'),/data-scene-resume="s-a"/);assert.match(run('sceneSavedList()'),/data-scene-resume="s-b"/);checks.push('same-time copies have distinct resume identities');
+ run("trialResult={id:'trial-a',decision_advice:{code:'worse',title:'建议不新增',requires_reason:true},decision_evidence:[]}");
+ assert.match(run('sceneDecisionPanel({})'),/data-decision-reason/);assert.match(run('sceneDecisionPanel({})'),/data-decision-retain/);checks.push('negative result offers retain action and reason field');
+ ctx.trialFresh=()=>false;assert.doesNotMatch(run('sceneDecisionPanel({})'),/data-decision-retain/);checks.push('stale result offers no retain decision');
+ const report={passed:true,checks,limitations:['VM stubs test state transitions only; no DOM layout or real browser acceptance']};fs.writeFileSync(process.argv[2],JSON.stringify(report,null,2));console.log(JSON.stringify(report));
+})().catch(e=>{console.error(e);process.exitCode=1});

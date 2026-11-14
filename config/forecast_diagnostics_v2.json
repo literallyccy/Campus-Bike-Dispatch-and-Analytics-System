@@ -1,0 +1,22 @@
+{
+  "runs": [
+    {
+      "id": "campus_borrow",
+      "directory": "outputs/dispatch_models_v2/borrow",
+      "nodes": "data/simulated/campus_v2/nodes.jsonl"
+    },
+    {
+      "id": "campus_return",
+      "directory": "outputs/dispatch_models_v2/return",
+      "nodes": "data/simulated/campus_v2/nodes.jsonl"
+    }
+  ],
+  "bootstrap_repetitions": 1000,
+  "bootstrap_seed": 20261112,
+  "day_block_lengths": [
+    1,
+    2,
+    7
+  ],
+  "primary_block_length": 2
+}
