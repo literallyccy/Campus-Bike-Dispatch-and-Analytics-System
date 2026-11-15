@@ -1,0 +1,26 @@
+{"cmd": ["docker", "exec", "master", "jps"], "code": 0, "out": "162 NameNode\n902 Jps\n299 ResourceManager\n", "err": ""}
+{"cmd": ["docker", "exec", "master", "jps"], "code": 0, "out": "162 NameNode\n299 ResourceManager\n925 Jps\n", "err": ""}
+{"cmd": ["docker", "exec", "worker1", "jps"], "code": 0, "out": "131 DataNode\n533 Jps\n268 NodeManager\n", "err": ""}
+{"cmd": ["docker", "exec", "worker1", "jps"], "code": 0, "out": "131 DataNode\n268 NodeManager\n556 Jps\n", "err": ""}
+{"cmd": ["docker", "exec", "worker2", "jps"], "code": 0, "out": "241 NodeManager\n501 Jps\n106 DataNode\n", "err": ""}
+{"cmd": ["docker", "exec", "worker2", "jps"], "code": 0, "out": "241 NodeManager\n106 DataNode\n525 Jps\n", "err": ""}
+{"cmd": ["docker", "cp", "/home/ccy/bike-project/bigdata_round_20261112_retry", "master:/opt/bike-project/bigdata_round_20261112_retry"], "code": 0, "out": "", "err": ""}
+{"cmd": ["docker", "exec", "master", "hdfs", "dfs", "-mkdir", "-p", "hdfs://master:9000/bike-project/runs/bigdata_round_20261112_retry/input", "hdfs://master:9000/bike-project/runs/bigdata_round_20261112_retry/events"], "code": 0, "out": "", "err": ""}
+{"cmd": ["docker", "exec", "master", "hdfs", "dfs", "-put", "/opt/bike-project/bigdata_round_20261112_retry/data/nodes.jsonl", "hdfs://master:9000/bike-project/runs/bigdata_round_20261112_retry/input/nodes.jsonl"], "code": 0, "out": "", "err": ""}
+{"cmd": ["docker", "exec", "master", "hdfs", "dfs", "-put", "/opt/bike-project/bigdata_round_20261112_retry/data/trips.jsonl", "hdfs://master:9000/bike-project/runs/bigdata_round_20261112_retry/input/trips.jsonl"], "code": 0, "out": "", "err": ""}
+Traceback (most recent call last):
+  File "<stdin>", line 20, in <module>
+  File "/usr/lib/python3.14/subprocess.py", line 557, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 1221, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 2154, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 1268, in _check_timeout
+    raise TimeoutExpired(
+    ...<2 lines>...
+            stderr=b''.join(stderr_seq) if stderr_seq else None)
+subprocess.TimeoutExpired: Command '['docker', 'exec', '-e', 'HADOOP_CONF_DIR=/usr/local/hadoop/etc/hadoop', '-e', 'PYSPARK_PYTHON=/usr/bin/python3', 'master', '/opt/bike-project/spark/bin/spark-submit', '--master', 'yarn', '--deploy-mode', 'client', '--driver-memory', '768m', '--executor-memory', '512m', '--executor-cores', '1', '--num-executors', '2', '--conf', 'spark.dynamicAllocation.enabled=false', '--conf', 'spark.executor.memoryOverhead=384m', '--conf', 'spark.driver.host=master', '--conf', 'spark.driver.bindAddress=0.0.0.0', '--conf', 'spark.sql.adaptive.enabled=false', '--py-files', '/opt/bike-project/bigdata_round_20261112_retry/src/prepare_forecast_inputs.py,/opt/bike-project/bigdata_round_20261112_retry/src/spark_order_quality.py,/opt/bike-project/bigdata_round_20261112_retry/src/spark_run_io.py', '/opt/bike-project/bigdata_round_20261112_retry/src/process_campus_spark.py', '--master', 'yarn', '--source', 'hdfs://master:9000/bike-project/runs/bigdata_round_20261112_retry/input', '--output', 'hdfs://master:9000/bike-project/runs/bigdata_round_20261112_retry/result', '--event-log-uri', 'hdfs://master:9000/bike-project/runs/bigdata_round_20261112_retry/events', '--shuffle-partitions', '8', '--confirm-continuous-coverage']' timed out after 900 seconds

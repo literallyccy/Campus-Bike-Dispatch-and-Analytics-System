@@ -1,0 +1,25 @@
+{
+  "provider": "Citi Bike official system data",
+  "kind": "real",
+  "files": [
+    {
+      "archive": "JC-202501-citibike-tripdata.csv.zip",
+      "url": "https://s3.amazonaws.com/tripdata/JC-202501-citibike-tripdata.csv.zip",
+      "sha256": "85c2011b564d7b76653f464380ac1d61a93cd6e2abe1a46d103b58c447bb0ed4",
+      "csv": "JC-202501-citibike-tripdata.csv",
+      "csv_bytes": 11081709
+    },
+    {
+      "archive": "JC-202502-citibike-tripdata.csv.zip",
+      "url": "https://s3.amazonaws.com/tripdata/JC-202502-citibike-tripdata.csv.zip",
+      "sha256": "0a7b88d9e1a4ba627f4b2b02739a62790bf35335151adb6658e32355dcd5b234",
+      "csv": "JC-202502-citibike-tripdata.csv",
+      "csv_bytes": 9758674
+    }
+  ],
+  "downloaded_on": "2026-11-03",
+  "source": "https://citibikenyc.com/system-data",
+  "policy": "https://citibikenyc.com/data-sharing-policy",
+  "use": "Course analysis; raw archives excluded from redistribution bundles",
+  "calendar": "2025-01-01 to 2025-03-01 exclusive; America/New_York local wall time, no DST change"
+}

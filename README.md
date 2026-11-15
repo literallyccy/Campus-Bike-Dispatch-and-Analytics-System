@@ -2,7 +2,7 @@
 
 ## 安装
 
-将代码、数据、模型与实验三个包解压到同一目录，合并同名文件夹。项目目录应同时包含 src、dashboard、config、data 和 outputs。
+解压本包后进入项目目录。项目目录应同时包含 src、dashboard、config、data 和 outputs。
 
 环境：Python 3.10或3.11，Java 11或17。
 

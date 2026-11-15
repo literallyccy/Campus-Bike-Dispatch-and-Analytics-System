@@ -1,0 +1,510 @@
+{
+  "completed": true,
+  "created_at": "2026-11-12T13:04:35.563842+00:00",
+  "settings": {
+    "runs": [
+      {
+        "id": "campus_borrow",
+        "directory": "/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/outputs/dispatch_models_v2/borrow",
+        "nodes": "/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/data/simulated/campus_v2/nodes.jsonl"
+      },
+      {
+        "id": "campus_return",
+        "directory": "/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/outputs/dispatch_models_v2/return",
+        "nodes": "/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/data/simulated/campus_v2/nodes.jsonl"
+      }
+    ],
+    "bootstrap_repetitions": 1000,
+    "bootstrap_seed": 20261112,
+    "day_block_lengths": [
+      1,
+      2,
+      7
+    ],
+    "primary_block_length": 2
+  },
+  "config_sha256": "2c0d26d68ab2445d1dec2e9b416253f8b45fe533b63be838a2989fac601b64b5",
+  "sql_sha256": "f268020bc5d06c5f3f6d612b736fa759a760685fa2f695d0044252169fe7beeb",
+  "analysis_code_sha256": "a7194c826b67f569b6b7faf1cae85f91eca44a35e3a50213bbbb713d27c4fa7c",
+  "provenance": {
+    "campus_borrow": {
+      "dataset": {
+        "name": "campus_v2_spark_prepared",
+        "kind": "synthetic"
+      },
+      "target": "target_completed_borrows_next_hour",
+      "baseline_name": "previous_week",
+      "rows": 47712,
+      "nodes": 142,
+      "split_range_s": [
+        3628800,
+        4838400
+      ],
+      "reference_test_metrics": {
+        "random_forest": {
+          "rows": 47712,
+          "mae": 0.4720325416529172,
+          "rmse": 1.9212377354706431,
+          "absolute_error_sum": 22521.616627343985,
+          "actual_borrows": 58833.0,
+          "wape": 0.3828058509228492
+        },
+        "previous_week": {
+          "rows": 47712,
+          "mae": 0.4896881287726358,
+          "rmse": 2.170477868674029,
+          "absolute_error_sum": 23364.0,
+          "actual_borrows": 58833.0,
+          "wape": 0.39712406302585285
+        },
+        "zero": {
+          "rows": 47712,
+          "mae": 1.2330860160965795,
+          "rmse": 7.523068424371355,
+          "absolute_error_sum": 58833.0,
+          "actual_borrows": 58833.0,
+          "wape": 1.0
+        }
+      },
+      "metrics_sha256": "979494ad04bd601ea362e362d4ec4ff3a0d723be2a8ad27fb87f3aca80febbde",
+      "predictions_sha256": "90431ff2be065a2bc90964d9d687b425f2638ebfe028c982c045da50d4441eee",
+      "nodes_sha256": "c1c29274a52a6b4ca7d1415704b791675d9493901718b02c7468111d29162631"
+    },
+    "campus_return": {
+      "dataset": {
+        "name": "campus_v2_spark_prepared",
+        "kind": "synthetic"
+      },
+      "target": "target_completed_returns_next_hour",
+      "baseline_name": "previous_week",
+      "rows": 47712,
+      "nodes": 142,
+      "split_range_s": [
+        3628800,
+        4838400
+      ],
+      "reference_test_metrics": {
+        "random_forest": {
+          "rows": 47712,
+          "mae": 0.5334574273714482,
+          "rmse": 2.228916360467148,
+          "absolute_error_sum": 25452.320774746535,
+          "actual_borrows": 58833.0,
+          "wape": 0.4326198013826685
+        },
+        "previous_week": {
+          "rows": 47712,
+          "mae": 0.5902917505030181,
+          "rmse": 3.398258963631733,
+          "absolute_error_sum": 28164.0,
+          "actual_borrows": 58833.0,
+          "wape": 0.47871092754066596
+        },
+        "zero": {
+          "rows": 47712,
+          "mae": 1.2330860160965795,
+          "rmse": 7.22164109469611,
+          "absolute_error_sum": 58833.0,
+          "actual_borrows": 58833.0,
+          "wape": 1.0
+        }
+      },
+      "metrics_sha256": "8b124d0c73ddcccd1349d84709388bf45e526074d63e267893f0f3636e60dbb7",
+      "predictions_sha256": "7a94050767b4eec11abac4af6a204f36a356ad6a2d8c539b835dd1e5b5c227d2",
+      "nodes_sha256": "c1c29274a52a6b4ca7d1415704b791675d9493901718b02c7468111d29162631"
+    }
+  },
+  "runs": {
+    "campus_borrow": {
+      "overall": {
+        "run_id": "campus_borrow",
+        "dimension": "overall",
+        "bucket": "all",
+        "rows": 47712,
+        "actual_count": 58833.0,
+        "zero_rows": 38831,
+        "underpredicted_volume": 12504.030584246306,
+        "model_mae": 0.4720325416529172,
+        "model_rmse": 1.9212377354706431,
+        "model_wape": 0.3828058509228492,
+        "baseline_mae": 0.4896881287726358,
+        "baseline_rmse": 2.170477868674029,
+        "baseline_wape": 0.39712406302585285,
+        "model_absolute_error_sum": 22521.616627343985,
+        "baseline_absolute_error_sum": 23364.0,
+        "mae_gain": 0.01765558711971507,
+        "underpredicted_count": 6174,
+        "model_bias": -0.052113609598184,
+        "zero_fraction": 0.8138623407109322
+      },
+      "daily_model_wins": 9,
+      "days": 14,
+      "day_block_bootstrap": [
+        {
+          "block_days": 1,
+          "days": 14,
+          "repetitions": 1000,
+          "mae_gain": 0.01765558711971567,
+          "percentile_95_interval": [
+            -0.036160121998471635,
+            0.07162956569164051
+          ]
+        },
+        {
+          "block_days": 2,
+          "days": 14,
+          "repetitions": 1000,
+          "mae_gain": 0.01765558711971567,
+          "percentile_95_interval": [
+            -0.02383296705240252,
+            0.057233869621028825
+          ]
+        },
+        {
+          "block_days": 7,
+          "days": 14,
+          "repetitions": 1000,
+          "mae_gain": 0.01765558711971567,
+          "percentile_95_interval": [
+            -0.007877707090380406,
+            0.04468518923924989
+          ]
+        }
+      ],
+      "worst_underprediction_hours": [
+        {
+          "run_id": "campus_borrow",
+          "dimension": "hour",
+          "bucket": "12",
+          "rows": 1988,
+          "actual_count": 11019.0,
+          "zero_rows": 429,
+          "underpredicted_volume": 2018.7748727105977,
+          "model_mae": 1.5882992184460034,
+          "model_rmse": 3.496484272546507,
+          "model_wape": 0.28655402906531036,
+          "baseline_mae": 1.9994969818913482,
+          "baseline_rmse": 4.644992544063601,
+          "baseline_wape": 0.36074053906888104,
+          "model_absolute_error_sum": 3157.5388462706546,
+          "baseline_absolute_error_sum": 3975.0,
+          "mae_gain": 0.4111977634453454,
+          "underpredicted_count": 973,
+          "model_bias": -0.4426614180837741,
+          "zero_fraction": 0.21579476861167002
+        },
+        {
+          "run_id": "campus_borrow",
+          "dimension": "hour",
+          "bucket": "7",
+          "rows": 1988,
+          "actual_count": 4245.0,
+          "zero_rows": 876,
+          "underpredicted_volume": 1388.9423567415824,
+          "model_mae": 1.0437530644355455,
+          "model_rmse": 1.5579366158045538,
+          "model_wape": 0.4888059109771176,
+          "baseline_mae": 1.0809859154929577,
+          "baseline_rmse": 1.9359720885295304,
+          "baseline_wape": 0.5062426383981155,
+          "model_absolute_error_sum": 2074.9810920978643,
+          "baseline_absolute_error_sum": 2149.0,
+          "mae_gain": 0.0372328510574129,
+          "underpredicted_count": 832,
+          "model_bias": -0.3535732501938149,
+          "zero_fraction": 0.44064386317907445
+        },
+        {
+          "run_id": "campus_borrow",
+          "dimension": "hour",
+          "bucket": "13",
+          "rows": 1988,
+          "actual_count": 2774.0,
+          "zero_rows": 686,
+          "underpredicted_volume": 1017.4604125106205,
+          "model_mae": 0.9052534726224042,
+          "model_rmse": 1.2726556396622495,
+          "model_wape": 0.6487541108771951,
+          "baseline_mae": 1.1524144869215291,
+          "baseline_rmse": 1.6856895609140634,
+          "baseline_wape": 0.8258832011535688,
+          "model_absolute_error_sum": 1799.6439035733395,
+          "baseline_absolute_error_sum": 2291.0,
+          "mae_gain": 0.24716101429912585,
+          "underpredicted_count": 824,
+          "model_bias": -0.11834855203616866,
+          "zero_fraction": 0.34507042253521125
+        }
+      ],
+      "volume_slices": [
+        {
+          "run_id": "campus_borrow",
+          "dimension": "actual_volume",
+          "bucket": "1-4",
+          "rows": 7324,
+          "actual_count": 14930.0,
+          "zero_rows": 0,
+          "underpredicted_volume": 5100.598124836348,
+          "model_mae": 0.8792623897504491,
+          "model_rmse": 1.141019126258173,
+          "model_wape": 0.431327377262712,
+          "baseline_mae": 1.2594210813762972,
+          "baseline_rmse": 1.6557168064289276,
+          "baseline_wape": 0.6178164768921635,
+          "model_absolute_error_sum": 6439.71774253229,
+          "baseline_absolute_error_sum": 9224.0,
+          "mae_gain": 0.38015869162584687,
+          "underpredicted_count": 5004,
+          "model_bias": -0.5135825378400336,
+          "zero_fraction": 0.0
+        },
+        {
+          "run_id": "campus_borrow",
+          "dimension": "actual_volume",
+          "bucket": "5+",
+          "rows": 1557,
+          "actual_count": 43903.0,
+          "zero_rows": 0,
+          "underpredicted_volume": 7403.432459409951,
+          "model_mae": 6.621270634317254,
+          "model_rmse": 10.179665860121942,
+          "model_wape": 0.23482036256365085,
+          "baseline_mae": 7.158638407193321,
+          "baseline_rmse": 11.254286274018991,
+          "baseline_wape": 0.2538778671161424,
+          "model_absolute_error_sum": 10309.318377631964,
+          "baseline_absolute_error_sum": 11146.0,
+          "mae_gain": 0.5373677728760646,
+          "underpredicted_count": 1170,
+          "model_bias": -2.8885976500885895,
+          "zero_fraction": 0.0
+        },
+        {
+          "run_id": "campus_borrow",
+          "dimension": "actual_volume",
+          "bucket": "zero",
+          "rows": 38831,
+          "actual_count": 0.0,
+          "zero_rows": 38831,
+          "underpredicted_volume": 0.0,
+          "model_mae": 0.14865907412067814,
+          "model_rmse": 0.36706669897837946,
+          "model_wape": null,
+          "baseline_mae": 0.07710334526538075,
+          "baseline_rmse": 0.4390132236540521,
+          "baseline_wape": null,
+          "model_absolute_error_sum": 5772.580507180053,
+          "baseline_absolute_error_sum": 2994.0,
+          "mae_gain": -0.07155572885529102,
+          "underpredicted_count": 0,
+          "model_bias": 0.14865907412067814,
+          "zero_fraction": 1.0
+        }
+      ]
+    },
+    "campus_return": {
+      "overall": {
+        "run_id": "campus_return",
+        "dimension": "overall",
+        "bucket": "all",
+        "rows": 47712,
+        "actual_count": 58833.0,
+        "zero_rows": 39974,
+        "underpredicted_volume": 13876.351175306585,
+        "model_mae": 0.5334574273714482,
+        "model_rmse": 2.228916360467148,
+        "model_wape": 0.4326198013826685,
+        "baseline_mae": 0.5902917505030181,
+        "baseline_rmse": 3.398258963631733,
+        "baseline_wape": 0.47871092754066596,
+        "model_absolute_error_sum": 25452.320774746535,
+        "baseline_absolute_error_sum": 28164.0,
+        "mae_gain": 0.05683432313157211,
+        "underpredicted_count": 5285,
+        "model_bias": -0.04821389956126003,
+        "zero_fraction": 0.8378185781354796
+      },
+      "daily_model_wins": 7,
+      "days": 14,
+      "day_block_bootstrap": [
+        {
+          "block_days": 1,
+          "days": 14,
+          "repetitions": 1000,
+          "mae_gain": 0.05683432313157128,
+          "percentile_95_interval": [
+            -0.008552459802612029,
+            0.1340821330772498
+          ]
+        },
+        {
+          "block_days": 2,
+          "days": 14,
+          "repetitions": 1000,
+          "mae_gain": 0.05683432313157128,
+          "percentile_95_interval": [
+            0.002802368596109954,
+            0.11114821979642535
+          ]
+        },
+        {
+          "block_days": 7,
+          "days": 14,
+          "repetitions": 1000,
+          "mae_gain": 0.05683432313157128,
+          "percentile_95_interval": [
+            0.028078486801136133,
+            0.08559015946200642
+          ]
+        }
+      ],
+      "worst_underprediction_hours": [
+        {
+          "run_id": "campus_return",
+          "dimension": "hour",
+          "bucket": "18",
+          "rows": 1988,
+          "actual_count": 9103.0,
+          "zero_rows": 523,
+          "underpredicted_volume": 2092.4038656645994,
+          "model_mae": 1.4808014804767826,
+          "model_rmse": 3.8861836643901406,
+          "model_wape": 0.32339155697987954,
+          "baseline_mae": 1.835513078470825,
+          "baseline_rmse": 4.97261110152423,
+          "baseline_wape": 0.40085686037570034,
+          "model_absolute_error_sum": 2943.8333431878436,
+          "baseline_absolute_error_sum": 3649.0,
+          "mae_gain": 0.35471159799404345,
+          "underpredicted_count": 1084,
+          "model_bias": -0.6242325896083291,
+          "zero_fraction": 0.2630784708249497
+        },
+        {
+          "run_id": "campus_return",
+          "dimension": "hour",
+          "bucket": "21",
+          "rows": 1988,
+          "actual_count": 4035.0,
+          "zero_rows": 568,
+          "underpredicted_volume": 1596.5936891472347,
+          "model_mae": 1.0642726246586636,
+          "model_rmse": 1.4583567185845787,
+          "model_wape": 0.5243553848380231,
+          "baseline_mae": 1.2012072434607646,
+          "baseline_rmse": 1.7562764709047152,
+          "baseline_wape": 0.59182156133829,
+          "model_absolute_error_sum": 2115.773977821423,
+          "baseline_absolute_error_sum": 2388.0,
+          "mae_gain": 0.1369346188021027,
+          "underpredicted_count": 1062,
+          "model_bias": -0.5419584509421769,
+          "zero_fraction": 0.2857142857142857
+        },
+        {
+          "run_id": "campus_return",
+          "dimension": "hour",
+          "bucket": "12",
+          "rows": 1988,
+          "actual_count": 6506.0,
+          "zero_rows": 425,
+          "underpredicted_volume": 1735.1059130103615,
+          "model_mae": 1.2181631234518366,
+          "model_rmse": 1.6450152285295825,
+          "model_wape": 0.3722269119923534,
+          "baseline_mae": 1.5487927565392354,
+          "baseline_rmse": 2.167646685444264,
+          "baseline_wape": 0.47325545650169076,
+          "model_absolute_error_sum": 2421.7082894222513,
+          "baseline_absolute_error_sum": 3079.0,
+          "mae_gain": 0.3306296330873995,
+          "underpredicted_count": 1059,
+          "model_bias": -0.527416265894604,
+          "zero_fraction": 0.2137826961770624
+        }
+      ],
+      "volume_slices": [
+        {
+          "run_id": "campus_return",
+          "dimension": "actual_volume",
+          "bucket": "1-4",
+          "rows": 5748,
+          "actual_count": 12437.0,
+          "zero_rows": 0,
+          "underpredicted_volume": 3620.1502194210407,
+          "model_mae": 0.9015781543948465,
+          "model_rmse": 1.1462409376014597,
+          "model_wape": 0.41668177466121875,
+          "baseline_mae": 1.301670146137787,
+          "baseline_rmse": 1.7376665497943449,
+          "baseline_wape": 0.6015920237999518,
+          "model_absolute_error_sum": 5182.271231461577,
+          "baseline_absolute_error_sum": 7482.0,
+          "mae_gain": 0.40009199174294036,
+          "underpredicted_count": 3619,
+          "model_bias": -0.3580426595999476,
+          "zero_fraction": 0.0
+        },
+        {
+          "run_id": "campus_return",
+          "dimension": "actual_volume",
+          "bucket": "5+",
+          "rows": 1990,
+          "actual_count": 46396.0,
+          "zero_rows": 0,
+          "underpredicted_volume": 10256.2009558856,
+          "model_mae": 6.315683376181306,
+          "model_rmse": 10.383238229648022,
+          "model_wape": 0.27088994565481506,
+          "baseline_mae": 7.839698492462311,
+          "baseline_rmse": 13.834357492712876,
+          "baseline_wape": 0.33625743598586083,
+          "model_absolute_error_sum": 12568.209918600798,
+          "baseline_absolute_error_sum": 15601.0,
+          "mae_gain": 1.5240151162809992,
+          "underpredicted_count": 1666,
+          "model_bias": -3.992056277975074,
+          "zero_fraction": 0.0
+        },
+        {
+          "run_id": "campus_return",
+          "dimension": "actual_volume",
+          "bucket": "zero",
+          "rows": 39974,
+          "actual_count": 0.0,
+          "zero_rows": 39974,
+          "underpredicted_volume": 0.0,
+          "model_mae": 0.19267122691459593,
+          "model_rmse": 0.6113287405907644,
+          "model_wape": null,
+          "baseline_mae": 0.12710761995296943,
+          "baseline_rmse": 1.954893614977506,
+          "baseline_wape": null,
+          "model_absolute_error_sum": 7701.8396246840575,
+          "baseline_absolute_error_sum": 5081.0,
+          "mae_gain": -0.06556360696162582,
+          "underpredicted_count": 0,
+          "model_bias": 0.19267122691459593,
+          "zero_fraction": 1.0
+        }
+      ]
+    }
+  },
+  "slice_rows": 382,
+  "runtime": {
+    "spark": "3.5.7",
+    "master": "local[2]",
+    "application_id": "local-1794488668675",
+    "elapsed_seconds": 6.672276
+  },
+  "method": "Paired circular moving-day-block percentile bootstrap of baseline MAE minus model MAE",
+  "limitations": [
+    "Frozen held-out predictions reused for diagnostics; no retraining or tuning on these slices",
+    "Only 14 test days per supplied run; day blocks and circular boundary are approximations, not population significance",
+    "Intervals describe an error-comparison statistic, not calibrated future-count or shortage intervals",
+    "Actual-volume bands use held-out labels for diagnosis and cannot be a live dispatch input",
+    "Hourly/function/node slices are descriptive; no multiple-comparison significance claims",
+    "Underpredicted successful orders do not measure unmet demand or real stockouts",
+    "Real JC station results do not establish Shanghai campus accuracy; local Spark is not HDFS/YARN"
+  ]
+}

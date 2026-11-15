@@ -1,0 +1,2185 @@
+{
+  "raw_rows": 95866,
+  "clean_rows": 95864,
+  "quality": {
+    "outside_window": 2,
+    "valid": 95864,
+    "duplicate_valid_ride_ids_removed": 0,
+    "missing_start_station": 0,
+    "missing_end_station": 259,
+    "start_missing_or_invalid_coordinates": 0,
+    "end_missing_or_invalid_coordinates": 25
+  },
+  "selected_stations": 60,
+  "daily": [
+    {
+      "date": "2025-01-01",
+      "count": 1179
+    },
+    {
+      "date": "2025-01-02",
+      "count": 1711
+    },
+    {
+      "date": "2025-01-03",
+      "count": 1771
+    },
+    {
+      "date": "2025-01-04",
+      "count": 1337
+    },
+    {
+      "date": "2025-01-05",
+      "count": 1189
+    },
+    {
+      "date": "2025-01-06",
+      "count": 1389
+    },
+    {
+      "date": "2025-01-07",
+      "count": 1583
+    },
+    {
+      "date": "2025-01-08",
+      "count": 1643
+    },
+    {
+      "date": "2025-01-09",
+      "count": 1665
+    },
+    {
+      "date": "2025-01-10",
+      "count": 1934
+    },
+    {
+      "date": "2025-01-11",
+      "count": 1521
+    },
+    {
+      "date": "2025-01-12",
+      "count": 1482
+    },
+    {
+      "date": "2025-01-13",
+      "count": 2122
+    },
+    {
+      "date": "2025-01-14",
+      "count": 2039
+    },
+    {
+      "date": "2025-01-15",
+      "count": 1903
+    },
+    {
+      "date": "2025-01-16",
+      "count": 1997
+    },
+    {
+      "date": "2025-01-17",
+      "count": 2106
+    },
+    {
+      "date": "2025-01-18",
+      "count": 1339
+    },
+    {
+      "date": "2025-01-19",
+      "count": 1006
+    },
+    {
+      "date": "2025-01-20",
+      "count": 760
+    },
+    {
+      "date": "2025-01-21",
+      "count": 1242
+    },
+    {
+      "date": "2025-01-22",
+      "count": 1312
+    },
+    {
+      "date": "2025-01-23",
+      "count": 1635
+    },
+    {
+      "date": "2025-01-24",
+      "count": 1714
+    },
+    {
+      "date": "2025-01-25",
+      "count": 1404
+    },
+    {
+      "date": "2025-01-26",
+      "count": 1455
+    },
+    {
+      "date": "2025-01-27",
+      "count": 2030
+    },
+    {
+      "date": "2025-01-28",
+      "count": 2200
+    },
+    {
+      "date": "2025-01-29",
+      "count": 2358
+    },
+    {
+      "date": "2025-01-30",
+      "count": 2030
+    },
+    {
+      "date": "2025-01-31",
+      "count": 1555
+    },
+    {
+      "date": "2025-02-01",
+      "count": 1438
+    },
+    {
+      "date": "2025-02-02",
+      "count": 1101
+    },
+    {
+      "date": "2025-02-03",
+      "count": 1796
+    },
+    {
+      "date": "2025-02-04",
+      "count": 2060
+    },
+    {
+      "date": "2025-02-05",
+      "count": 1988
+    },
+    {
+      "date": "2025-02-06",
+      "count": 1170
+    },
+    {
+      "date": "2025-02-07",
+      "count": 1926
+    },
+    {
+      "date": "2025-02-08",
+      "count": 1332
+    },
+    {
+      "date": "2025-02-09",
+      "count": 714
+    },
+    {
+      "date": "2025-02-10",
+      "count": 1477
+    },
+    {
+      "date": "2025-02-11",
+      "count": 1664
+    },
+    {
+      "date": "2025-02-12",
+      "count": 1486
+    },
+    {
+      "date": "2025-02-13",
+      "count": 1734
+    },
+    {
+      "date": "2025-02-14",
+      "count": 1790
+    },
+    {
+      "date": "2025-02-15",
+      "count": 930
+    },
+    {
+      "date": "2025-02-16",
+      "count": 582
+    },
+    {
+      "date": "2025-02-17",
+      "count": 1156
+    },
+    {
+      "date": "2025-02-18",
+      "count": 1405
+    },
+    {
+      "date": "2025-02-19",
+      "count": 1547
+    },
+    {
+      "date": "2025-02-20",
+      "count": 1493
+    },
+    {
+      "date": "2025-02-21",
+      "count": 1540
+    },
+    {
+      "date": "2025-02-22",
+      "count": 1507
+    },
+    {
+      "date": "2025-02-23",
+      "count": 1453
+    },
+    {
+      "date": "2025-02-24",
+      "count": 2058
+    },
+    {
+      "date": "2025-02-25",
+      "count": 2457
+    },
+    {
+      "date": "2025-02-26",
+      "count": 2594
+    },
+    {
+      "date": "2025-02-27",
+      "count": 2303
+    },
+    {
+      "date": "2025-02-28",
+      "count": 2552
+    }
+  ],
+  "hourly": [
+    {
+      "hour": 0,
+      "count": 758
+    },
+    {
+      "hour": 1,
+      "count": 519
+    },
+    {
+      "hour": 2,
+      "count": 378
+    },
+    {
+      "hour": 3,
+      "count": 250
+    },
+    {
+      "hour": 4,
+      "count": 443
+    },
+    {
+      "hour": 5,
+      "count": 1040
+    },
+    {
+      "hour": 6,
+      "count": 3007
+    },
+    {
+      "hour": 7,
+      "count": 6336
+    },
+    {
+      "hour": 8,
+      "count": 8156
+    },
+    {
+      "hour": 9,
+      "count": 4743
+    },
+    {
+      "hour": 10,
+      "count": 3799
+    },
+    {
+      "hour": 11,
+      "count": 4299
+    },
+    {
+      "hour": 12,
+      "count": 4737
+    },
+    {
+      "hour": 13,
+      "count": 4803
+    },
+    {
+      "hour": 14,
+      "count": 5134
+    },
+    {
+      "hour": 15,
+      "count": 6087
+    },
+    {
+      "hour": 16,
+      "count": 7087
+    },
+    {
+      "hour": 17,
+      "count": 9816
+    },
+    {
+      "hour": 18,
+      "count": 9114
+    },
+    {
+      "hour": 19,
+      "count": 5700
+    },
+    {
+      "hour": 20,
+      "count": 3735
+    },
+    {
+      "hour": 21,
+      "count": 2688
+    },
+    {
+      "hour": 22,
+      "count": 1883
+    },
+    {
+      "hour": 23,
+      "count": 1352
+    }
+  ],
+  "weekday_hour": [
+    {
+      "weekday": 0,
+      "hour": 0,
+      "count": 65
+    },
+    {
+      "weekday": 0,
+      "hour": 1,
+      "count": 30
+    },
+    {
+      "weekday": 0,
+      "hour": 2,
+      "count": 29
+    },
+    {
+      "weekday": 0,
+      "hour": 3,
+      "count": 19
+    },
+    {
+      "weekday": 0,
+      "hour": 4,
+      "count": 54
+    },
+    {
+      "weekday": 0,
+      "hour": 5,
+      "count": 164
+    },
+    {
+      "weekday": 0,
+      "hour": 6,
+      "count": 483
+    },
+    {
+      "weekday": 0,
+      "hour": 7,
+      "count": 908
+    },
+    {
+      "weekday": 0,
+      "hour": 8,
+      "count": 1168
+    },
+    {
+      "weekday": 0,
+      "hour": 9,
+      "count": 575
+    },
+    {
+      "weekday": 0,
+      "hour": 10,
+      "count": 445
+    },
+    {
+      "weekday": 0,
+      "hour": 11,
+      "count": 475
+    },
+    {
+      "weekday": 0,
+      "hour": 12,
+      "count": 492
+    },
+    {
+      "weekday": 0,
+      "hour": 13,
+      "count": 523
+    },
+    {
+      "weekday": 0,
+      "hour": 14,
+      "count": 598
+    },
+    {
+      "weekday": 0,
+      "hour": 15,
+      "count": 744
+    },
+    {
+      "weekday": 0,
+      "hour": 16,
+      "count": 958
+    },
+    {
+      "weekday": 0,
+      "hour": 17,
+      "count": 1463
+    },
+    {
+      "weekday": 0,
+      "hour": 18,
+      "count": 1457
+    },
+    {
+      "weekday": 0,
+      "hour": 19,
+      "count": 856
+    },
+    {
+      "weekday": 0,
+      "hour": 20,
+      "count": 567
+    },
+    {
+      "weekday": 0,
+      "hour": 21,
+      "count": 387
+    },
+    {
+      "weekday": 0,
+      "hour": 22,
+      "count": 179
+    },
+    {
+      "weekday": 0,
+      "hour": 23,
+      "count": 149
+    },
+    {
+      "weekday": 1,
+      "hour": 0,
+      "count": 54
+    },
+    {
+      "weekday": 1,
+      "hour": 1,
+      "count": 28
+    },
+    {
+      "weekday": 1,
+      "hour": 2,
+      "count": 12
+    },
+    {
+      "weekday": 1,
+      "hour": 3,
+      "count": 15
+    },
+    {
+      "weekday": 1,
+      "hour": 4,
+      "count": 81
+    },
+    {
+      "weekday": 1,
+      "hour": 5,
+      "count": 201
+    },
+    {
+      "weekday": 1,
+      "hour": 6,
+      "count": 641
+    },
+    {
+      "weekday": 1,
+      "hour": 7,
+      "count": 1373
+    },
+    {
+      "weekday": 1,
+      "hour": 8,
+      "count": 1617
+    },
+    {
+      "weekday": 1,
+      "hour": 9,
+      "count": 626
+    },
+    {
+      "weekday": 1,
+      "hour": 10,
+      "count": 394
+    },
+    {
+      "weekday": 1,
+      "hour": 11,
+      "count": 416
+    },
+    {
+      "weekday": 1,
+      "hour": 12,
+      "count": 543
+    },
+    {
+      "weekday": 1,
+      "hour": 13,
+      "count": 502
+    },
+    {
+      "weekday": 1,
+      "hour": 14,
+      "count": 580
+    },
+    {
+      "weekday": 1,
+      "hour": 15,
+      "count": 789
+    },
+    {
+      "weekday": 1,
+      "hour": 16,
+      "count": 984
+    },
+    {
+      "weekday": 1,
+      "hour": 17,
+      "count": 1715
+    },
+    {
+      "weekday": 1,
+      "hour": 18,
+      "count": 1727
+    },
+    {
+      "weekday": 1,
+      "hour": 19,
+      "count": 946
+    },
+    {
+      "weekday": 1,
+      "hour": 20,
+      "count": 652
+    },
+    {
+      "weekday": 1,
+      "hour": 21,
+      "count": 389
+    },
+    {
+      "weekday": 1,
+      "hour": 22,
+      "count": 235
+    },
+    {
+      "weekday": 1,
+      "hour": 23,
+      "count": 130
+    },
+    {
+      "weekday": 2,
+      "hour": 0,
+      "count": 84
+    },
+    {
+      "weekday": 2,
+      "hour": 1,
+      "count": 95
+    },
+    {
+      "weekday": 2,
+      "hour": 2,
+      "count": 69
+    },
+    {
+      "weekday": 2,
+      "hour": 3,
+      "count": 41
+    },
+    {
+      "weekday": 2,
+      "hour": 4,
+      "count": 85
+    },
+    {
+      "weekday": 2,
+      "hour": 5,
+      "count": 189
+    },
+    {
+      "weekday": 2,
+      "hour": 6,
+      "count": 606
+    },
+    {
+      "weekday": 2,
+      "hour": 7,
+      "count": 1276
+    },
+    {
+      "weekday": 2,
+      "hour": 8,
+      "count": 1636
+    },
+    {
+      "weekday": 2,
+      "hour": 9,
+      "count": 749
+    },
+    {
+      "weekday": 2,
+      "hour": 10,
+      "count": 505
+    },
+    {
+      "weekday": 2,
+      "hour": 11,
+      "count": 480
+    },
+    {
+      "weekday": 2,
+      "hour": 12,
+      "count": 632
+    },
+    {
+      "weekday": 2,
+      "hour": 13,
+      "count": 650
+    },
+    {
+      "weekday": 2,
+      "hour": 14,
+      "count": 724
+    },
+    {
+      "weekday": 2,
+      "hour": 15,
+      "count": 891
+    },
+    {
+      "weekday": 2,
+      "hour": 16,
+      "count": 1116
+    },
+    {
+      "weekday": 2,
+      "hour": 17,
+      "count": 1846
+    },
+    {
+      "weekday": 2,
+      "hour": 18,
+      "count": 1774
+    },
+    {
+      "weekday": 2,
+      "hour": 19,
+      "count": 1044
+    },
+    {
+      "weekday": 2,
+      "hour": 20,
+      "count": 627
+    },
+    {
+      "weekday": 2,
+      "hour": 21,
+      "count": 428
+    },
+    {
+      "weekday": 2,
+      "hour": 22,
+      "count": 319
+    },
+    {
+      "weekday": 2,
+      "hour": 23,
+      "count": 144
+    },
+    {
+      "weekday": 3,
+      "hour": 0,
+      "count": 76
+    },
+    {
+      "weekday": 3,
+      "hour": 1,
+      "count": 41
+    },
+    {
+      "weekday": 3,
+      "hour": 2,
+      "count": 23
+    },
+    {
+      "weekday": 3,
+      "hour": 3,
+      "count": 18
+    },
+    {
+      "weekday": 3,
+      "hour": 4,
+      "count": 84
+    },
+    {
+      "weekday": 3,
+      "hour": 5,
+      "count": 202
+    },
+    {
+      "weekday": 3,
+      "hour": 6,
+      "count": 566
+    },
+    {
+      "weekday": 3,
+      "hour": 7,
+      "count": 1244
+    },
+    {
+      "weekday": 3,
+      "hour": 8,
+      "count": 1589
+    },
+    {
+      "weekday": 3,
+      "hour": 9,
+      "count": 748
+    },
+    {
+      "weekday": 3,
+      "hour": 10,
+      "count": 479
+    },
+    {
+      "weekday": 3,
+      "hour": 11,
+      "count": 500
+    },
+    {
+      "weekday": 3,
+      "hour": 12,
+      "count": 614
+    },
+    {
+      "weekday": 3,
+      "hour": 13,
+      "count": 604
+    },
+    {
+      "weekday": 3,
+      "hour": 14,
+      "count": 714
+    },
+    {
+      "weekday": 3,
+      "hour": 15,
+      "count": 933
+    },
+    {
+      "weekday": 3,
+      "hour": 16,
+      "count": 1078
+    },
+    {
+      "weekday": 3,
+      "hour": 17,
+      "count": 1741
+    },
+    {
+      "weekday": 3,
+      "hour": 18,
+      "count": 1612
+    },
+    {
+      "weekday": 3,
+      "hour": 19,
+      "count": 1018
+    },
+    {
+      "weekday": 3,
+      "hour": 20,
+      "count": 733
+    },
+    {
+      "weekday": 3,
+      "hour": 21,
+      "count": 540
+    },
+    {
+      "weekday": 3,
+      "hour": 22,
+      "count": 336
+    },
+    {
+      "weekday": 3,
+      "hour": 23,
+      "count": 245
+    },
+    {
+      "weekday": 4,
+      "hour": 0,
+      "count": 136
+    },
+    {
+      "weekday": 4,
+      "hour": 1,
+      "count": 52
+    },
+    {
+      "weekday": 4,
+      "hour": 2,
+      "count": 39
+    },
+    {
+      "weekday": 4,
+      "hour": 3,
+      "count": 22
+    },
+    {
+      "weekday": 4,
+      "hour": 4,
+      "count": 69
+    },
+    {
+      "weekday": 4,
+      "hour": 5,
+      "count": 198
+    },
+    {
+      "weekday": 4,
+      "hour": 6,
+      "count": 555
+    },
+    {
+      "weekday": 4,
+      "hour": 7,
+      "count": 1118
+    },
+    {
+      "weekday": 4,
+      "hour": 8,
+      "count": 1363
+    },
+    {
+      "weekday": 4,
+      "hour": 9,
+      "count": 846
+    },
+    {
+      "weekday": 4,
+      "hour": 10,
+      "count": 610
+    },
+    {
+      "weekday": 4,
+      "hour": 11,
+      "count": 729
+    },
+    {
+      "weekday": 4,
+      "hour": 12,
+      "count": 803
+    },
+    {
+      "weekday": 4,
+      "hour": 13,
+      "count": 849
+    },
+    {
+      "weekday": 4,
+      "hour": 14,
+      "count": 1001
+    },
+    {
+      "weekday": 4,
+      "hour": 15,
+      "count": 1194
+    },
+    {
+      "weekday": 4,
+      "hour": 16,
+      "count": 1422
+    },
+    {
+      "weekday": 4,
+      "hour": 17,
+      "count": 1686
+    },
+    {
+      "weekday": 4,
+      "hour": 18,
+      "count": 1462
+    },
+    {
+      "weekday": 4,
+      "hour": 19,
+      "count": 964
+    },
+    {
+      "weekday": 4,
+      "hour": 20,
+      "count": 583
+    },
+    {
+      "weekday": 4,
+      "hour": 21,
+      "count": 465
+    },
+    {
+      "weekday": 4,
+      "hour": 22,
+      "count": 409
+    },
+    {
+      "weekday": 4,
+      "hour": 23,
+      "count": 313
+    },
+    {
+      "weekday": 5,
+      "hour": 0,
+      "count": 180
+    },
+    {
+      "weekday": 5,
+      "hour": 1,
+      "count": 126
+    },
+    {
+      "weekday": 5,
+      "hour": 2,
+      "count": 88
+    },
+    {
+      "weekday": 5,
+      "hour": 3,
+      "count": 72
+    },
+    {
+      "weekday": 5,
+      "hour": 4,
+      "count": 37
+    },
+    {
+      "weekday": 5,
+      "hour": 5,
+      "count": 51
+    },
+    {
+      "weekday": 5,
+      "hour": 6,
+      "count": 85
+    },
+    {
+      "weekday": 5,
+      "hour": 7,
+      "count": 268
+    },
+    {
+      "weekday": 5,
+      "hour": 8,
+      "count": 489
+    },
+    {
+      "weekday": 5,
+      "hour": 9,
+      "count": 710
+    },
+    {
+      "weekday": 5,
+      "hour": 10,
+      "count": 806
+    },
+    {
+      "weekday": 5,
+      "hour": 11,
+      "count": 948
+    },
+    {
+      "weekday": 5,
+      "hour": 12,
+      "count": 920
+    },
+    {
+      "weekday": 5,
+      "hour": 13,
+      "count": 890
+    },
+    {
+      "weekday": 5,
+      "hour": 14,
+      "count": 765
+    },
+    {
+      "weekday": 5,
+      "hour": 15,
+      "count": 830
+    },
+    {
+      "weekday": 5,
+      "hour": 16,
+      "count": 777
+    },
+    {
+      "weekday": 5,
+      "hour": 17,
+      "count": 700
+    },
+    {
+      "weekday": 5,
+      "hour": 18,
+      "count": 548
+    },
+    {
+      "weekday": 5,
+      "hour": 19,
+      "count": 501
+    },
+    {
+      "weekday": 5,
+      "hour": 20,
+      "count": 307
+    },
+    {
+      "weekday": 5,
+      "hour": 21,
+      "count": 268
+    },
+    {
+      "weekday": 5,
+      "hour": 22,
+      "count": 214
+    },
+    {
+      "weekday": 5,
+      "hour": 23,
+      "count": 228
+    },
+    {
+      "weekday": 6,
+      "hour": 0,
+      "count": 163
+    },
+    {
+      "weekday": 6,
+      "hour": 1,
+      "count": 147
+    },
+    {
+      "weekday": 6,
+      "hour": 2,
+      "count": 118
+    },
+    {
+      "weekday": 6,
+      "hour": 3,
+      "count": 63
+    },
+    {
+      "weekday": 6,
+      "hour": 4,
+      "count": 33
+    },
+    {
+      "weekday": 6,
+      "hour": 5,
+      "count": 35
+    },
+    {
+      "weekday": 6,
+      "hour": 6,
+      "count": 71
+    },
+    {
+      "weekday": 6,
+      "hour": 7,
+      "count": 149
+    },
+    {
+      "weekday": 6,
+      "hour": 8,
+      "count": 294
+    },
+    {
+      "weekday": 6,
+      "hour": 9,
+      "count": 489
+    },
+    {
+      "weekday": 6,
+      "hour": 10,
+      "count": 560
+    },
+    {
+      "weekday": 6,
+      "hour": 11,
+      "count": 751
+    },
+    {
+      "weekday": 6,
+      "hour": 12,
+      "count": 733
+    },
+    {
+      "weekday": 6,
+      "hour": 13,
+      "count": 785
+    },
+    {
+      "weekday": 6,
+      "hour": 14,
+      "count": 752
+    },
+    {
+      "weekday": 6,
+      "hour": 15,
+      "count": 706
+    },
+    {
+      "weekday": 6,
+      "hour": 16,
+      "count": 752
+    },
+    {
+      "weekday": 6,
+      "hour": 17,
+      "count": 665
+    },
+    {
+      "weekday": 6,
+      "hour": 18,
+      "count": 534
+    },
+    {
+      "weekday": 6,
+      "hour": 19,
+      "count": 371
+    },
+    {
+      "weekday": 6,
+      "hour": 20,
+      "count": 266
+    },
+    {
+      "weekday": 6,
+      "hour": 21,
+      "count": 211
+    },
+    {
+      "weekday": 6,
+      "hour": 22,
+      "count": 191
+    },
+    {
+      "weekday": 6,
+      "hour": 23,
+      "count": 143
+    }
+  ],
+  "stations": [
+    {
+      "node_id": "HB102",
+      "training_period_borrows": 2954,
+      "active_days": 31,
+      "name": "Hoboken Terminal - River St & Hudson Pl",
+      "latitude": 40.7360676564825,
+      "longitude": -74.02912706136703
+    },
+    {
+      "node_id": "JC115",
+      "training_period_borrows": 2618,
+      "active_days": 31,
+      "name": "Grove St PATH",
+      "latitude": 40.71941000000002,
+      "longitude": -74.04309000000003
+    },
+    {
+      "node_id": "JC109",
+      "training_period_borrows": 1282,
+      "active_days": 31,
+      "name": "Bergen Ave & Sip Ave",
+      "latitude": 40.7310088869873,
+      "longitude": -74.06443700194359
+    },
+    {
+      "node_id": "HB105",
+      "training_period_borrows": 1265,
+      "active_days": 31,
+      "name": "City Hall - Washington St & 1 St",
+      "latitude": 40.73736,
+      "longitude": -74.03097000000001
+    },
+    {
+      "node_id": "HB101",
+      "training_period_borrows": 1166,
+      "active_days": 31,
+      "name": "Hoboken Terminal - Hudson St & Hudson Pl",
+      "latitude": 40.735937584463265,
+      "longitude": -74.03030455112457
+    },
+    {
+      "node_id": "JC009",
+      "training_period_borrows": 1120,
+      "active_days": 31,
+      "name": "Hamilton Park",
+      "latitude": 40.72759596600002,
+      "longitude": -74.04424731100003
+    },
+    {
+      "node_id": "HB609",
+      "training_period_borrows": 1113,
+      "active_days": 31,
+      "name": "River St & 1 St",
+      "latitude": 40.73721535335381,
+      "longitude": -74.02886540972803
+    },
+    {
+      "node_id": "JC066",
+      "training_period_borrows": 1109,
+      "active_days": 31,
+      "name": "Newport PATH",
+      "latitude": 40.72722349999999,
+      "longitude": -74.0337589
+    },
+    {
+      "node_id": "HB603",
+      "training_period_borrows": 1106,
+      "active_days": 31,
+      "name": "8 St & Washington St",
+      "latitude": 40.745983882915624,
+      "longitude": -74.02819901704788
+    },
+    {
+      "node_id": "HB501",
+      "training_period_borrows": 1014,
+      "active_days": 31,
+      "name": "Columbus Park - Clinton St & 9 St",
+      "latitude": 40.74816121065147,
+      "longitude": -74.0324530005455
+    },
+    {
+      "node_id": "JC116",
+      "training_period_borrows": 990,
+      "active_days": 31,
+      "name": "Exchange Pl",
+      "latitude": 40.71636596185077,
+      "longitude": -74.034343957901
+    },
+    {
+      "node_id": "HB402",
+      "training_period_borrows": 929,
+      "active_days": 31,
+      "name": "Madison St & 1 St",
+      "latitude": 40.73879,
+      "longitude": -74.03930000000001
+    },
+    {
+      "node_id": "HB502",
+      "training_period_borrows": 888,
+      "active_days": 31,
+      "name": "11 St & Washington St",
+      "latitude": 40.74998490907138,
+      "longitude": -74.02715027332306
+    },
+    {
+      "node_id": "JC008",
+      "training_period_borrows": 860,
+      "active_days": 31,
+      "name": "Newport Pkwy",
+      "latitude": 40.7287448,
+      "longitude": -74.03210819999998
+    },
+    {
+      "node_id": "HB305",
+      "training_period_borrows": 827,
+      "active_days": 31,
+      "name": "9 St HBLR - Jackson St & 8 St",
+      "latitude": 40.74790720968899,
+      "longitude": -74.03841152787209
+    },
+    {
+      "node_id": "HB303",
+      "training_period_borrows": 798,
+      "active_days": 31,
+      "name": "Clinton St & 7 St",
+      "latitude": 40.74542,
+      "longitude": -74.03332000000002
+    },
+    {
+      "node_id": "HB103",
+      "training_period_borrows": 789,
+      "active_days": 31,
+      "name": "South Waterfront Walkway - Sinatra Dr & 1 St",
+      "latitude": 40.73698221818716,
+      "longitude": -74.02778059244156
+    },
+    {
+      "node_id": "JC014",
+      "training_period_borrows": 776,
+      "active_days": 31,
+      "name": "Columbus Drive",
+      "latitude": 40.71835519823213,
+      "longitude": -74.03891444206238
+    },
+    {
+      "node_id": "HB408",
+      "training_period_borrows": 772,
+      "active_days": 31,
+      "name": "Marshall St & 2 St",
+      "latitude": 40.740802,
+      "longitude": -74.042521
+    },
+    {
+      "node_id": "JC013",
+      "training_period_borrows": 768,
+      "active_days": 31,
+      "name": "Marin Light Rail",
+      "latitude": 40.71458403535894,
+      "longitude": -74.04281705617905
+    },
+    {
+      "node_id": "HB601",
+      "training_period_borrows": 764,
+      "active_days": 31,
+      "name": "Church Sq Park - 5 St & Park Ave",
+      "latitude": 40.74265933273142,
+      "longitude": -74.03223305940628
+    },
+    {
+      "node_id": "HB602",
+      "training_period_borrows": 750,
+      "active_days": 31,
+      "name": "Stevens - River Ter & 6 St",
+      "latitude": 40.74313282710551,
+      "longitude": -74.02698867022991
+    },
+    {
+      "node_id": "HB202",
+      "training_period_borrows": 749,
+      "active_days": 31,
+      "name": "14 St Ferry - 14 St & Shipyard Ln",
+      "latitude": 40.752960630464955,
+      "longitude": -74.02435272932053
+    },
+    {
+      "node_id": "HB506",
+      "training_period_borrows": 690,
+      "active_days": 31,
+      "name": "Grand St & 14 St",
+      "latitude": 40.75408999999999,
+      "longitude": -74.0316
+    },
+    {
+      "node_id": "HB301",
+      "training_period_borrows": 687,
+      "active_days": 31,
+      "name": "4 St & Grand St",
+      "latitude": 40.7422579775645,
+      "longitude": -74.03511106967926
+    },
+    {
+      "node_id": "JC052",
+      "training_period_borrows": 672,
+      "active_days": 30,
+      "name": "Liberty Light Rail",
+      "latitude": 40.711242300000016,
+      "longitude": -74.05570130000002
+    },
+    {
+      "node_id": "JC105",
+      "training_period_borrows": 658,
+      "active_days": 31,
+      "name": "Hoboken Ave at Monmouth St",
+      "latitude": 40.73520838045357,
+      "longitude": -74.04696375131607
+    },
+    {
+      "node_id": "HB407",
+      "training_period_borrows": 654,
+      "active_days": 31,
+      "name": "Adams St & 2 St",
+      "latitude": 40.73981372311843,
+      "longitude": -74.03690412640572
+    },
+    {
+      "node_id": "HB201",
+      "training_period_borrows": 641,
+      "active_days": 31,
+      "name": "12 St & Sinatra Dr N",
+      "latitude": 40.75060414236896,
+      "longitude": -74.02402013540268
+    },
+    {
+      "node_id": "HB304",
+      "training_period_borrows": 638,
+      "active_days": 31,
+      "name": "7 St & Monroe St",
+      "latitude": 40.74641264837719,
+      "longitude": -74.03797701001167
+    },
+    {
+      "node_id": "JC055",
+      "training_period_borrows": 630,
+      "active_days": 31,
+      "name": "McGinley Square",
+      "latitude": 40.72533992535579,
+      "longitude": -74.06762212514877
+    },
+    {
+      "node_id": "JC082",
+      "training_period_borrows": 624,
+      "active_days": 31,
+      "name": "Manila & 1st",
+      "latitude": 40.721650724879986,
+      "longitude": -74.04288411140442
+    },
+    {
+      "node_id": "HB611",
+      "training_period_borrows": 617,
+      "active_days": 31,
+      "name": "4 St & River St",
+      "latitude": 40.74081389999999,
+      "longitude": -74.02740619999999
+    },
+    {
+      "node_id": "HB505",
+      "training_period_borrows": 593,
+      "active_days": 31,
+      "name": "Willow Ave & 12 St",
+      "latitude": 40.75186748232821,
+      "longitude": -74.03037697076797
+    },
+    {
+      "node_id": "JC103",
+      "training_period_borrows": 589,
+      "active_days": 31,
+      "name": "Journal Square",
+      "latitude": 40.73367,
+      "longitude": -74.0625
+    },
+    {
+      "node_id": "JC098",
+      "training_period_borrows": 587,
+      "active_days": 31,
+      "name": "Washington St",
+      "latitude": 40.7242941,
+      "longitude": -74.0354826
+    },
+    {
+      "node_id": "JC023",
+      "training_period_borrows": 583,
+      "active_days": 31,
+      "name": "Brunswick St",
+      "latitude": 40.724176500000006,
+      "longitude": -74.05065640000001
+    },
+    {
+      "node_id": "JC006",
+      "training_period_borrows": 578,
+      "active_days": 31,
+      "name": "Warren St",
+      "latitude": 40.72112359999999,
+      "longitude": -74.03805095000001
+    },
+    {
+      "node_id": "HB409",
+      "training_period_borrows": 571,
+      "active_days": 31,
+      "name": "Clinton St & Newark St",
+      "latitude": 40.73743,
+      "longitude": -74.03571
+    },
+    {
+      "node_id": "HB401",
+      "training_period_borrows": 570,
+      "active_days": 31,
+      "name": "Southwest Park - Jackson St & Observer Hwy",
+      "latitude": 40.73755127245804,
+      "longitude": -74.04166370630264
+    },
+    {
+      "node_id": "JC003",
+      "training_period_borrows": 560,
+      "active_days": 31,
+      "name": "City Hall",
+      "latitude": 40.71773250000001,
+      "longitude": -74.043845
+    },
+    {
+      "node_id": "JC032",
+      "training_period_borrows": 559,
+      "active_days": 31,
+      "name": "Newark Ave",
+      "latitude": 40.721525150000005,
+      "longitude": -74.04630454300002
+    },
+    {
+      "node_id": "JC072",
+      "training_period_borrows": 556,
+      "active_days": 31,
+      "name": "Morris Canal",
+      "latitude": 40.7124188237569,
+      "longitude": -74.03852552175522
+    },
+    {
+      "node_id": "JC035",
+      "training_period_borrows": 549,
+      "active_days": 31,
+      "name": "Van Vorst Park",
+      "latitude": 40.71848891999999,
+      "longitude": -74.04772662499997
+    },
+    {
+      "node_id": "JC081",
+      "training_period_borrows": 546,
+      "active_days": 31,
+      "name": "Brunswick & 6th",
+      "latitude": 40.72601172964626,
+      "longitude": -74.05038893222809
+    },
+    {
+      "node_id": "JC104",
+      "training_period_borrows": 545,
+      "active_days": 31,
+      "name": "Harborside",
+      "latitude": 40.7192517,
+      "longitude": -74.034234
+    },
+    {
+      "node_id": "HB608",
+      "training_period_borrows": 493,
+      "active_days": 31,
+      "name": "2 St & Park Ave",
+      "latitude": 40.739152727637,
+      "longitude": -74.0330819785595
+    },
+    {
+      "node_id": "JC102",
+      "training_period_borrows": 490,
+      "active_days": 31,
+      "name": "Grand St",
+      "latitude": 40.71517767732029,
+      "longitude": -74.03768330812454
+    },
+    {
+      "node_id": "HB203",
+      "training_period_borrows": 473,
+      "active_days": 31,
+      "name": "Bloomfield St & 15 St",
+      "latitude": 40.75453,
+      "longitude": -74.02657999999997
+    },
+    {
+      "node_id": "JC022",
+      "training_period_borrows": 463,
+      "active_days": 31,
+      "name": "Oakland Ave",
+      "latitude": 40.7376037,
+      "longitude": -74.05247830000003
+    },
+    {
+      "node_id": "JC074",
+      "training_period_borrows": 453,
+      "active_days": 31,
+      "name": "Jersey & 3rd",
+      "latitude": 40.72333158646437,
+      "longitude": -74.04595255851744
+    },
+    {
+      "node_id": "HB404",
+      "training_period_borrows": 441,
+      "active_days": 31,
+      "name": "Mama Johnson Field - 4 St & Jackson St",
+      "latitude": 40.74313993965625,
+      "longitude": -74.04004096984863
+    },
+    {
+      "node_id": "JC020",
+      "training_period_borrows": 438,
+      "active_days": 31,
+      "name": "Baldwin at Montgomery",
+      "latitude": 40.72365889999999,
+      "longitude": -74.0641943
+    },
+    {
+      "node_id": "HB302",
+      "training_period_borrows": 424,
+      "active_days": 31,
+      "name": "6 St & Grand St",
+      "latitude": 40.744397833095604,
+      "longitude": -74.03450086712837
+    },
+    {
+      "node_id": "JC075",
+      "training_period_borrows": 423,
+      "active_days": 31,
+      "name": "Monmouth & 6th",
+      "latitude": 40.72568548362901,
+      "longitude": -74.04879033565521
+    },
+    {
+      "node_id": "JC027",
+      "training_period_borrows": 408,
+      "active_days": 31,
+      "name": "Jersey & 6th St",
+      "latitude": 40.725289107811314,
+      "longitude": -74.04557168483734
+    },
+    {
+      "node_id": "JC110",
+      "training_period_borrows": 404,
+      "active_days": 31,
+      "name": "JC Medical Center",
+      "latitude": 40.71539114317,
+      "longitude": -74.04969155788422
+    },
+    {
+      "node_id": "JC002",
+      "training_period_borrows": 380,
+      "active_days": 31,
+      "name": "Paulus Hook",
+      "latitude": 40.71414539999999,
+      "longitude": -74.0335519
+    },
+    {
+      "node_id": "JC034",
+      "training_period_borrows": 367,
+      "active_days": 31,
+      "name": "Christ Hospital",
+      "latitude": 40.734785818,
+      "longitude": -74.05044363600001
+    },
+    {
+      "node_id": "JC078",
+      "training_period_borrows": 351,
+      "active_days": 31,
+      "name": "Lafayette Park",
+      "latitude": 40.71346382669195,
+      "longitude": -74.06285852193832
+    }
+  ],
+  "top_flows": [
+    {
+      "start_station_id": "JC055",
+      "end_station_id": "JC109",
+      "count": 571
+    },
+    {
+      "start_station_id": "JC115",
+      "end_station_id": "JC052",
+      "count": 527
+    },
+    {
+      "start_station_id": "JC115",
+      "end_station_id": "JC013",
+      "count": 520
+    },
+    {
+      "start_station_id": "JC109",
+      "end_station_id": "JC055",
+      "count": 514
+    },
+    {
+      "start_station_id": "JC052",
+      "end_station_id": "JC115",
+      "count": 492
+    },
+    {
+      "start_station_id": "JC013",
+      "end_station_id": "JC115",
+      "count": 443
+    },
+    {
+      "start_station_id": "JC009",
+      "end_station_id": "JC115",
+      "count": 430
+    },
+    {
+      "start_station_id": "JC072",
+      "end_station_id": "JC116",
+      "count": 426
+    },
+    {
+      "start_station_id": "JC023",
+      "end_station_id": "JC115",
+      "count": 404
+    },
+    {
+      "start_station_id": "JC109",
+      "end_station_id": "JC095",
+      "count": 374
+    },
+    {
+      "start_station_id": "JC115",
+      "end_station_id": "JC009",
+      "count": 355
+    },
+    {
+      "start_station_id": "HB402",
+      "end_station_id": "HB102",
+      "count": 354
+    },
+    {
+      "start_station_id": "HB603",
+      "end_station_id": "HB102",
+      "count": 341
+    },
+    {
+      "start_station_id": "JC115",
+      "end_station_id": "JC078",
+      "count": 340
+    },
+    {
+      "start_station_id": "HB102",
+      "end_station_id": "HB603",
+      "count": 337
+    },
+    {
+      "start_station_id": "JC093",
+      "end_station_id": "JC109",
+      "count": 333
+    },
+    {
+      "start_station_id": "JC095",
+      "end_station_id": "JC109",
+      "count": 330
+    },
+    {
+      "start_station_id": "JC109",
+      "end_station_id": "JC053",
+      "count": 324
+    },
+    {
+      "start_station_id": "JC065",
+      "end_station_id": "JC103",
+      "count": 322
+    },
+    {
+      "start_station_id": "JC103",
+      "end_station_id": "JC065",
+      "count": 316
+    },
+    {
+      "start_station_id": "JC078",
+      "end_station_id": "JC115",
+      "count": 308
+    },
+    {
+      "start_station_id": "JC116",
+      "end_station_id": "JC072",
+      "count": 298
+    },
+    {
+      "start_station_id": "HB602",
+      "end_station_id": "HB102",
+      "count": 288
+    },
+    {
+      "start_station_id": "JC035",
+      "end_station_id": "JC115",
+      "count": 285
+    },
+    {
+      "start_station_id": "JC053",
+      "end_station_id": "JC109",
+      "count": 281
+    },
+    {
+      "start_station_id": "JC082",
+      "end_station_id": "JC009",
+      "count": 281
+    },
+    {
+      "start_station_id": "JC009",
+      "end_station_id": "JC082",
+      "count": 266
+    },
+    {
+      "start_station_id": "HB102",
+      "end_station_id": "HB602",
+      "count": 264
+    },
+    {
+      "start_station_id": "JC076",
+      "end_station_id": "JC115",
+      "count": 262
+    },
+    {
+      "start_station_id": "JC115",
+      "end_station_id": "JC110",
+      "count": 258
+    },
+    {
+      "start_station_id": "HB101",
+      "end_station_id": "HB401",
+      "count": 255
+    },
+    {
+      "start_station_id": "JC115",
+      "end_station_id": "JC023",
+      "count": 249
+    },
+    {
+      "start_station_id": "JC110",
+      "end_station_id": "JC115",
+      "count": 246
+    },
+    {
+      "start_station_id": "HB101",
+      "end_station_id": "JC105",
+      "count": 237
+    },
+    {
+      "start_station_id": "HB601",
+      "end_station_id": "HB102",
+      "count": 233
+    },
+    {
+      "start_station_id": "JC115",
+      "end_station_id": "JC035",
+      "count": 233
+    },
+    {
+      "start_station_id": "JC020",
+      "end_station_id": "JC115",
+      "count": 231
+    },
+    {
+      "start_station_id": "JC109",
+      "end_station_id": "JC093",
+      "count": 231
+    },
+    {
+      "start_station_id": "JC115",
+      "end_station_id": "JC081",
+      "count": 230
+    },
+    {
+      "start_station_id": "HB102",
+      "end_station_id": "HB303",
+      "count": 227
+    },
+    {
+      "start_station_id": "HB502",
+      "end_station_id": "HB102",
+      "count": 224
+    },
+    {
+      "start_station_id": "JC109",
+      "end_station_id": "JC077",
+      "count": 223
+    },
+    {
+      "start_station_id": "JC115",
+      "end_station_id": "JC076",
+      "count": 219
+    },
+    {
+      "start_station_id": "HB102",
+      "end_station_id": "HB301",
+      "count": 219
+    },
+    {
+      "start_station_id": "JC066",
+      "end_station_id": "JC009",
+      "count": 211
+    },
+    {
+      "start_station_id": "JC081",
+      "end_station_id": "JC115",
+      "count": 211
+    },
+    {
+      "start_station_id": "HB501",
+      "end_station_id": "HB102",
+      "count": 211
+    },
+    {
+      "start_station_id": "JC115",
+      "end_station_id": "JC099",
+      "count": 209
+    },
+    {
+      "start_station_id": "HB603",
+      "end_station_id": "HB609",
+      "count": 208
+    },
+    {
+      "start_station_id": "HB102",
+      "end_station_id": "HB502",
+      "count": 205
+    },
+    {
+      "start_station_id": "HB303",
+      "end_station_id": "HB102",
+      "count": 203
+    },
+    {
+      "start_station_id": "HB301",
+      "end_station_id": "HB102",
+      "count": 202
+    },
+    {
+      "start_station_id": "HB102",
+      "end_station_id": "HB501",
+      "count": 202
+    },
+    {
+      "start_station_id": "HB407",
+      "end_station_id": "HB102",
+      "count": 201
+    },
+    {
+      "start_station_id": "JC094",
+      "end_station_id": "JC109",
+      "count": 200
+    },
+    {
+      "start_station_id": "HB609",
+      "end_station_id": "HB603",
+      "count": 196
+    },
+    {
+      "start_station_id": "JC075",
+      "end_station_id": "JC115",
+      "count": 194
+    },
+    {
+      "start_station_id": "JC066",
+      "end_station_id": "JC104",
+      "count": 191
+    },
+    {
+      "start_station_id": "HB105",
+      "end_station_id": "HB402",
+      "count": 190
+    },
+    {
+      "start_station_id": "JC099",
+      "end_station_id": "JC115",
+      "count": 189
+    },
+    {
+      "start_station_id": "JC066",
+      "end_station_id": "JC008",
+      "count": 188
+    },
+    {
+      "start_station_id": "HB402",
+      "end_station_id": "HB105",
+      "count": 188
+    },
+    {
+      "start_station_id": "HB401",
+      "end_station_id": "HB101",
+      "count": 185
+    },
+    {
+      "start_station_id": "HB101",
+      "end_station_id": "HB402",
+      "count": 180
+    },
+    {
+      "start_station_id": "HB103",
+      "end_station_id": "HB201",
+      "count": 179
+    },
+    {
+      "start_station_id": "JC080",
+      "end_station_id": "JC103",
+      "count": 177
+    },
+    {
+      "start_station_id": "JC098",
+      "end_station_id": "JC066",
+      "count": 175
+    },
+    {
+      "start_station_id": "HB102",
+      "end_station_id": "HB402",
+      "count": 175
+    },
+    {
+      "start_station_id": "JC008",
+      "end_station_id": "JC066",
+      "count": 173
+    },
+    {
+      "start_station_id": "HB501",
+      "end_station_id": "HB609",
+      "count": 170
+    },
+    {
+      "start_station_id": "JC084",
+      "end_station_id": "JC115",
+      "count": 165
+    },
+    {
+      "start_station_id": "JC022",
+      "end_station_id": "JC103",
+      "count": 163
+    },
+    {
+      "start_station_id": "JC109",
+      "end_station_id": "JC020",
+      "count": 161
+    },
+    {
+      "start_station_id": "JC066",
+      "end_station_id": "JC098",
+      "count": 161
+    },
+    {
+      "start_station_id": "JC027",
+      "end_station_id": "JC115",
+      "count": 161
+    },
+    {
+      "start_station_id": "HB102",
+      "end_station_id": "HB601",
+      "count": 161
+    },
+    {
+      "start_station_id": "JC009",
+      "end_station_id": "JC066",
+      "count": 161
+    },
+    {
+      "start_station_id": "JC104",
+      "end_station_id": "JC066",
+      "count": 160
+    },
+    {
+      "start_station_id": "HB102",
+      "end_station_id": "HB408",
+      "count": 159
+    },
+    {
+      "start_station_id": "JC077",
+      "end_station_id": "JC109",
+      "count": 157
+    },
+    {
+      "start_station_id": "JC109",
+      "end_station_id": "JC094",
+      "count": 157
+    },
+    {
+      "start_station_id": "JC103",
+      "end_station_id": "JC080",
+      "count": 151
+    },
+    {
+      "start_station_id": "JC020",
+      "end_station_id": "JC109",
+      "count": 151
+    },
+    {
+      "start_station_id": "JC105",
+      "end_station_id": "HB101",
+      "count": 150
+    },
+    {
+      "start_station_id": "JC066",
+      "end_station_id": "JC105",
+      "count": 150
+    },
+    {
+      "start_station_id": "HB105",
+      "end_station_id": "HB408",
+      "count": 149
+    },
+    {
+      "start_station_id": "HB102",
+      "end_station_id": "HB201",
+      "count": 149
+    },
+    {
+      "start_station_id": "HB102",
+      "end_station_id": "HB202",
+      "count": 148
+    },
+    {
+      "start_station_id": "JC115",
+      "end_station_id": "JC020",
+      "count": 147
+    },
+    {
+      "start_station_id": "HB408",
+      "end_station_id": "HB102",
+      "count": 146
+    },
+    {
+      "start_station_id": "HB102",
+      "end_station_id": "HB409",
+      "count": 146
+    },
+    {
+      "start_station_id": "JC115",
+      "end_station_id": "JC084",
+      "count": 144
+    },
+    {
+      "start_station_id": "JC075",
+      "end_station_id": "JC082",
+      "count": 144
+    },
+    {
+      "start_station_id": "JC103",
+      "end_station_id": "JC022",
+      "count": 144
+    },
+    {
+      "start_station_id": "HB202",
+      "end_station_id": "HB603",
+      "count": 143
+    },
+    {
+      "start_station_id": "JC115",
+      "end_station_id": "JC027",
+      "count": 143
+    },
+    {
+      "start_station_id": "JC052",
+      "end_station_id": "JC003",
+      "count": 139
+    },
+    {
+      "start_station_id": "HB102",
+      "end_station_id": "HB611",
+      "count": 139
+    },
+    {
+      "start_station_id": "JC082",
+      "end_station_id": "JC081",
+      "count": 138
+    },
+    {
+      "start_station_id": "HB201",
+      "end_station_id": "HB103",
+      "count": 138
+    }
+  ],
+  "split_rows": {
+    "train": 34560,
+    "validation": 20160,
+    "test": 20160
+  },
+  "scope": "Official real published records, not SJTU; model population selected using January only.",
+  "spark_version": "3.5.7",
+  "master": "local[2]",
+  "application_id": "local-1793697414313"
+}

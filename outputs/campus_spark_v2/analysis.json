@@ -1,0 +1,1425 @@
+{
+  "status": "completed",
+  "source": "data/simulated/campus_v2",
+  "output": "outputs/campus_spark_v2",
+  "raw_rows": 227514,
+  "clean_rows": 227514,
+  "quality": {
+    "valid": 227514,
+    "duplicates_removed": 0
+  },
+  "nodes": 142,
+  "observation_rows": 224290,
+  "node_hour_rows": 190848,
+  "split_rows": {
+    "train": 71568,
+    "validation": 47712,
+    "test": 47712
+  },
+  "daily": [
+    {
+      "day_index": 0,
+      "count": 4678
+    },
+    {
+      "day_index": 1,
+      "count": 5494
+    },
+    {
+      "day_index": 2,
+      "count": 2945
+    },
+    {
+      "day_index": 3,
+      "count": 5650
+    },
+    {
+      "day_index": 4,
+      "count": 2338
+    },
+    {
+      "day_index": 5,
+      "count": 3853
+    },
+    {
+      "day_index": 6,
+      "count": 4078
+    },
+    {
+      "day_index": 7,
+      "count": 4345
+    },
+    {
+      "day_index": 8,
+      "count": 5072
+    },
+    {
+      "day_index": 9,
+      "count": 3421
+    },
+    {
+      "day_index": 10,
+      "count": 2266
+    },
+    {
+      "day_index": 11,
+      "count": 4905
+    },
+    {
+      "day_index": 12,
+      "count": 3482
+    },
+    {
+      "day_index": 13,
+      "count": 3731
+    },
+    {
+      "day_index": 14,
+      "count": 3377
+    },
+    {
+      "day_index": 15,
+      "count": 4582
+    },
+    {
+      "day_index": 16,
+      "count": 4873
+    },
+    {
+      "day_index": 17,
+      "count": 4532
+    },
+    {
+      "day_index": 18,
+      "count": 4554
+    },
+    {
+      "day_index": 19,
+      "count": 3772
+    },
+    {
+      "day_index": 20,
+      "count": 3074
+    },
+    {
+      "day_index": 21,
+      "count": 3687
+    },
+    {
+      "day_index": 22,
+      "count": 3882
+    },
+    {
+      "day_index": 23,
+      "count": 4707
+    },
+    {
+      "day_index": 24,
+      "count": 3647
+    },
+    {
+      "day_index": 25,
+      "count": 3275
+    },
+    {
+      "day_index": 26,
+      "count": 1751
+    },
+    {
+      "day_index": 27,
+      "count": 2432
+    },
+    {
+      "day_index": 28,
+      "count": 4212
+    },
+    {
+      "day_index": 29,
+      "count": 4408
+    },
+    {
+      "day_index": 30,
+      "count": 3697
+    },
+    {
+      "day_index": 31,
+      "count": 4624
+    },
+    {
+      "day_index": 32,
+      "count": 4728
+    },
+    {
+      "day_index": 33,
+      "count": 3463
+    },
+    {
+      "day_index": 34,
+      "count": 3408
+    },
+    {
+      "day_index": 35,
+      "count": 3698
+    },
+    {
+      "day_index": 36,
+      "count": 4707
+    },
+    {
+      "day_index": 37,
+      "count": 3107
+    },
+    {
+      "day_index": 38,
+      "count": 3753
+    },
+    {
+      "day_index": 39,
+      "count": 5412
+    },
+    {
+      "day_index": 40,
+      "count": 3449
+    },
+    {
+      "day_index": 41,
+      "count": 4388
+    },
+    {
+      "day_index": 42,
+      "count": 4182
+    },
+    {
+      "day_index": 43,
+      "count": 5282
+    },
+    {
+      "day_index": 44,
+      "count": 3795
+    },
+    {
+      "day_index": 45,
+      "count": 4125
+    },
+    {
+      "day_index": 46,
+      "count": 4587
+    },
+    {
+      "day_index": 47,
+      "count": 4078
+    },
+    {
+      "day_index": 48,
+      "count": 2288
+    },
+    {
+      "day_index": 49,
+      "count": 3417
+    },
+    {
+      "day_index": 50,
+      "count": 4735
+    },
+    {
+      "day_index": 51,
+      "count": 4318
+    },
+    {
+      "day_index": 52,
+      "count": 4086
+    },
+    {
+      "day_index": 53,
+      "count": 4549
+    },
+    {
+      "day_index": 54,
+      "count": 5153
+    },
+    {
+      "day_index": 55,
+      "count": 4238
+    }
+  ],
+  "hourly": [
+    {
+      "hour": 0,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "hour": 1,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "hour": 2,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "hour": 3,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "hour": 4,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "hour": 5,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "hour": 6,
+      "borrows": 9146,
+      "returns": 8480
+    },
+    {
+      "hour": 7,
+      "borrows": 16516,
+      "returns": 17182
+    },
+    {
+      "hour": 8,
+      "borrows": 11283,
+      "returns": 11197
+    },
+    {
+      "hour": 9,
+      "borrows": 4527,
+      "returns": 4613
+    },
+    {
+      "hour": 10,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "hour": 11,
+      "borrows": 34347,
+      "returns": 34339
+    },
+    {
+      "hour": 12,
+      "borrows": 41566,
+      "returns": 24467
+    },
+    {
+      "hour": 13,
+      "borrows": 10568,
+      "returns": 27675
+    },
+    {
+      "hour": 14,
+      "borrows": 4896,
+      "returns": 267
+    },
+    {
+      "hour": 15,
+      "borrows": 85,
+      "returns": 4714
+    },
+    {
+      "hour": 16,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "hour": 17,
+      "borrows": 34792,
+      "returns": 34792
+    },
+    {
+      "hour": 18,
+      "borrows": 34774,
+      "returns": 34774
+    },
+    {
+      "hour": 19,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "hour": 20,
+      "borrows": 6441,
+      "returns": 6441
+    },
+    {
+      "hour": 21,
+      "borrows": 15349,
+      "returns": 15349
+    },
+    {
+      "hour": 22,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "hour": 23,
+      "borrows": 0,
+      "returns": 0
+    }
+  ],
+  "by_function": [
+    {
+      "function_type": "dining",
+      "borrows": 68515,
+      "returns": 68473
+    },
+    {
+      "function_type": "dormitory",
+      "borrows": 64843,
+      "returns": 64926
+    },
+    {
+      "function_type": "teaching",
+      "borrows": 40456,
+      "returns": 40438
+    },
+    {
+      "function_type": "library",
+      "borrows": 29699,
+      "returns": 29687
+    },
+    {
+      "function_type": "sports",
+      "borrows": 10678,
+      "returns": 10711
+    },
+    {
+      "function_type": "gate_transfer",
+      "borrows": 7987,
+      "returns": 7956
+    },
+    {
+      "function_type": "research",
+      "borrows": 2112,
+      "returns": 2099
+    }
+  ],
+  "function_hour": [
+    {
+      "function_type": "dining",
+      "hour": 0,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "dining",
+      "hour": 1,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "dining",
+      "hour": 2,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "dining",
+      "hour": 3,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "dining",
+      "hour": 4,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "dining",
+      "hour": 5,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "dining",
+      "hour": 6,
+      "borrows": 3,
+      "returns": 8480
+    },
+    {
+      "function_type": "dining",
+      "hour": 7,
+      "borrows": 4330,
+      "returns": 666
+    },
+    {
+      "function_type": "dining",
+      "hour": 8,
+      "borrows": 3031,
+      "returns": 0
+    },
+    {
+      "function_type": "dining",
+      "hour": 9,
+      "borrows": 1233,
+      "returns": 0
+    },
+    {
+      "function_type": "dining",
+      "hour": 10,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "dining",
+      "hour": 11,
+      "borrows": 722,
+      "returns": 27752
+    },
+    {
+      "function_type": "dining",
+      "hour": 12,
+      "borrows": 26110,
+      "returns": 8
+    },
+    {
+      "function_type": "dining",
+      "hour": 13,
+      "borrows": 1123,
+      "returns": 0
+    },
+    {
+      "function_type": "dining",
+      "hour": 14,
+      "borrows": 311,
+      "returns": 0
+    },
+    {
+      "function_type": "dining",
+      "hour": 15,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "dining",
+      "hour": 16,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "dining",
+      "hour": 17,
+      "borrows": 363,
+      "returns": 31567
+    },
+    {
+      "function_type": "dining",
+      "hour": 18,
+      "borrows": 31277,
+      "returns": 0
+    },
+    {
+      "function_type": "dining",
+      "hour": 19,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "dining",
+      "hour": 20,
+      "borrows": 11,
+      "returns": 0
+    },
+    {
+      "function_type": "dining",
+      "hour": 21,
+      "borrows": 1,
+      "returns": 0
+    },
+    {
+      "function_type": "dining",
+      "hour": 22,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "dining",
+      "hour": 23,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "dormitory",
+      "hour": 0,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "dormitory",
+      "hour": 1,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "dormitory",
+      "hour": 2,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "dormitory",
+      "hour": 3,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "dormitory",
+      "hour": 4,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "dormitory",
+      "hour": 5,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "dormitory",
+      "hour": 6,
+      "borrows": 9140,
+      "returns": 0
+    },
+    {
+      "function_type": "dormitory",
+      "hour": 7,
+      "borrows": 12168,
+      "returns": 0
+    },
+    {
+      "function_type": "dormitory",
+      "hour": 8,
+      "borrows": 8187,
+      "returns": 0
+    },
+    {
+      "function_type": "dormitory",
+      "hour": 9,
+      "borrows": 3195,
+      "returns": 0
+    },
+    {
+      "function_type": "dormitory",
+      "hour": 10,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "dormitory",
+      "hour": 11,
+      "borrows": 1165,
+      "returns": 6587
+    },
+    {
+      "function_type": "dormitory",
+      "hour": 12,
+      "borrows": 15456,
+      "returns": 23743
+    },
+    {
+      "function_type": "dormitory",
+      "hour": 13,
+      "borrows": 9354,
+      "returns": 0
+    },
+    {
+      "function_type": "dormitory",
+      "hour": 14,
+      "borrows": 4541,
+      "returns": 0
+    },
+    {
+      "function_type": "dormitory",
+      "hour": 15,
+      "borrows": 13,
+      "returns": 0
+    },
+    {
+      "function_type": "dormitory",
+      "hour": 16,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "dormitory",
+      "hour": 17,
+      "borrows": 1211,
+      "returns": 0
+    },
+    {
+      "function_type": "dormitory",
+      "hour": 18,
+      "borrows": 140,
+      "returns": 12806
+    },
+    {
+      "function_type": "dormitory",
+      "hour": 19,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "dormitory",
+      "hour": 20,
+      "borrows": 86,
+      "returns": 6441
+    },
+    {
+      "function_type": "dormitory",
+      "hour": 21,
+      "borrows": 187,
+      "returns": 15349
+    },
+    {
+      "function_type": "dormitory",
+      "hour": 22,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "dormitory",
+      "hour": 23,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "gate_transfer",
+      "hour": 0,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "gate_transfer",
+      "hour": 1,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "gate_transfer",
+      "hour": 2,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "gate_transfer",
+      "hour": 3,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "gate_transfer",
+      "hour": 4,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "gate_transfer",
+      "hour": 5,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "gate_transfer",
+      "hour": 6,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "gate_transfer",
+      "hour": 7,
+      "borrows": 1,
+      "returns": 0
+    },
+    {
+      "function_type": "gate_transfer",
+      "hour": 8,
+      "borrows": 1,
+      "returns": 2291
+    },
+    {
+      "function_type": "gate_transfer",
+      "hour": 9,
+      "borrows": 0,
+      "returns": 54
+    },
+    {
+      "function_type": "gate_transfer",
+      "hour": 10,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "gate_transfer",
+      "hour": 11,
+      "borrows": 2358,
+      "returns": 0
+    },
+    {
+      "function_type": "gate_transfer",
+      "hour": 12,
+      "borrows": 0,
+      "returns": 1
+    },
+    {
+      "function_type": "gate_transfer",
+      "hour": 13,
+      "borrows": 1,
+      "returns": 2385
+    },
+    {
+      "function_type": "gate_transfer",
+      "hour": 14,
+      "borrows": 1,
+      "returns": 0
+    },
+    {
+      "function_type": "gate_transfer",
+      "hour": 15,
+      "borrows": 1,
+      "returns": 0
+    },
+    {
+      "function_type": "gate_transfer",
+      "hour": 16,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "gate_transfer",
+      "hour": 17,
+      "borrows": 2412,
+      "returns": 3225
+    },
+    {
+      "function_type": "gate_transfer",
+      "hour": 18,
+      "borrows": 3212,
+      "returns": 0
+    },
+    {
+      "function_type": "gate_transfer",
+      "hour": 19,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "gate_transfer",
+      "hour": 20,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "gate_transfer",
+      "hour": 21,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "gate_transfer",
+      "hour": 22,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "gate_transfer",
+      "hour": 23,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "library",
+      "hour": 0,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "library",
+      "hour": 1,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "library",
+      "hour": 2,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "library",
+      "hour": 3,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "library",
+      "hour": 4,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "library",
+      "hour": 5,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "library",
+      "hour": 6,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "library",
+      "hour": 7,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "library",
+      "hour": 8,
+      "borrows": 0,
+      "returns": 6396
+    },
+    {
+      "function_type": "library",
+      "hour": 9,
+      "borrows": 0,
+      "returns": 14
+    },
+    {
+      "function_type": "library",
+      "hour": 10,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "library",
+      "hour": 11,
+      "borrows": 6522,
+      "returns": 0
+    },
+    {
+      "function_type": "library",
+      "hour": 12,
+      "borrows": 0,
+      "returns": 2
+    },
+    {
+      "function_type": "library",
+      "hour": 13,
+      "borrows": 0,
+      "returns": 7934
+    },
+    {
+      "function_type": "library",
+      "hour": 14,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "library",
+      "hour": 15,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "library",
+      "hour": 16,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "library",
+      "hour": 17,
+      "borrows": 8016,
+      "returns": 0
+    },
+    {
+      "function_type": "library",
+      "hour": 18,
+      "borrows": 0,
+      "returns": 15341
+    },
+    {
+      "function_type": "library",
+      "hour": 19,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "library",
+      "hour": 20,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "library",
+      "hour": 21,
+      "borrows": 15161,
+      "returns": 0
+    },
+    {
+      "function_type": "library",
+      "hour": 22,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "library",
+      "hour": 23,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "research",
+      "hour": 0,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "research",
+      "hour": 1,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "research",
+      "hour": 2,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "research",
+      "hour": 3,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "research",
+      "hour": 4,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "research",
+      "hour": 5,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "research",
+      "hour": 6,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "research",
+      "hour": 7,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "research",
+      "hour": 8,
+      "borrows": 0,
+      "returns": 785
+    },
+    {
+      "function_type": "research",
+      "hour": 9,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "research",
+      "hour": 10,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "research",
+      "hour": 11,
+      "borrows": 789,
+      "returns": 0
+    },
+    {
+      "function_type": "research",
+      "hour": 12,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "research",
+      "hour": 13,
+      "borrows": 0,
+      "returns": 1314
+    },
+    {
+      "function_type": "research",
+      "hour": 14,
+      "borrows": 8,
+      "returns": 0
+    },
+    {
+      "function_type": "research",
+      "hour": 15,
+      "borrows": 12,
+      "returns": 0
+    },
+    {
+      "function_type": "research",
+      "hour": 16,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "research",
+      "hour": 17,
+      "borrows": 1301,
+      "returns": 0
+    },
+    {
+      "function_type": "research",
+      "hour": 18,
+      "borrows": 2,
+      "returns": 0
+    },
+    {
+      "function_type": "research",
+      "hour": 19,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "research",
+      "hour": 20,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "research",
+      "hour": 21,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "research",
+      "hour": 22,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "research",
+      "hour": 23,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "sports",
+      "hour": 0,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "sports",
+      "hour": 1,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "sports",
+      "hour": 2,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "sports",
+      "hour": 3,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "sports",
+      "hour": 4,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "sports",
+      "hour": 5,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "sports",
+      "hour": 6,
+      "borrows": 3,
+      "returns": 0
+    },
+    {
+      "function_type": "sports",
+      "hour": 7,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "sports",
+      "hour": 8,
+      "borrows": 21,
+      "returns": 1725
+    },
+    {
+      "function_type": "sports",
+      "hour": 9,
+      "borrows": 18,
+      "returns": 18
+    },
+    {
+      "function_type": "sports",
+      "hour": 10,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "sports",
+      "hour": 11,
+      "borrows": 1774,
+      "returns": 0
+    },
+    {
+      "function_type": "sports",
+      "hour": 12,
+      "borrows": 0,
+      "returns": 1
+    },
+    {
+      "function_type": "sports",
+      "hour": 13,
+      "borrows": 32,
+      "returns": 2340
+    },
+    {
+      "function_type": "sports",
+      "hour": 14,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "sports",
+      "hour": 15,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "sports",
+      "hour": 16,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "sports",
+      "hour": 17,
+      "borrows": 2343,
+      "returns": 0
+    },
+    {
+      "function_type": "sports",
+      "hour": 18,
+      "borrows": 143,
+      "returns": 6627
+    },
+    {
+      "function_type": "sports",
+      "hour": 19,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "sports",
+      "hour": 20,
+      "borrows": 6344,
+      "returns": 0
+    },
+    {
+      "function_type": "sports",
+      "hour": 21,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "sports",
+      "hour": 22,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "sports",
+      "hour": 23,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "teaching",
+      "hour": 0,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "teaching",
+      "hour": 1,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "teaching",
+      "hour": 2,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "teaching",
+      "hour": 3,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "teaching",
+      "hour": 4,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "teaching",
+      "hour": 5,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "teaching",
+      "hour": 6,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "teaching",
+      "hour": 7,
+      "borrows": 17,
+      "returns": 16516
+    },
+    {
+      "function_type": "teaching",
+      "hour": 8,
+      "borrows": 43,
+      "returns": 0
+    },
+    {
+      "function_type": "teaching",
+      "hour": 9,
+      "borrows": 81,
+      "returns": 4527
+    },
+    {
+      "function_type": "teaching",
+      "hour": 10,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "teaching",
+      "hour": 11,
+      "borrows": 21017,
+      "returns": 0
+    },
+    {
+      "function_type": "teaching",
+      "hour": 12,
+      "borrows": 0,
+      "returns": 712
+    },
+    {
+      "function_type": "teaching",
+      "hour": 13,
+      "borrows": 58,
+      "returns": 13702
+    },
+    {
+      "function_type": "teaching",
+      "hour": 14,
+      "borrows": 35,
+      "returns": 267
+    },
+    {
+      "function_type": "teaching",
+      "hour": 15,
+      "borrows": 59,
+      "returns": 4714
+    },
+    {
+      "function_type": "teaching",
+      "hour": 16,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "teaching",
+      "hour": 17,
+      "borrows": 19146,
+      "returns": 0
+    },
+    {
+      "function_type": "teaching",
+      "hour": 18,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "teaching",
+      "hour": 19,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "teaching",
+      "hour": 20,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "teaching",
+      "hour": 21,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "teaching",
+      "hour": 22,
+      "borrows": 0,
+      "returns": 0
+    },
+    {
+      "function_type": "teaching",
+      "hour": 23,
+      "borrows": 0,
+      "returns": 0
+    }
+  ],
+  "runtime": {
+    "spark": "3.5.7",
+    "master": "local[2]",
+    "application_id": "local-1794390875641",
+    "elapsed_seconds": 15.289285834
+  },
+  "created_at": "2026-11-11T09:54:49.454948+00:00",
+  "limitations": [
+    "Local Spark, not HDFS/YARN",
+    "No real-campus calibration"
+  ]
+}

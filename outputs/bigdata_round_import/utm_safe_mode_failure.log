@@ -1,0 +1,12 @@
+{"cmd": ["docker", "exec", "master", "hdfs", "--daemon", "start", "namenode"], "code": 0, "out": "", "err": ""}
+{"cmd": ["docker", "exec", "master", "yarn", "--daemon", "start", "resourcemanager"], "code": 0, "out": "", "err": ""}
+{"cmd": ["docker", "exec", "worker1", "hdfs", "--daemon", "start", "datanode"], "code": 0, "out": "", "err": ""}
+{"cmd": ["docker", "exec", "worker1", "yarn", "--daemon", "start", "nodemanager"], "code": 0, "out": "", "err": ""}
+{"cmd": ["docker", "exec", "worker2", "hdfs", "--daemon", "start", "datanode"], "code": 0, "out": "", "err": ""}
+{"cmd": ["docker", "exec", "worker2", "yarn", "--daemon", "start", "nodemanager"], "code": 0, "out": "", "err": ""}
+{"cmd": ["docker", "cp", "/home/ccy/bike-project/bigdata_round_20261112", "master:/opt/bike-project/bigdata_round_20261112"], "code": 0, "out": "", "err": ""}
+{"cmd": ["docker", "exec", "master", "hdfs", "dfs", "-mkdir", "-p", "hdfs://master:9000/bike-project/runs/bigdata_round_20261112/input", "hdfs://master:9000/bike-project/runs/bigdata_round_20261112/events"], "code": 1, "out": "", "err": "mkdir: Cannot create directory /bike-project/runs/bigdata_round_20261112/input. Name node is in safe mode.\nmkdir: Cannot create directory /bike-project/runs/bigdata_round_20261112/events. Name node is in safe mode.\n"}
+Traceback (most recent call last):
+  File "<stdin>", line 15, in <module>
+  File "<stdin>", line 9, in cmd
+RuntimeError: ['docker', 'exec', 'master', 'hdfs', 'dfs', '-mkdir', '-p', 'hdfs://master:9000/bike-project/runs/bigdata_round_20261112/input', 'hdfs://master:9000/bike-project/runs/bigdata_round_20261112/events']

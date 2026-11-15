@@ -1,0 +1,687 @@
+== Parsed Logical Plan ==
+CTE [expanded]
+:  +- 'SubqueryAlias expanded
+:     +- 'Union false, false
+:        :- 'Union false, false
+:        :  :- 'Union false, false
+:        :  :  :- 'Union false, false
+:        :  :  :  :- 'Union false, false
+:        :  :  :  :  :- 'Project [*, overall AS dimension#1939, all AS bucket#1940]
+:        :  :  :  :  :  +- 'UnresolvedRelation [forecast_samples], [], false
+:        :  :  :  :  +- 'Project [*, unresolvedalias(day, None), unresolvedalias(cast('day_index as string), None)]
+:        :  :  :  :     +- 'UnresolvedRelation [forecast_samples], [], false
+:        :  :  :  +- 'Project [*, unresolvedalias(hour, None), unresolvedalias(cast('hour as string), None)]
+:        :  :  :     +- 'UnresolvedRelation [forecast_samples], [], false
+:        :  :  +- 'Project [*, unresolvedalias(function, None), 'function_type]
+:        :  :     +- 'UnresolvedRelation [forecast_samples], [], false
+:        :  +- 'Project [*, unresolvedalias(node, None), 'node_id]
+:        :     +- 'UnresolvedRelation [forecast_samples], [], false
+:        +- 'Project [*, unresolvedalias(actual_volume, None), unresolvedalias(CASE WHEN ('actual = 0) THEN zero WHEN ('actual < 5) THEN 1-4 ELSE 5+ END, None)]
+:           +- 'UnresolvedRelation [forecast_samples], [], false
++- 'Aggregate ['run_id, 'dimension, 'bucket], ['run_id, 'dimension, 'bucket, 'COUNT(1) AS rows#1923, 'SUM('actual) AS actual_count#1924, 'SUM(CASE WHEN ('actual = 0) THEN 1 ELSE 0 END) AS zero_rows#1925, 'SUM('GREATEST(('actual - 'prediction), 0.0)) AS underpredicted_volume#1926, 'AVG('ABS(('prediction - 'actual))) AS model_mae#1927, 'SQRT('AVG('POW(('prediction - 'actual), 2))) AS model_rmse#1928, ('SUM('ABS(('prediction - 'actual))) / 'NULLIF('SUM('actual), 0)) AS model_wape#1929, 'AVG('ABS(('baseline - 'actual))) AS baseline_mae#1930, 'SQRT('AVG('POW(('baseline - 'actual), 2))) AS baseline_rmse#1931, ('SUM('ABS(('baseline - 'actual))) / 'NULLIF('SUM('actual), 0)) AS baseline_wape#1932, 'SUM('ABS(('prediction - 'actual))) AS model_absolute_error_sum#1933, 'SUM('ABS(('baseline - 'actual))) AS baseline_absolute_error_sum#1934, 'AVG(('ABS(('baseline - 'actual)) - 'ABS(('prediction - 'actual)))) AS mae_gain#1935, 'SUM(CASE WHEN ('prediction < 'actual) THEN 1 ELSE 0 END) AS underpredicted_count#1936, 'AVG(('prediction - 'actual)) AS model_bias#1937, 'AVG(cast(CASE WHEN ('actual = 0) THEN 1 ELSE 0 END as double)) AS zero_fraction#1938]
+   +- 'UnresolvedRelation [expanded], [], false
+
+== Analyzed Logical Plan ==
+run_id: string, dimension: string, bucket: string, rows: bigint, actual_count: double, zero_rows: bigint, underpredicted_volume: double, model_mae: double, model_rmse: double, model_wape: double, baseline_mae: double, baseline_rmse: double, baseline_wape: double, model_absolute_error_sum: double, baseline_absolute_error_sum: double, mae_gain: double, underpredicted_count: bigint, model_bias: double, zero_fraction: double
+WithCTE
+:- CTERelationDef 0, false
+:  +- SubqueryAlias expanded
+:     +- Union false, false
+:        :- Union false, false
+:        :  :- Union false, false
+:        :  :  :- Union false, false
+:        :  :  :  :- Union false, false
+:        :  :  :  :  :- Project [node_id#0, forecast_origin_s#1L, hour#2L, actual#16, prediction#18, baseline#17, function_type#716, run_id#938, day_index#947, overall AS dimension#1939, all AS bucket#1940]
+:        :  :  :  :  :  +- SubqueryAlias forecast_samples
+:        :  :  :  :  :     +- View (`forecast_samples`, [node_id#0,forecast_origin_s#1L,hour#2L,actual#16,prediction#18,baseline#17,function_type#716,run_id#938,day_index#947])
+:        :  :  :  :  :        +- Union false, false
+:        :  :  :  :  :           :- Project [node_id#0, forecast_origin_s#1L, hour#2L, actual#16, prediction#18, baseline#17, function_type#716, run_id#938, cast(FLOOR((cast(forecast_origin_s#1L as double) / cast(86400 as double))) as int) AS day_index#947]
+:        :  :  :  :  :           :  +- Project [node_id#0, forecast_origin_s#1L, hour#2L, actual#16, prediction#18, baseline#17, function_type#716, campus_borrow AS run_id#938]
+:        :  :  :  :  :           :     +- Project [node_id#0, forecast_origin_s#1L, hour#2L, actual#16, prediction#18, baseline#17, function_type#716]
+:        :  :  :  :  :           :        +- Join LeftOuter, (node_id#0 = node_id#721)
+:        :  :  :  :  :           :           :- Project [node_id#0, forecast_origin_s#1L, hour#2L, cast(target_completed_borrows_next_hour#4 as double) AS actual#16, cast(prediction#5 as double) AS prediction#18, cast(seasonal_naive#6 as double) AS baseline#17]
+:        :  :  :  :  :           :           :  +- Relation [node_id#0,forecast_origin_s#1L,hour#2L,weekday#3L,target_completed_borrows_next_hour#4,prediction#5,seasonal_naive#6,zero_baseline#7] parquet
+:        :  :  :  :  :           :           +- Project [node_id#721, function_type#716]
+:        :  :  :  :  :           :              +- Relation [attraction_weight#714,coordinate_system#715,function_type#716,is_simulated_parking#717,latitude#718,longitude#719,name#720,node_id#721,operating_status#722,parking_capacity#723,parking_id#724,proposed_zone_id#725,simulation_zone_id#726,source_entity_type#727,source_url#728,synthetic_access_distance_m#729,zone_status#730] json
+:        :  :  :  :  :           +- Project [node_id#957, forecast_origin_s#958L, hour#959L, actual#973, prediction#975, baseline#974, function_type#1673, run_id#1895, day_index#1904]
+:        :  :  :  :  :              +- Project [node_id#957, forecast_origin_s#958L, hour#959L, actual#973, prediction#975, baseline#974, function_type#1673, run_id#1895, cast(FLOOR((cast(forecast_origin_s#958L as double) / cast(86400 as double))) as int) AS day_index#1904]
+:        :  :  :  :  :                 +- Project [node_id#957, forecast_origin_s#958L, hour#959L, actual#973, prediction#975, baseline#974, function_type#1673, campus_return AS run_id#1895]
+:        :  :  :  :  :                    +- Project [node_id#957, forecast_origin_s#958L, hour#959L, actual#973, prediction#975, baseline#974, function_type#1673]
+:        :  :  :  :  :                       +- Join LeftOuter, (node_id#957 = node_id#1678)
+:        :  :  :  :  :                          :- Project [node_id#957, forecast_origin_s#958L, hour#959L, cast(target_completed_returns_next_hour#961 as double) AS actual#973, cast(prediction#962 as double) AS prediction#975, cast(seasonal_naive#963 as double) AS baseline#974]
+:        :  :  :  :  :                          :  +- Relation [node_id#957,forecast_origin_s#958L,hour#959L,weekday#960L,target_completed_returns_next_hour#961,prediction#962,seasonal_naive#963,zero_baseline#964] parquet
+:        :  :  :  :  :                          +- Project [node_id#1678, function_type#1673]
+:        :  :  :  :  :                             +- Relation [attraction_weight#1671,coordinate_system#1672,function_type#1673,is_simulated_parking#1674,latitude#1675,longitude#1676,name#1677,node_id#1678,operating_status#1679,parking_capacity#1680,parking_id#1681,proposed_zone_id#1682,simulation_zone_id#1683,source_entity_type#1684,source_url#1685,synthetic_access_distance_m#1686,zone_status#1687] json
+:        :  :  :  :  +- Project [node_id#1941 AS node_id#2219, forecast_origin_s#1942L AS forecast_origin_s#2220L, hour#1943L AS hour#2221L, actual#16 AS actual#2222, prediction#18 AS prediction#2223, baseline#17 AS baseline#2224, function_type#1951 AS function_type#2225, run_id#938 AS run_id#2226, day_index#947 AS day_index#2227, day#2192 AS day#2228, day_index#2217 AS day_index#2229]
+:        :  :  :  :     +- Project [node_id#1941, forecast_origin_s#1942L, hour#1943L, actual#16, prediction#18, baseline#17, function_type#1951, run_id#938, day_index#947, day AS day#2192, cast(day_index#947 as string) AS day_index#2217]
+:        :  :  :  :        +- SubqueryAlias forecast_samples
+:        :  :  :  :           +- View (`forecast_samples`, [node_id#1941,forecast_origin_s#1942L,hour#1943L,actual#16,prediction#18,baseline#17,function_type#1951,run_id#938,day_index#947])
+:        :  :  :  :              +- Union false, false
+:        :  :  :  :                 :- Project [node_id#1941, forecast_origin_s#1942L, hour#1943L, actual#16, prediction#18, baseline#17, function_type#1951, run_id#938, cast(FLOOR((cast(forecast_origin_s#1942L as double) / cast(86400 as double))) as int) AS day_index#947]
+:        :  :  :  :                 :  +- Project [node_id#1941, forecast_origin_s#1942L, hour#1943L, actual#16, prediction#18, baseline#17, function_type#1951, campus_borrow AS run_id#938]
+:        :  :  :  :                 :     +- Project [node_id#1941, forecast_origin_s#1942L, hour#1943L, actual#16, prediction#18, baseline#17, function_type#1951]
+:        :  :  :  :                 :        +- Join LeftOuter, (node_id#1941 = node_id#1956)
+:        :  :  :  :                 :           :- Project [node_id#1941, forecast_origin_s#1942L, hour#1943L, cast(target_completed_borrows_next_hour#1945 as double) AS actual#16, cast(prediction#1946 as double) AS prediction#18, cast(seasonal_naive#1947 as double) AS baseline#17]
+:        :  :  :  :                 :           :  +- Relation [node_id#1941,forecast_origin_s#1942L,hour#1943L,weekday#1944L,target_completed_borrows_next_hour#1945,prediction#1946,seasonal_naive#1947,zero_baseline#1948] parquet
+:        :  :  :  :                 :           +- Project [node_id#1956, function_type#1951]
+:        :  :  :  :                 :              +- Relation [attraction_weight#1949,coordinate_system#1950,function_type#1951,is_simulated_parking#1952,latitude#1953,longitude#1954,name#1955,node_id#1956,operating_status#1957,parking_capacity#1958,parking_id#1959,proposed_zone_id#1960,simulation_zone_id#1961,source_entity_type#1962,source_url#1963,synthetic_access_distance_m#1964,zone_status#1965] json
+:        :  :  :  :                 +- Project [node_id#1966, forecast_origin_s#1967L, hour#1968L, actual#973, prediction#975, baseline#974, function_type#1976, run_id#1895, day_index#1904]
+:        :  :  :  :                    +- Project [node_id#1966, forecast_origin_s#1967L, hour#1968L, actual#973, prediction#975, baseline#974, function_type#1976, run_id#1895, cast(FLOOR((cast(forecast_origin_s#1967L as double) / cast(86400 as double))) as int) AS day_index#1904]
+:        :  :  :  :                       +- Project [node_id#1966, forecast_origin_s#1967L, hour#1968L, actual#973, prediction#975, baseline#974, function_type#1976, campus_return AS run_id#1895]
+:        :  :  :  :                          +- Project [node_id#1966, forecast_origin_s#1967L, hour#1968L, actual#973, prediction#975, baseline#974, function_type#1976]
+:        :  :  :  :                             +- Join LeftOuter, (node_id#1966 = node_id#1981)
+:        :  :  :  :                                :- Project [node_id#1966, forecast_origin_s#1967L, hour#1968L, cast(target_completed_returns_next_hour#1970 as double) AS actual#973, cast(prediction#1971 as double) AS prediction#975, cast(seasonal_naive#1972 as double) AS baseline#974]
+:        :  :  :  :                                :  +- Relation [node_id#1966,forecast_origin_s#1967L,hour#1968L,weekday#1969L,target_completed_returns_next_hour#1970,prediction#1971,seasonal_naive#1972,zero_baseline#1973] parquet
+:        :  :  :  :                                +- Project [node_id#1981, function_type#1976]
+:        :  :  :  :                                   +- Relation [attraction_weight#1974,coordinate_system#1975,function_type#1976,is_simulated_parking#1977,latitude#1978,longitude#1979,name#1980,node_id#1981,operating_status#1982,parking_capacity#1983,parking_id#1984,proposed_zone_id#1985,simulation_zone_id#1986,source_entity_type#1987,source_url#1988,synthetic_access_distance_m#1989,zone_status#1990] json
+:        :  :  :  +- Project [node_id#1991 AS node_id#2230, forecast_origin_s#1992L AS forecast_origin_s#2231L, hour#1993L AS hour#2232L, actual#16 AS actual#2233, prediction#18 AS prediction#2234, baseline#17 AS baseline#2235, function_type#2001 AS function_type#2236, run_id#938 AS run_id#2237, day_index#947 AS day_index#2238, hour#2193 AS hour#2239, hour#2218 AS hour#2240]
+:        :  :  :     +- Project [node_id#1991, forecast_origin_s#1992L, hour#1993L, actual#16, prediction#18, baseline#17, function_type#2001, run_id#938, day_index#947, hour AS hour#2193, cast(hour#1993L as string) AS hour#2218]
+:        :  :  :        +- SubqueryAlias forecast_samples
+:        :  :  :           +- View (`forecast_samples`, [node_id#1991,forecast_origin_s#1992L,hour#1993L,actual#16,prediction#18,baseline#17,function_type#2001,run_id#938,day_index#947])
+:        :  :  :              +- Union false, false
+:        :  :  :                 :- Project [node_id#1991, forecast_origin_s#1992L, hour#1993L, actual#16, prediction#18, baseline#17, function_type#2001, run_id#938, cast(FLOOR((cast(forecast_origin_s#1992L as double) / cast(86400 as double))) as int) AS day_index#947]
+:        :  :  :                 :  +- Project [node_id#1991, forecast_origin_s#1992L, hour#1993L, actual#16, prediction#18, baseline#17, function_type#2001, campus_borrow AS run_id#938]
+:        :  :  :                 :     +- Project [node_id#1991, forecast_origin_s#1992L, hour#1993L, actual#16, prediction#18, baseline#17, function_type#2001]
+:        :  :  :                 :        +- Join LeftOuter, (node_id#1991 = node_id#2006)
+:        :  :  :                 :           :- Project [node_id#1991, forecast_origin_s#1992L, hour#1993L, cast(target_completed_borrows_next_hour#1995 as double) AS actual#16, cast(prediction#1996 as double) AS prediction#18, cast(seasonal_naive#1997 as double) AS baseline#17]
+:        :  :  :                 :           :  +- Relation [node_id#1991,forecast_origin_s#1992L,hour#1993L,weekday#1994L,target_completed_borrows_next_hour#1995,prediction#1996,seasonal_naive#1997,zero_baseline#1998] parquet
+:        :  :  :                 :           +- Project [node_id#2006, function_type#2001]
+:        :  :  :                 :              +- Relation [attraction_weight#1999,coordinate_system#2000,function_type#2001,is_simulated_parking#2002,latitude#2003,longitude#2004,name#2005,node_id#2006,operating_status#2007,parking_capacity#2008,parking_id#2009,proposed_zone_id#2010,simulation_zone_id#2011,source_entity_type#2012,source_url#2013,synthetic_access_distance_m#2014,zone_status#2015] json
+:        :  :  :                 +- Project [node_id#2016, forecast_origin_s#2017L, hour#2018L, actual#973, prediction#975, baseline#974, function_type#2026, run_id#1895, day_index#1904]
+:        :  :  :                    +- Project [node_id#2016, forecast_origin_s#2017L, hour#2018L, actual#973, prediction#975, baseline#974, function_type#2026, run_id#1895, cast(FLOOR((cast(forecast_origin_s#2017L as double) / cast(86400 as double))) as int) AS day_index#1904]
+:        :  :  :                       +- Project [node_id#2016, forecast_origin_s#2017L, hour#2018L, actual#973, prediction#975, baseline#974, function_type#2026, campus_return AS run_id#1895]
+:        :  :  :                          +- Project [node_id#2016, forecast_origin_s#2017L, hour#2018L, actual#973, prediction#975, baseline#974, function_type#2026]
+:        :  :  :                             +- Join LeftOuter, (node_id#2016 = node_id#2031)
+:        :  :  :                                :- Project [node_id#2016, forecast_origin_s#2017L, hour#2018L, cast(target_completed_returns_next_hour#2020 as double) AS actual#973, cast(prediction#2021 as double) AS prediction#975, cast(seasonal_naive#2022 as double) AS baseline#974]
+:        :  :  :                                :  +- Relation [node_id#2016,forecast_origin_s#2017L,hour#2018L,weekday#2019L,target_completed_returns_next_hour#2020,prediction#2021,seasonal_naive#2022,zero_baseline#2023] parquet
+:        :  :  :                                +- Project [node_id#2031, function_type#2026]
+:        :  :  :                                   +- Relation [attraction_weight#2024,coordinate_system#2025,function_type#2026,is_simulated_parking#2027,latitude#2028,longitude#2029,name#2030,node_id#2031,operating_status#2032,parking_capacity#2033,parking_id#2034,proposed_zone_id#2035,simulation_zone_id#2036,source_entity_type#2037,source_url#2038,synthetic_access_distance_m#2039,zone_status#2040] json
+:        :  :  +- Project [node_id#2041 AS node_id#2241, forecast_origin_s#2042L AS forecast_origin_s#2242L, hour#2043L AS hour#2243L, actual#16 AS actual#2244, prediction#18 AS prediction#2245, baseline#17 AS baseline#2246, function_type#2051 AS function_type#2247, run_id#938 AS run_id#2248, day_index#947 AS day_index#2249, function#2194 AS function#2250, function_type#2051 AS function_type#2251]
+:        :  :     +- Project [node_id#2041, forecast_origin_s#2042L, hour#2043L, actual#16, prediction#18, baseline#17, function_type#2051, run_id#938, day_index#947, function AS function#2194, function_type#2051]
+:        :  :        +- SubqueryAlias forecast_samples
+:        :  :           +- View (`forecast_samples`, [node_id#2041,forecast_origin_s#2042L,hour#2043L,actual#16,prediction#18,baseline#17,function_type#2051,run_id#938,day_index#947])
+:        :  :              +- Union false, false
+:        :  :                 :- Project [node_id#2041, forecast_origin_s#2042L, hour#2043L, actual#16, prediction#18, baseline#17, function_type#2051, run_id#938, cast(FLOOR((cast(forecast_origin_s#2042L as double) / cast(86400 as double))) as int) AS day_index#947]
+:        :  :                 :  +- Project [node_id#2041, forecast_origin_s#2042L, hour#2043L, actual#16, prediction#18, baseline#17, function_type#2051, campus_borrow AS run_id#938]
+:        :  :                 :     +- Project [node_id#2041, forecast_origin_s#2042L, hour#2043L, actual#16, prediction#18, baseline#17, function_type#2051]
+:        :  :                 :        +- Join LeftOuter, (node_id#2041 = node_id#2056)
+:        :  :                 :           :- Project [node_id#2041, forecast_origin_s#2042L, hour#2043L, cast(target_completed_borrows_next_hour#2045 as double) AS actual#16, cast(prediction#2046 as double) AS prediction#18, cast(seasonal_naive#2047 as double) AS baseline#17]
+:        :  :                 :           :  +- Relation [node_id#2041,forecast_origin_s#2042L,hour#2043L,weekday#2044L,target_completed_borrows_next_hour#2045,prediction#2046,seasonal_naive#2047,zero_baseline#2048] parquet
+:        :  :                 :           +- Project [node_id#2056, function_type#2051]
+:        :  :                 :              +- Relation [attraction_weight#2049,coordinate_system#2050,function_type#2051,is_simulated_parking#2052,latitude#2053,longitude#2054,name#2055,node_id#2056,operating_status#2057,parking_capacity#2058,parking_id#2059,proposed_zone_id#2060,simulation_zone_id#2061,source_entity_type#2062,source_url#2063,synthetic_access_distance_m#2064,zone_status#2065] json
+:        :  :                 +- Project [node_id#2066, forecast_origin_s#2067L, hour#2068L, actual#973, prediction#975, baseline#974, function_type#2076, run_id#1895, day_index#1904]
+:        :  :                    +- Project [node_id#2066, forecast_origin_s#2067L, hour#2068L, actual#973, prediction#975, baseline#974, function_type#2076, run_id#1895, cast(FLOOR((cast(forecast_origin_s#2067L as double) / cast(86400 as double))) as int) AS day_index#1904]
+:        :  :                       +- Project [node_id#2066, forecast_origin_s#2067L, hour#2068L, actual#973, prediction#975, baseline#974, function_type#2076, campus_return AS run_id#1895]
+:        :  :                          +- Project [node_id#2066, forecast_origin_s#2067L, hour#2068L, actual#973, prediction#975, baseline#974, function_type#2076]
+:        :  :                             +- Join LeftOuter, (node_id#2066 = node_id#2081)
+:        :  :                                :- Project [node_id#2066, forecast_origin_s#2067L, hour#2068L, cast(target_completed_returns_next_hour#2070 as double) AS actual#973, cast(prediction#2071 as double) AS prediction#975, cast(seasonal_naive#2072 as double) AS baseline#974]
+:        :  :                                :  +- Relation [node_id#2066,forecast_origin_s#2067L,hour#2068L,weekday#2069L,target_completed_returns_next_hour#2070,prediction#2071,seasonal_naive#2072,zero_baseline#2073] parquet
+:        :  :                                +- Project [node_id#2081, function_type#2076]
+:        :  :                                   +- Relation [attraction_weight#2074,coordinate_system#2075,function_type#2076,is_simulated_parking#2077,latitude#2078,longitude#2079,name#2080,node_id#2081,operating_status#2082,parking_capacity#2083,parking_id#2084,proposed_zone_id#2085,simulation_zone_id#2086,source_entity_type#2087,source_url#2088,synthetic_access_distance_m#2089,zone_status#2090] json
+:        :  +- Project [node_id#2091 AS node_id#2252, forecast_origin_s#2092L AS forecast_origin_s#2253L, hour#2093L AS hour#2254L, actual#16 AS actual#2255, prediction#18 AS prediction#2256, baseline#17 AS baseline#2257, function_type#2101 AS function_type#2258, run_id#938 AS run_id#2259, day_index#947 AS day_index#2260, node#2195 AS node#2261, node_id#2091 AS node_id#2262]
+:        :     +- Project [node_id#2091, forecast_origin_s#2092L, hour#2093L, actual#16, prediction#18, baseline#17, function_type#2101, run_id#938, day_index#947, node AS node#2195, node_id#2091]
+:        :        +- SubqueryAlias forecast_samples
+:        :           +- View (`forecast_samples`, [node_id#2091,forecast_origin_s#2092L,hour#2093L,actual#16,prediction#18,baseline#17,function_type#2101,run_id#938,day_index#947])
+:        :              +- Union false, false
+:        :                 :- Project [node_id#2091, forecast_origin_s#2092L, hour#2093L, actual#16, prediction#18, baseline#17, function_type#2101, run_id#938, cast(FLOOR((cast(forecast_origin_s#2092L as double) / cast(86400 as double))) as int) AS day_index#947]
+:        :                 :  +- Project [node_id#2091, forecast_origin_s#2092L, hour#2093L, actual#16, prediction#18, baseline#17, function_type#2101, campus_borrow AS run_id#938]
+:        :                 :     +- Project [node_id#2091, forecast_origin_s#2092L, hour#2093L, actual#16, prediction#18, baseline#17, function_type#2101]
+:        :                 :        +- Join LeftOuter, (node_id#2091 = node_id#2106)
+:        :                 :           :- Project [node_id#2091, forecast_origin_s#2092L, hour#2093L, cast(target_completed_borrows_next_hour#2095 as double) AS actual#16, cast(prediction#2096 as double) AS prediction#18, cast(seasonal_naive#2097 as double) AS baseline#17]
+:        :                 :           :  +- Relation [node_id#2091,forecast_origin_s#2092L,hour#2093L,weekday#2094L,target_completed_borrows_next_hour#2095,prediction#2096,seasonal_naive#2097,zero_baseline#2098] parquet
+:        :                 :           +- Project [node_id#2106, function_type#2101]
+:        :                 :              +- Relation [attraction_weight#2099,coordinate_system#2100,function_type#2101,is_simulated_parking#2102,latitude#2103,longitude#2104,name#2105,node_id#2106,operating_status#2107,parking_capacity#2108,parking_id#2109,proposed_zone_id#2110,simulation_zone_id#2111,source_entity_type#2112,source_url#2113,synthetic_access_distance_m#2114,zone_status#2115] json
+:        :                 +- Project [node_id#2116, forecast_origin_s#2117L, hour#2118L, actual#973, prediction#975, baseline#974, function_type#2126, run_id#1895, day_index#1904]
+:        :                    +- Project [node_id#2116, forecast_origin_s#2117L, hour#2118L, actual#973, prediction#975, baseline#974, function_type#2126, run_id#1895, cast(FLOOR((cast(forecast_origin_s#2117L as double) / cast(86400 as double))) as int) AS day_index#1904]
+:        :                       +- Project [node_id#2116, forecast_origin_s#2117L, hour#2118L, actual#973, prediction#975, baseline#974, function_type#2126, campus_return AS run_id#1895]
+:        :                          +- Project [node_id#2116, forecast_origin_s#2117L, hour#2118L, actual#973, prediction#975, baseline#974, function_type#2126]
+:        :                             +- Join LeftOuter, (node_id#2116 = node_id#2131)
+:        :                                :- Project [node_id#2116, forecast_origin_s#2117L, hour#2118L, cast(target_completed_returns_next_hour#2120 as double) AS actual#973, cast(prediction#2121 as double) AS prediction#975, cast(seasonal_naive#2122 as double) AS baseline#974]
+:        :                                :  +- Relation [node_id#2116,forecast_origin_s#2117L,hour#2118L,weekday#2119L,target_completed_returns_next_hour#2120,prediction#2121,seasonal_naive#2122,zero_baseline#2123] parquet
+:        :                                +- Project [node_id#2131, function_type#2126]
+:        :                                   +- Relation [attraction_weight#2124,coordinate_system#2125,function_type#2126,is_simulated_parking#2127,latitude#2128,longitude#2129,name#2130,node_id#2131,operating_status#2132,parking_capacity#2133,parking_id#2134,proposed_zone_id#2135,simulation_zone_id#2136,source_entity_type#2137,source_url#2138,synthetic_access_distance_m#2139,zone_status#2140] json
+:        +- Project [node_id#2141 AS node_id#2264, forecast_origin_s#2142L AS forecast_origin_s#2265L, hour#2143L AS hour#2266L, actual#16 AS actual#2267, prediction#18 AS prediction#2268, baseline#17 AS baseline#2269, function_type#2151 AS function_type#2270, run_id#938 AS run_id#2271, day_index#947 AS day_index#2272, actual_volume#2196 AS actual_volume#2273, CASE WHEN (actual = 0) THEN zero WHEN (actual < 5) THEN 1-4 ELSE 5+ END#2263 AS CASE WHEN (actual = 0) THEN zero WHEN (actual < 5) THEN 1-4 ELSE 5+ END#2274]
+:           +- Project [node_id#2141, forecast_origin_s#2142L, hour#2143L, actual#16, prediction#18, baseline#17, function_type#2151, run_id#938, day_index#947, actual_volume AS actual_volume#2196, CASE WHEN (actual#16 = cast(0 as double)) THEN zero WHEN (actual#16 < cast(5 as double)) THEN 1-4 ELSE 5+ END AS CASE WHEN (actual = 0) THEN zero WHEN (actual < 5) THEN 1-4 ELSE 5+ END#2263]
+:              +- SubqueryAlias forecast_samples
+:                 +- View (`forecast_samples`, [node_id#2141,forecast_origin_s#2142L,hour#2143L,actual#16,prediction#18,baseline#17,function_type#2151,run_id#938,day_index#947])
+:                    +- Union false, false
+:                       :- Project [node_id#2141, forecast_origin_s#2142L, hour#2143L, actual#16, prediction#18, baseline#17, function_type#2151, run_id#938, cast(FLOOR((cast(forecast_origin_s#2142L as double) / cast(86400 as double))) as int) AS day_index#947]
+:                       :  +- Project [node_id#2141, forecast_origin_s#2142L, hour#2143L, actual#16, prediction#18, baseline#17, function_type#2151, campus_borrow AS run_id#938]
+:                       :     +- Project [node_id#2141, forecast_origin_s#2142L, hour#2143L, actual#16, prediction#18, baseline#17, function_type#2151]
+:                       :        +- Join LeftOuter, (node_id#2141 = node_id#2156)
+:                       :           :- Project [node_id#2141, forecast_origin_s#2142L, hour#2143L, cast(target_completed_borrows_next_hour#2145 as double) AS actual#16, cast(prediction#2146 as double) AS prediction#18, cast(seasonal_naive#2147 as double) AS baseline#17]
+:                       :           :  +- Relation [node_id#2141,forecast_origin_s#2142L,hour#2143L,weekday#2144L,target_completed_borrows_next_hour#2145,prediction#2146,seasonal_naive#2147,zero_baseline#2148] parquet
+:                       :           +- Project [node_id#2156, function_type#2151]
+:                       :              +- Relation [attraction_weight#2149,coordinate_system#2150,function_type#2151,is_simulated_parking#2152,latitude#2153,longitude#2154,name#2155,node_id#2156,operating_status#2157,parking_capacity#2158,parking_id#2159,proposed_zone_id#2160,simulation_zone_id#2161,source_entity_type#2162,source_url#2163,synthetic_access_distance_m#2164,zone_status#2165] json
+:                       +- Project [node_id#2166, forecast_origin_s#2167L, hour#2168L, actual#973, prediction#975, baseline#974, function_type#2176, run_id#1895, day_index#1904]
+:                          +- Project [node_id#2166, forecast_origin_s#2167L, hour#2168L, actual#973, prediction#975, baseline#974, function_type#2176, run_id#1895, cast(FLOOR((cast(forecast_origin_s#2167L as double) / cast(86400 as double))) as int) AS day_index#1904]
+:                             +- Project [node_id#2166, forecast_origin_s#2167L, hour#2168L, actual#973, prediction#975, baseline#974, function_type#2176, campus_return AS run_id#1895]
+:                                +- Project [node_id#2166, forecast_origin_s#2167L, hour#2168L, actual#973, prediction#975, baseline#974, function_type#2176]
+:                                   +- Join LeftOuter, (node_id#2166 = node_id#2181)
+:                                      :- Project [node_id#2166, forecast_origin_s#2167L, hour#2168L, cast(target_completed_returns_next_hour#2170 as double) AS actual#973, cast(prediction#2171 as double) AS prediction#975, cast(seasonal_naive#2172 as double) AS baseline#974]
+:                                      :  +- Relation [node_id#2166,forecast_origin_s#2167L,hour#2168L,weekday#2169L,target_completed_returns_next_hour#2170,prediction#2171,seasonal_naive#2172,zero_baseline#2173] parquet
+:                                      +- Project [node_id#2181, function_type#2176]
+:                                         +- Relation [attraction_weight#2174,coordinate_system#2175,function_type#2176,is_simulated_parking#2177,latitude#2178,longitude#2179,name#2180,node_id#2181,operating_status#2182,parking_capacity#2183,parking_id#2184,proposed_zone_id#2185,simulation_zone_id#2186,source_entity_type#2187,source_url#2188,synthetic_access_distance_m#2189,zone_status#2190] json
++- Aggregate [run_id#938, dimension#1939, bucket#1940], [run_id#938, dimension#1939, bucket#1940, count(1) AS rows#1923L, sum(actual#16) AS actual_count#1924, sum(CASE WHEN (actual#16 = cast(0 as double)) THEN 1 ELSE 0 END) AS zero_rows#1925L, sum(greatest((actual#16 - prediction#18), 0.0)) AS underpredicted_volume#1926, avg(abs((prediction#18 - actual#16))) AS model_mae#1927, SQRT(avg(pow((prediction#18 - actual#16), cast(2 as double)))) AS model_rmse#1928, (sum(abs((prediction#18 - actual#16))) / nullif(sum(actual#16), 0)) AS model_wape#1929, avg(abs((baseline#17 - actual#16))) AS baseline_mae#1930, SQRT(avg(pow((baseline#17 - actual#16), cast(2 as double)))) AS baseline_rmse#1931, (sum(abs((baseline#17 - actual#16))) / nullif(sum(actual#16), 0)) AS baseline_wape#1932, sum(abs((prediction#18 - actual#16))) AS model_absolute_error_sum#1933, sum(abs((baseline#17 - actual#16))) AS baseline_absolute_error_sum#1934, avg((abs((baseline#17 - actual#16)) - abs((prediction#18 - actual#16)))) AS mae_gain#1935, sum(CASE WHEN (prediction#18 < actual#16) THEN 1 ELSE 0 END) AS underpredicted_count#1936L, avg((prediction#18 - actual#16)) AS model_bias#1937, avg(cast(CASE WHEN (actual#16 = cast(0 as double)) THEN 1 ELSE 0 END as double)) AS zero_fraction#1938]
+   +- SubqueryAlias expanded
+      +- CTERelationRef 0, true, [node_id#0, forecast_origin_s#1L, hour#2L, actual#16, prediction#18, baseline#17, function_type#716, run_id#938, day_index#947, dimension#1939, bucket#1940], false
+
+== Optimized Logical Plan ==
+InMemoryRelation [run_id#938, dimension#1939, bucket#1940, rows#1923L, actual_count#1924, zero_rows#1925L, underpredicted_volume#1926, model_mae#1927, model_rmse#1928, model_wape#1929, baseline_mae#1930, baseline_rmse#1931, baseline_wape#1932, model_absolute_error_sum#1933, baseline_absolute_error_sum#1934, mae_gain#1935, underpredicted_count#1936L, model_bias#1937, zero_fraction#1938], StorageLevel(disk, memory, deserialized, 1 replicas)
+   +- AdaptiveSparkPlan isFinalPlan=true
+      +- == Final Plan ==
+         *(26) HashAggregate(keys=[run_id#938, dimension#1939, bucket#1940], functions=[count(1), sum(actual#16), sum(CASE WHEN (actual#16 = 0.0) THEN 1 ELSE 0 END), sum(greatest((actual#16 - prediction#18), 0.0)), avg(abs((prediction#18 - actual#16))), avg(pow((prediction#18 - actual#16), 2.0)), sum(abs((prediction#18 - actual#16))), avg(abs((baseline#17 - actual#16))), avg(pow((baseline#17 - actual#16), 2.0)), sum(abs((baseline#17 - actual#16))), avg((abs((baseline#17 - actual#16)) - abs((prediction#18 - actual#16)))), sum(CASE WHEN (prediction#18 < actual#16) THEN 1 ELSE 0 END), avg((prediction#18 - actual#16)), avg(CASE WHEN (actual#16 = 0.0) THEN 1.0 ELSE 0.0 END)], output=[run_id#938, dimension#1939, bucket#1940, rows#1923L, actual_count#1924, zero_rows#1925L, underpredicted_volume#1926, model_mae#1927, model_rmse#1928, model_wape#1929, baseline_mae#1930, baseline_rmse#1931, baseline_wape#1932, model_absolute_error_sum#1933, baseline_absolute_error_sum#1934, mae_gain#1935, underpredicted_count#1936L, model_bias#1937, zero_fraction#1938])
+         +- ShuffleQueryStage 34
+            +- Exchange hashpartitioning(run_id#938, dimension#1939, bucket#1940, 4), ENSURE_REQUIREMENTS, [plan_id=2872]
+               +- *(25) HashAggregate(keys=[run_id#938, dimension#1939, bucket#1940], functions=[partial_count(1), partial_sum(actual#16), partial_sum(CASE WHEN (actual#16 = 0.0) THEN 1 ELSE 0 END), partial_sum(greatest((actual#16 - prediction#18), 0.0)), partial_avg(abs((prediction#18 - actual#16))), partial_avg(pow((prediction#18 - actual#16), 2.0)), partial_sum(abs((prediction#18 - actual#16))), partial_avg(abs((baseline#17 - actual#16))), partial_avg(pow((baseline#17 - actual#16), 2.0)), partial_sum(abs((baseline#17 - actual#16))), partial_avg((abs((baseline#17 - actual#16)) - abs((prediction#18 - actual#16)))), partial_sum(CASE WHEN (prediction#18 < actual#16) THEN 1 ELSE 0 END), partial_avg((prediction#18 - actual#16)), partial_avg(CASE WHEN (actual#16 = 0.0) THEN 1.0 ELSE 0.0 END)], output=[run_id#938, dimension#1939, bucket#1940, count#3469L, sum#3470, sum#3471L, sum#3472, sum#3473, count#3474L, sum#3475, count#3476L, sum#3477, sum#3478, count#3479L, sum#3480, count#3481L, sum#3482, sum#3483, count#3484L, sum#3485L, sum#3486, count#3487L, sum#3488, count#3489L])
+                  +- Union
+                     :- *(13) Project [actual#16, prediction#18, baseline#17, campus_borrow AS run_id#938, overall AS dimension#1939, all AS bucket#1940]
+                     :  +- *(13) BroadcastHashJoin [node_id#0], [node_id#721], LeftOuter, BuildRight, false
+                     :     :- TableCacheQueryStage 0
+                     :     :  +- InMemoryTableScan [node_id#0, actual#16, prediction#18, baseline#17]
+                     :     :        +- InMemoryRelation [node_id#0, forecast_origin_s#1L, hour#2L, actual#16, prediction#18, baseline#17], StorageLevel(disk, memory, deserialized, 1 replicas)
+                     :     :              +- *(1) Project [node_id#0, forecast_origin_s#1L, hour#2L, target_completed_borrows_next_hour#4 AS actual#16, prediction#5, seasonal_naive#6 AS baseline#17]
+                     :     :                 +- *(1) ColumnarToRow
+                     :     :                    +- FileScan parquet [node_id#0,forecast_origin_s#1L,hour#2L,target_completed_borrows_next_hour#4,prediction#5,seasonal_naive#6] Batched: true, DataFilters: [], Format: Parquet, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/outputs/dispatch_models_v..., PartitionFilters: [], PushedFilters: [], ReadSchema: struct<node_id:string,forecast_origin_s:bigint,hour:bigint,target_completed_borrows_next_hour:dou...
+                     :     +- BroadcastQueryStage 1
+                     :        +- BroadcastExchange HashedRelationBroadcastMode(List(input[0, string, false]),false), [plan_id=2051]
+                     :           +- *(1) Filter isnotnull(node_id#721)
+                     :              +- FileScan json [node_id#721] Batched: false, DataFilters: [isnotnull(node_id#721)], Format: JSON, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/data/simulated/campus_v2/..., PartitionFilters: [], PushedFilters: [IsNotNull(node_id)], ReadSchema: struct<node_id:string>
+                     :- *(14) Project [actual#973, prediction#975, baseline#974, campus_return AS run_id#1895, overall AS dimension#3031, all AS bucket#3032]
+                     :  +- *(14) BroadcastHashJoin [node_id#957], [node_id#1678], LeftOuter, BuildRight, false
+                     :     :- TableCacheQueryStage 2
+                     :     :  +- InMemoryTableScan [node_id#957, actual#973, prediction#975, baseline#974]
+                     :     :        +- InMemoryRelation [node_id#957, forecast_origin_s#958L, hour#959L, actual#973, prediction#975, baseline#974], StorageLevel(disk, memory, deserialized, 1 replicas)
+                     :     :              +- *(1) Project [node_id#957, forecast_origin_s#958L, hour#959L, target_completed_returns_next_hour#961 AS actual#973, prediction#962, seasonal_naive#963 AS baseline#974]
+                     :     :                 +- *(1) ColumnarToRow
+                     :     :                    +- FileScan parquet [node_id#957,forecast_origin_s#958L,hour#959L,target_completed_returns_next_hour#961,prediction#962,seasonal_naive#963] Batched: true, DataFilters: [], Format: Parquet, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/outputs/dispatch_models_v..., PartitionFilters: [], PushedFilters: [], ReadSchema: struct<node_id:string,forecast_origin_s:bigint,hour:bigint,target_completed_returns_next_hour:dou...
+                     :     +- BroadcastQueryStage 4
+                     :        +- ReusedExchange [node_id#1678], BroadcastExchange HashedRelationBroadcastMode(List(input[0, string, false]),false), [plan_id=2051]
+                     :- *(15) Project [actual#16, prediction#18, baseline#17, campus_borrow AS run_id#2226, day AS day#2228, cast(cast(FLOOR((cast(forecast_origin_s#1942L as double) / 86400.0)) as int) as string) AS day_index#2229]
+                     :  +- *(15) BroadcastHashJoin [node_id#1941], [node_id#1956], LeftOuter, BuildRight, false
+                     :     :- TableCacheQueryStage 5
+                     :     :  +- InMemoryTableScan [node_id#1941, forecast_origin_s#1942L, actual#16, prediction#18, baseline#17]
+                     :     :        +- InMemoryRelation [node_id#1941, forecast_origin_s#1942L, hour#1943L, actual#16, prediction#18, baseline#17], StorageLevel(disk, memory, deserialized, 1 replicas)
+                     :     :              +- *(1) Project [node_id#0, forecast_origin_s#1L, hour#2L, target_completed_borrows_next_hour#4 AS actual#16, prediction#5, seasonal_naive#6 AS baseline#17]
+                     :     :                 +- *(1) ColumnarToRow
+                     :     :                    +- FileScan parquet [node_id#0,forecast_origin_s#1L,hour#2L,target_completed_borrows_next_hour#4,prediction#5,seasonal_naive#6] Batched: true, DataFilters: [], Format: Parquet, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/outputs/dispatch_models_v..., PartitionFilters: [], PushedFilters: [], ReadSchema: struct<node_id:string,forecast_origin_s:bigint,hour:bigint,target_completed_borrows_next_hour:dou...
+                     :     +- BroadcastQueryStage 7
+                     :        +- ReusedExchange [node_id#1956], BroadcastExchange HashedRelationBroadcastMode(List(input[0, string, false]),false), [plan_id=2051]
+                     :- *(16) Project [actual#973, prediction#975, baseline#974, campus_return AS run_id#3040, day AS day#3042, cast(cast(FLOOR((cast(forecast_origin_s#1967L as double) / 86400.0)) as int) as string) AS day_index#3043]
+                     :  +- *(16) BroadcastHashJoin [node_id#1966], [node_id#1981], LeftOuter, BuildRight, false
+                     :     :- TableCacheQueryStage 8
+                     :     :  +- InMemoryTableScan [node_id#1966, forecast_origin_s#1967L, actual#973, prediction#975, baseline#974]
+                     :     :        +- InMemoryRelation [node_id#1966, forecast_origin_s#1967L, hour#1968L, actual#973, prediction#975, baseline#974], StorageLevel(disk, memory, deserialized, 1 replicas)
+                     :     :              +- *(1) Project [node_id#957, forecast_origin_s#958L, hour#959L, target_completed_returns_next_hour#961 AS actual#973, prediction#962, seasonal_naive#963 AS baseline#974]
+                     :     :                 +- *(1) ColumnarToRow
+                     :     :                    +- FileScan parquet [node_id#957,forecast_origin_s#958L,hour#959L,target_completed_returns_next_hour#961,prediction#962,seasonal_naive#963] Batched: true, DataFilters: [], Format: Parquet, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/outputs/dispatch_models_v..., PartitionFilters: [], PushedFilters: [], ReadSchema: struct<node_id:string,forecast_origin_s:bigint,hour:bigint,target_completed_returns_next_hour:dou...
+                     :     +- BroadcastQueryStage 10
+                     :        +- ReusedExchange [node_id#1981], BroadcastExchange HashedRelationBroadcastMode(List(input[0, string, false]),false), [plan_id=2051]
+                     :- *(17) Project [actual#16, prediction#18, baseline#17, campus_borrow AS run_id#2237, hour AS hour#2239, cast(hour#1993L as string) AS hour#2240]
+                     :  +- *(17) BroadcastHashJoin [node_id#1991], [node_id#2006], LeftOuter, BuildRight, false
+                     :     :- TableCacheQueryStage 11
+                     :     :  +- InMemoryTableScan [node_id#1991, hour#1993L, actual#16, prediction#18, baseline#17]
+                     :     :        +- InMemoryRelation [node_id#1991, forecast_origin_s#1992L, hour#1993L, actual#16, prediction#18, baseline#17], StorageLevel(disk, memory, deserialized, 1 replicas)
+                     :     :              +- *(1) Project [node_id#0, forecast_origin_s#1L, hour#2L, target_completed_borrows_next_hour#4 AS actual#16, prediction#5, seasonal_naive#6 AS baseline#17]
+                     :     :                 +- *(1) ColumnarToRow
+                     :     :                    +- FileScan parquet [node_id#0,forecast_origin_s#1L,hour#2L,target_completed_borrows_next_hour#4,prediction#5,seasonal_naive#6] Batched: true, DataFilters: [], Format: Parquet, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/outputs/dispatch_models_v..., PartitionFilters: [], PushedFilters: [], ReadSchema: struct<node_id:string,forecast_origin_s:bigint,hour:bigint,target_completed_borrows_next_hour:dou...
+                     :     +- BroadcastQueryStage 13
+                     :        +- ReusedExchange [node_id#2006], BroadcastExchange HashedRelationBroadcastMode(List(input[0, string, false]),false), [plan_id=2051]
+                     :- *(18) Project [actual#973, prediction#975, baseline#974, campus_return AS run_id#3051, hour AS hour#3053, cast(hour#2018L as string) AS hour#3054]
+                     :  +- *(18) BroadcastHashJoin [node_id#2016], [node_id#2031], LeftOuter, BuildRight, false
+                     :     :- TableCacheQueryStage 14
+                     :     :  +- InMemoryTableScan [node_id#2016, hour#2018L, actual#973, prediction#975, baseline#974]
+                     :     :        +- InMemoryRelation [node_id#2016, forecast_origin_s#2017L, hour#2018L, actual#973, prediction#975, baseline#974], StorageLevel(disk, memory, deserialized, 1 replicas)
+                     :     :              +- *(1) Project [node_id#957, forecast_origin_s#958L, hour#959L, target_completed_returns_next_hour#961 AS actual#973, prediction#962, seasonal_naive#963 AS baseline#974]
+                     :     :                 +- *(1) ColumnarToRow
+                     :     :                    +- FileScan parquet [node_id#957,forecast_origin_s#958L,hour#959L,target_completed_returns_next_hour#961,prediction#962,seasonal_naive#963] Batched: true, DataFilters: [], Format: Parquet, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/outputs/dispatch_models_v..., PartitionFilters: [], PushedFilters: [], ReadSchema: struct<node_id:string,forecast_origin_s:bigint,hour:bigint,target_completed_returns_next_hour:dou...
+                     :     +- BroadcastQueryStage 16
+                     :        +- ReusedExchange [node_id#2031], BroadcastExchange HashedRelationBroadcastMode(List(input[0, string, false]),false), [plan_id=2051]
+                     :- *(19) Project [actual#16, prediction#18, baseline#17, campus_borrow AS run_id#2248, function AS function#2250, function_type#2051]
+                     :  +- *(19) BroadcastHashJoin [node_id#2041], [node_id#2056], LeftOuter, BuildRight, false
+                     :     :- TableCacheQueryStage 17
+                     :     :  +- InMemoryTableScan [node_id#2041, actual#16, prediction#18, baseline#17]
+                     :     :        +- InMemoryRelation [node_id#2041, forecast_origin_s#2042L, hour#2043L, actual#16, prediction#18, baseline#17], StorageLevel(disk, memory, deserialized, 1 replicas)
+                     :     :              +- *(1) Project [node_id#0, forecast_origin_s#1L, hour#2L, target_completed_borrows_next_hour#4 AS actual#16, prediction#5, seasonal_naive#6 AS baseline#17]
+                     :     :                 +- *(1) ColumnarToRow
+                     :     :                    +- FileScan parquet [node_id#0,forecast_origin_s#1L,hour#2L,target_completed_borrows_next_hour#4,prediction#5,seasonal_naive#6] Batched: true, DataFilters: [], Format: Parquet, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/outputs/dispatch_models_v..., PartitionFilters: [], PushedFilters: [], ReadSchema: struct<node_id:string,forecast_origin_s:bigint,hour:bigint,target_completed_borrows_next_hour:dou...
+                     :     +- BroadcastQueryStage 18
+                     :        +- BroadcastExchange HashedRelationBroadcastMode(List(input[1, string, false]),false), [plan_id=2139]
+                     :           +- *(7) Filter isnotnull(node_id#2056)
+                     :              +- FileScan json [function_type#2051,node_id#2056] Batched: false, DataFilters: [isnotnull(node_id#2056)], Format: JSON, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/data/simulated/campus_v2/..., PartitionFilters: [], PushedFilters: [IsNotNull(node_id)], ReadSchema: struct<function_type:string,node_id:string>
+                     :- *(20) Project [actual#973, prediction#975, baseline#974, campus_return AS run_id#3062, function AS function#3064, function_type#2076]
+                     :  +- *(20) BroadcastHashJoin [node_id#2066], [node_id#2081], LeftOuter, BuildRight, false
+                     :     :- TableCacheQueryStage 19
+                     :     :  +- InMemoryTableScan [node_id#2066, actual#973, prediction#975, baseline#974]
+                     :     :        +- InMemoryRelation [node_id#2066, forecast_origin_s#2067L, hour#2068L, actual#973, prediction#975, baseline#974], StorageLevel(disk, memory, deserialized, 1 replicas)
+                     :     :              +- *(1) Project [node_id#957, forecast_origin_s#958L, hour#959L, target_completed_returns_next_hour#961 AS actual#973, prediction#962, seasonal_naive#963 AS baseline#974]
+                     :     :                 +- *(1) ColumnarToRow
+                     :     :                    +- FileScan parquet [node_id#957,forecast_origin_s#958L,hour#959L,target_completed_returns_next_hour#961,prediction#962,seasonal_naive#963] Batched: true, DataFilters: [], Format: Parquet, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/outputs/dispatch_models_v..., PartitionFilters: [], PushedFilters: [], ReadSchema: struct<node_id:string,forecast_origin_s:bigint,hour:bigint,target_completed_returns_next_hour:dou...
+                     :     +- BroadcastQueryStage 21
+                     :        +- ReusedExchange [function_type#2076, node_id#2081], BroadcastExchange HashedRelationBroadcastMode(List(input[1, string, false]),false), [plan_id=2139]
+                     :- *(21) Project [actual#16, prediction#18, baseline#17, campus_borrow AS run_id#2259, node AS node#2261, node_id#2091]
+                     :  +- *(21) BroadcastHashJoin [node_id#2091], [node_id#2106], LeftOuter, BuildRight, false
+                     :     :- TableCacheQueryStage 22
+                     :     :  +- InMemoryTableScan [node_id#2091, actual#16, prediction#18, baseline#17]
+                     :     :        +- InMemoryRelation [node_id#2091, forecast_origin_s#2092L, hour#2093L, actual#16, prediction#18, baseline#17], StorageLevel(disk, memory, deserialized, 1 replicas)
+                     :     :              +- *(1) Project [node_id#0, forecast_origin_s#1L, hour#2L, target_completed_borrows_next_hour#4 AS actual#16, prediction#5, seasonal_naive#6 AS baseline#17]
+                     :     :                 +- *(1) ColumnarToRow
+                     :     :                    +- FileScan parquet [node_id#0,forecast_origin_s#1L,hour#2L,target_completed_borrows_next_hour#4,prediction#5,seasonal_naive#6] Batched: true, DataFilters: [], Format: Parquet, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/outputs/dispatch_models_v..., PartitionFilters: [], PushedFilters: [], ReadSchema: struct<node_id:string,forecast_origin_s:bigint,hour:bigint,target_completed_borrows_next_hour:dou...
+                     :     +- BroadcastQueryStage 24
+                     :        +- ReusedExchange [node_id#2106], BroadcastExchange HashedRelationBroadcastMode(List(input[0, string, false]),false), [plan_id=2051]
+                     :- *(22) Project [actual#973, prediction#975, baseline#974, campus_return AS run_id#3073, node AS node#3075, node_id#2116]
+                     :  +- *(22) BroadcastHashJoin [node_id#2116], [node_id#2131], LeftOuter, BuildRight, false
+                     :     :- TableCacheQueryStage 25
+                     :     :  +- InMemoryTableScan [node_id#2116, actual#973, prediction#975, baseline#974]
+                     :     :        +- InMemoryRelation [node_id#2116, forecast_origin_s#2117L, hour#2118L, actual#973, prediction#975, baseline#974], StorageLevel(disk, memory, deserialized, 1 replicas)
+                     :     :              +- *(1) Project [node_id#957, forecast_origin_s#958L, hour#959L, target_completed_returns_next_hour#961 AS actual#973, prediction#962, seasonal_naive#963 AS baseline#974]
+                     :     :                 +- *(1) ColumnarToRow
+                     :     :                    +- FileScan parquet [node_id#957,forecast_origin_s#958L,hour#959L,target_completed_returns_next_hour#961,prediction#962,seasonal_naive#963] Batched: true, DataFilters: [], Format: Parquet, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/outputs/dispatch_models_v..., PartitionFilters: [], PushedFilters: [], ReadSchema: struct<node_id:string,forecast_origin_s:bigint,hour:bigint,target_completed_returns_next_hour:dou...
+                     :     +- BroadcastQueryStage 27
+                     :        +- ReusedExchange [node_id#2131], BroadcastExchange HashedRelationBroadcastMode(List(input[0, string, false]),false), [plan_id=2051]
+                     :- *(23) Project [actual#16, prediction#18, baseline#17, campus_borrow AS run_id#2271, actual_volume AS actual_volume#2273, CASE WHEN (actual#16 = 0.0) THEN zero WHEN (actual#16 < 5.0) THEN 1-4 ELSE 5+ END AS CASE WHEN (actual = 0) THEN zero WHEN (actual < 5) THEN 1-4 ELSE 5+ END#2274]
+                     :  +- *(23) BroadcastHashJoin [node_id#2141], [node_id#2156], LeftOuter, BuildRight, false
+                     :     :- TableCacheQueryStage 28
+                     :     :  +- InMemoryTableScan [node_id#2141, actual#16, prediction#18, baseline#17]
+                     :     :        +- InMemoryRelation [node_id#2141, forecast_origin_s#2142L, hour#2143L, actual#16, prediction#18, baseline#17], StorageLevel(disk, memory, deserialized, 1 replicas)
+                     :     :              +- *(1) Project [node_id#0, forecast_origin_s#1L, hour#2L, target_completed_borrows_next_hour#4 AS actual#16, prediction#5, seasonal_naive#6 AS baseline#17]
+                     :     :                 +- *(1) ColumnarToRow
+                     :     :                    +- FileScan parquet [node_id#0,forecast_origin_s#1L,hour#2L,target_completed_borrows_next_hour#4,prediction#5,seasonal_naive#6] Batched: true, DataFilters: [], Format: Parquet, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/outputs/dispatch_models_v..., PartitionFilters: [], PushedFilters: [], ReadSchema: struct<node_id:string,forecast_origin_s:bigint,hour:bigint,target_completed_borrows_next_hour:dou...
+                     :     +- BroadcastQueryStage 30
+                     :        +- ReusedExchange [node_id#2156], BroadcastExchange HashedRelationBroadcastMode(List(input[0, string, false]),false), [plan_id=2051]
+                     +- *(24) Project [actual#973, prediction#975, baseline#974, campus_return AS run_id#3084, actual_volume AS actual_volume#3086, CASE WHEN (actual#973 = 0.0) THEN zero WHEN (actual#973 < 5.0) THEN 1-4 ELSE 5+ END AS CASE WHEN (actual = 0) THEN zero WHEN (actual < 5) THEN 1-4 ELSE 5+ END#3087]
+                        +- *(24) BroadcastHashJoin [node_id#2166], [node_id#2181], LeftOuter, BuildRight, false
+                           :- TableCacheQueryStage 31
+                           :  +- InMemoryTableScan [node_id#2166, actual#973, prediction#975, baseline#974]
+                           :        +- InMemoryRelation [node_id#2166, forecast_origin_s#2167L, hour#2168L, actual#973, prediction#975, baseline#974], StorageLevel(disk, memory, deserialized, 1 replicas)
+                           :              +- *(1) Project [node_id#957, forecast_origin_s#958L, hour#959L, target_completed_returns_next_hour#961 AS actual#973, prediction#962, seasonal_naive#963 AS baseline#974]
+                           :                 +- *(1) ColumnarToRow
+                           :                    +- FileScan parquet [node_id#957,forecast_origin_s#958L,hour#959L,target_completed_returns_next_hour#961,prediction#962,seasonal_naive#963] Batched: true, DataFilters: [], Format: Parquet, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/outputs/dispatch_models_v..., PartitionFilters: [], PushedFilters: [], ReadSchema: struct<node_id:string,forecast_origin_s:bigint,hour:bigint,target_completed_returns_next_hour:dou...
+                           +- BroadcastQueryStage 33
+                              +- ReusedExchange [node_id#2181], BroadcastExchange HashedRelationBroadcastMode(List(input[0, string, false]),false), [plan_id=2051]
+      +- == Initial Plan ==
+         HashAggregate(keys=[run_id#938, dimension#1939, bucket#1940], functions=[count(1), sum(actual#16), sum(CASE WHEN (actual#16 = 0.0) THEN 1 ELSE 0 END), sum(greatest((actual#16 - prediction#18), 0.0)), avg(abs((prediction#18 - actual#16))), avg(pow((prediction#18 - actual#16), 2.0)), sum(abs((prediction#18 - actual#16))), avg(abs((baseline#17 - actual#16))), avg(pow((baseline#17 - actual#16), 2.0)), sum(abs((baseline#17 - actual#16))), avg((abs((baseline#17 - actual#16)) - abs((prediction#18 - actual#16)))), sum(CASE WHEN (prediction#18 < actual#16) THEN 1 ELSE 0 END), avg((prediction#18 - actual#16)), avg(CASE WHEN (actual#16 = 0.0) THEN 1.0 ELSE 0.0 END)], output=[run_id#938, dimension#1939, bucket#1940, rows#1923L, actual_count#1924, zero_rows#1925L, underpredicted_volume#1926, model_mae#1927, model_rmse#1928, model_wape#1929, baseline_mae#1930, baseline_rmse#1931, baseline_wape#1932, model_absolute_error_sum#1933, baseline_absolute_error_sum#1934, mae_gain#1935, underpredicted_count#1936L, model_bias#1937, zero_fraction#1938])
+         +- Exchange hashpartitioning(run_id#938, dimension#1939, bucket#1940, 4), ENSURE_REQUIREMENTS, [plan_id=1916]
+            +- HashAggregate(keys=[run_id#938, dimension#1939, bucket#1940], functions=[partial_count(1), partial_sum(actual#16), partial_sum(CASE WHEN (actual#16 = 0.0) THEN 1 ELSE 0 END), partial_sum(greatest((actual#16 - prediction#18), 0.0)), partial_avg(abs((prediction#18 - actual#16))), partial_avg(pow((prediction#18 - actual#16), 2.0)), partial_sum(abs((prediction#18 - actual#16))), partial_avg(abs((baseline#17 - actual#16))), partial_avg(pow((baseline#17 - actual#16), 2.0)), partial_sum(abs((baseline#17 - actual#16))), partial_avg((abs((baseline#17 - actual#16)) - abs((prediction#18 - actual#16)))), partial_sum(CASE WHEN (prediction#18 < actual#16) THEN 1 ELSE 0 END), partial_avg((prediction#18 - actual#16)), partial_avg(CASE WHEN (actual#16 = 0.0) THEN 1.0 ELSE 0.0 END)], output=[run_id#938, dimension#1939, bucket#1940, count#3469L, sum#3470, sum#3471L, sum#3472, sum#3473, count#3474L, sum#3475, count#3476L, sum#3477, sum#3478, count#3479L, sum#3480, count#3481L, sum#3482, sum#3483, count#3484L, sum#3485L, sum#3486, count#3487L, sum#3488, count#3489L])
+               +- Union
+                  :- Project [actual#16, prediction#18, baseline#17, campus_borrow AS run_id#938, overall AS dimension#1939, all AS bucket#1940]
+                  :  +- BroadcastHashJoin [node_id#0], [node_id#721], LeftOuter, BuildRight, false
+                  :     :- InMemoryTableScan [node_id#0, actual#16, prediction#18, baseline#17]
+                  :     :     +- InMemoryRelation [node_id#0, forecast_origin_s#1L, hour#2L, actual#16, prediction#18, baseline#17], StorageLevel(disk, memory, deserialized, 1 replicas)
+                  :     :           +- *(1) Project [node_id#0, forecast_origin_s#1L, hour#2L, target_completed_borrows_next_hour#4 AS actual#16, prediction#5, seasonal_naive#6 AS baseline#17]
+                  :     :              +- *(1) ColumnarToRow
+                  :     :                 +- FileScan parquet [node_id#0,forecast_origin_s#1L,hour#2L,target_completed_borrows_next_hour#4,prediction#5,seasonal_naive#6] Batched: true, DataFilters: [], Format: Parquet, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/outputs/dispatch_models_v..., PartitionFilters: [], PushedFilters: [], ReadSchema: struct<node_id:string,forecast_origin_s:bigint,hour:bigint,target_completed_borrows_next_hour:dou...
+                  :     +- BroadcastExchange HashedRelationBroadcastMode(List(input[0, string, false]),false), [plan_id=1877]
+                  :        +- Filter isnotnull(node_id#721)
+                  :           +- FileScan json [node_id#721] Batched: false, DataFilters: [isnotnull(node_id#721)], Format: JSON, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/data/simulated/campus_v2/..., PartitionFilters: [], PushedFilters: [IsNotNull(node_id)], ReadSchema: struct<node_id:string>
+                  :- Project [actual#973, prediction#975, baseline#974, campus_return AS run_id#1895, overall AS dimension#3031, all AS bucket#3032]
+                  :  +- BroadcastHashJoin [node_id#957], [node_id#1678], LeftOuter, BuildRight, false
+                  :     :- InMemoryTableScan [node_id#957, actual#973, prediction#975, baseline#974]
+                  :     :     +- InMemoryRelation [node_id#957, forecast_origin_s#958L, hour#959L, actual#973, prediction#975, baseline#974], StorageLevel(disk, memory, deserialized, 1 replicas)
+                  :     :           +- *(1) Project [node_id#957, forecast_origin_s#958L, hour#959L, target_completed_returns_next_hour#961 AS actual#973, prediction#962, seasonal_naive#963 AS baseline#974]
+                  :     :              +- *(1) ColumnarToRow
+                  :     :                 +- FileScan parquet [node_id#957,forecast_origin_s#958L,hour#959L,target_completed_returns_next_hour#961,prediction#962,seasonal_naive#963] Batched: true, DataFilters: [], Format: Parquet, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/outputs/dispatch_models_v..., PartitionFilters: [], PushedFilters: [], ReadSchema: struct<node_id:string,forecast_origin_s:bigint,hour:bigint,target_completed_returns_next_hour:dou...
+                  :     +- BroadcastExchange HashedRelationBroadcastMode(List(input[0, string, false]),false), [plan_id=1880]
+                  :        +- Filter isnotnull(node_id#1678)
+                  :           +- FileScan json [node_id#1678] Batched: false, DataFilters: [isnotnull(node_id#1678)], Format: JSON, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/data/simulated/campus_v2/..., PartitionFilters: [], PushedFilters: [IsNotNull(node_id)], ReadSchema: struct<node_id:string>
+                  :- Project [actual#16, prediction#18, baseline#17, campus_borrow AS run_id#2226, day AS day#2228, cast(cast(FLOOR((cast(forecast_origin_s#1942L as double) / 86400.0)) as int) as string) AS day_index#2229]
+                  :  +- BroadcastHashJoin [node_id#1941], [node_id#1956], LeftOuter, BuildRight, false
+                  :     :- InMemoryTableScan [node_id#1941, forecast_origin_s#1942L, actual#16, prediction#18, baseline#17]
+                  :     :     +- InMemoryRelation [node_id#1941, forecast_origin_s#1942L, hour#1943L, actual#16, prediction#18, baseline#17], StorageLevel(disk, memory, deserialized, 1 replicas)
+                  :     :           +- *(1) Project [node_id#0, forecast_origin_s#1L, hour#2L, target_completed_borrows_next_hour#4 AS actual#16, prediction#5, seasonal_naive#6 AS baseline#17]
+                  :     :              +- *(1) ColumnarToRow
+                  :     :                 +- FileScan parquet [node_id#0,forecast_origin_s#1L,hour#2L,target_completed_borrows_next_hour#4,prediction#5,seasonal_naive#6] Batched: true, DataFilters: [], Format: Parquet, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/outputs/dispatch_models_v..., PartitionFilters: [], PushedFilters: [], ReadSchema: struct<node_id:string,forecast_origin_s:bigint,hour:bigint,target_completed_borrows_next_hour:dou...
+                  :     +- BroadcastExchange HashedRelationBroadcastMode(List(input[0, string, false]),false), [plan_id=1883]
+                  :        +- Filter isnotnull(node_id#1956)
+                  :           +- FileScan json [node_id#1956] Batched: false, DataFilters: [isnotnull(node_id#1956)], Format: JSON, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/data/simulated/campus_v2/..., PartitionFilters: [], PushedFilters: [IsNotNull(node_id)], ReadSchema: struct<node_id:string>
+                  :- Project [actual#973, prediction#975, baseline#974, campus_return AS run_id#3040, day AS day#3042, cast(cast(FLOOR((cast(forecast_origin_s#1967L as double) / 86400.0)) as int) as string) AS day_index#3043]
+                  :  +- BroadcastHashJoin [node_id#1966], [node_id#1981], LeftOuter, BuildRight, false
+                  :     :- InMemoryTableScan [node_id#1966, forecast_origin_s#1967L, actual#973, prediction#975, baseline#974]
+                  :     :     +- InMemoryRelation [node_id#1966, forecast_origin_s#1967L, hour#1968L, actual#973, prediction#975, baseline#974], StorageLevel(disk, memory, deserialized, 1 replicas)
+                  :     :           +- *(1) Project [node_id#957, forecast_origin_s#958L, hour#959L, target_completed_returns_next_hour#961 AS actual#973, prediction#962, seasonal_naive#963 AS baseline#974]
+                  :     :              +- *(1) ColumnarToRow
+                  :     :                 +- FileScan parquet [node_id#957,forecast_origin_s#958L,hour#959L,target_completed_returns_next_hour#961,prediction#962,seasonal_naive#963] Batched: true, DataFilters: [], Format: Parquet, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/outputs/dispatch_models_v..., PartitionFilters: [], PushedFilters: [], ReadSchema: struct<node_id:string,forecast_origin_s:bigint,hour:bigint,target_completed_returns_next_hour:dou...
+                  :     +- BroadcastExchange HashedRelationBroadcastMode(List(input[0, string, false]),false), [plan_id=1886]
+                  :        +- Filter isnotnull(node_id#1981)
+                  :           +- FileScan json [node_id#1981] Batched: false, DataFilters: [isnotnull(node_id#1981)], Format: JSON, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/data/simulated/campus_v2/..., PartitionFilters: [], PushedFilters: [IsNotNull(node_id)], ReadSchema: struct<node_id:string>
+                  :- Project [actual#16, prediction#18, baseline#17, campus_borrow AS run_id#2237, hour AS hour#2239, cast(hour#1993L as string) AS hour#2240]
+                  :  +- BroadcastHashJoin [node_id#1991], [node_id#2006], LeftOuter, BuildRight, false
+                  :     :- InMemoryTableScan [node_id#1991, hour#1993L, actual#16, prediction#18, baseline#17]
+                  :     :     +- InMemoryRelation [node_id#1991, forecast_origin_s#1992L, hour#1993L, actual#16, prediction#18, baseline#17], StorageLevel(disk, memory, deserialized, 1 replicas)
+                  :     :           +- *(1) Project [node_id#0, forecast_origin_s#1L, hour#2L, target_completed_borrows_next_hour#4 AS actual#16, prediction#5, seasonal_naive#6 AS baseline#17]
+                  :     :              +- *(1) ColumnarToRow
+                  :     :                 +- FileScan parquet [node_id#0,forecast_origin_s#1L,hour#2L,target_completed_borrows_next_hour#4,prediction#5,seasonal_naive#6] Batched: true, DataFilters: [], Format: Parquet, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/outputs/dispatch_models_v..., PartitionFilters: [], PushedFilters: [], ReadSchema: struct<node_id:string,forecast_origin_s:bigint,hour:bigint,target_completed_borrows_next_hour:dou...
+                  :     +- BroadcastExchange HashedRelationBroadcastMode(List(input[0, string, false]),false), [plan_id=1889]
+                  :        +- Filter isnotnull(node_id#2006)
+                  :           +- FileScan json [node_id#2006] Batched: false, DataFilters: [isnotnull(node_id#2006)], Format: JSON, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/data/simulated/campus_v2/..., PartitionFilters: [], PushedFilters: [IsNotNull(node_id)], ReadSchema: struct<node_id:string>
+                  :- Project [actual#973, prediction#975, baseline#974, campus_return AS run_id#3051, hour AS hour#3053, cast(hour#2018L as string) AS hour#3054]
+                  :  +- BroadcastHashJoin [node_id#2016], [node_id#2031], LeftOuter, BuildRight, false
+                  :     :- InMemoryTableScan [node_id#2016, hour#2018L, actual#973, prediction#975, baseline#974]
+                  :     :     +- InMemoryRelation [node_id#2016, forecast_origin_s#2017L, hour#2018L, actual#973, prediction#975, baseline#974], StorageLevel(disk, memory, deserialized, 1 replicas)
+                  :     :           +- *(1) Project [node_id#957, forecast_origin_s#958L, hour#959L, target_completed_returns_next_hour#961 AS actual#973, prediction#962, seasonal_naive#963 AS baseline#974]
+                  :     :              +- *(1) ColumnarToRow
+                  :     :                 +- FileScan parquet [node_id#957,forecast_origin_s#958L,hour#959L,target_completed_returns_next_hour#961,prediction#962,seasonal_naive#963] Batched: true, DataFilters: [], Format: Parquet, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/outputs/dispatch_models_v..., PartitionFilters: [], PushedFilters: [], ReadSchema: struct<node_id:string,forecast_origin_s:bigint,hour:bigint,target_completed_returns_next_hour:dou...
+                  :     +- BroadcastExchange HashedRelationBroadcastMode(List(input[0, string, false]),false), [plan_id=1892]
+                  :        +- Filter isnotnull(node_id#2031)
+                  :           +- FileScan json [node_id#2031] Batched: false, DataFilters: [isnotnull(node_id#2031)], Format: JSON, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/data/simulated/campus_v2/..., PartitionFilters: [], PushedFilters: [IsNotNull(node_id)], ReadSchema: struct<node_id:string>
+                  :- Project [actual#16, prediction#18, baseline#17, campus_borrow AS run_id#2248, function AS function#2250, function_type#2051]
+                  :  +- BroadcastHashJoin [node_id#2041], [node_id#2056], LeftOuter, BuildRight, false
+                  :     :- InMemoryTableScan [node_id#2041, actual#16, prediction#18, baseline#17]
+                  :     :     +- InMemoryRelation [node_id#2041, forecast_origin_s#2042L, hour#2043L, actual#16, prediction#18, baseline#17], StorageLevel(disk, memory, deserialized, 1 replicas)
+                  :     :           +- *(1) Project [node_id#0, forecast_origin_s#1L, hour#2L, target_completed_borrows_next_hour#4 AS actual#16, prediction#5, seasonal_naive#6 AS baseline#17]
+                  :     :              +- *(1) ColumnarToRow
+                  :     :                 +- FileScan parquet [node_id#0,forecast_origin_s#1L,hour#2L,target_completed_borrows_next_hour#4,prediction#5,seasonal_naive#6] Batched: true, DataFilters: [], Format: Parquet, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/outputs/dispatch_models_v..., PartitionFilters: [], PushedFilters: [], ReadSchema: struct<node_id:string,forecast_origin_s:bigint,hour:bigint,target_completed_borrows_next_hour:dou...
+                  :     +- BroadcastExchange HashedRelationBroadcastMode(List(input[1, string, false]),false), [plan_id=1895]
+                  :        +- Filter isnotnull(node_id#2056)
+                  :           +- FileScan json [function_type#2051,node_id#2056] Batched: false, DataFilters: [isnotnull(node_id#2056)], Format: JSON, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/data/simulated/campus_v2/..., PartitionFilters: [], PushedFilters: [IsNotNull(node_id)], ReadSchema: struct<function_type:string,node_id:string>
+                  :- Project [actual#973, prediction#975, baseline#974, campus_return AS run_id#3062, function AS function#3064, function_type#2076]
+                  :  +- BroadcastHashJoin [node_id#2066], [node_id#2081], LeftOuter, BuildRight, false
+                  :     :- InMemoryTableScan [node_id#2066, actual#973, prediction#975, baseline#974]
+                  :     :     +- InMemoryRelation [node_id#2066, forecast_origin_s#2067L, hour#2068L, actual#973, prediction#975, baseline#974], StorageLevel(disk, memory, deserialized, 1 replicas)
+                  :     :           +- *(1) Project [node_id#957, forecast_origin_s#958L, hour#959L, target_completed_returns_next_hour#961 AS actual#973, prediction#962, seasonal_naive#963 AS baseline#974]
+                  :     :              +- *(1) ColumnarToRow
+                  :     :                 +- FileScan parquet [node_id#957,forecast_origin_s#958L,hour#959L,target_completed_returns_next_hour#961,prediction#962,seasonal_naive#963] Batched: true, DataFilters: [], Format: Parquet, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/outputs/dispatch_models_v..., PartitionFilters: [], PushedFilters: [], ReadSchema: struct<node_id:string,forecast_origin_s:bigint,hour:bigint,target_completed_returns_next_hour:dou...
+                  :     +- BroadcastExchange HashedRelationBroadcastMode(List(input[1, string, false]),false), [plan_id=1898]
+                  :        +- Filter isnotnull(node_id#2081)
+                  :           +- FileScan json [function_type#2076,node_id#2081] Batched: false, DataFilters: [isnotnull(node_id#2081)], Format: JSON, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/data/simulated/campus_v2/..., PartitionFilters: [], PushedFilters: [IsNotNull(node_id)], ReadSchema: struct<function_type:string,node_id:string>
+                  :- Project [actual#16, prediction#18, baseline#17, campus_borrow AS run_id#2259, node AS node#2261, node_id#2091]
+                  :  +- BroadcastHashJoin [node_id#2091], [node_id#2106], LeftOuter, BuildRight, false
+                  :     :- InMemoryTableScan [node_id#2091, actual#16, prediction#18, baseline#17]
+                  :     :     +- InMemoryRelation [node_id#2091, forecast_origin_s#2092L, hour#2093L, actual#16, prediction#18, baseline#17], StorageLevel(disk, memory, deserialized, 1 replicas)
+                  :     :           +- *(1) Project [node_id#0, forecast_origin_s#1L, hour#2L, target_completed_borrows_next_hour#4 AS actual#16, prediction#5, seasonal_naive#6 AS baseline#17]
+                  :     :              +- *(1) ColumnarToRow
+                  :     :                 +- FileScan parquet [node_id#0,forecast_origin_s#1L,hour#2L,target_completed_borrows_next_hour#4,prediction#5,seasonal_naive#6] Batched: true, DataFilters: [], Format: Parquet, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/outputs/dispatch_models_v..., PartitionFilters: [], PushedFilters: [], ReadSchema: struct<node_id:string,forecast_origin_s:bigint,hour:bigint,target_completed_borrows_next_hour:dou...
+                  :     +- BroadcastExchange HashedRelationBroadcastMode(List(input[0, string, false]),false), [plan_id=1901]
+                  :        +- Filter isnotnull(node_id#2106)
+                  :           +- FileScan json [node_id#2106] Batched: false, DataFilters: [isnotnull(node_id#2106)], Format: JSON, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/data/simulated/campus_v2/..., PartitionFilters: [], PushedFilters: [IsNotNull(node_id)], ReadSchema: struct<node_id:string>
+                  :- Project [actual#973, prediction#975, baseline#974, campus_return AS run_id#3073, node AS node#3075, node_id#2116]
+                  :  +- BroadcastHashJoin [node_id#2116], [node_id#2131], LeftOuter, BuildRight, false
+                  :     :- InMemoryTableScan [node_id#2116, actual#973, prediction#975, baseline#974]
+                  :     :     +- InMemoryRelation [node_id#2116, forecast_origin_s#2117L, hour#2118L, actual#973, prediction#975, baseline#974], StorageLevel(disk, memory, deserialized, 1 replicas)
+                  :     :           +- *(1) Project [node_id#957, forecast_origin_s#958L, hour#959L, target_completed_returns_next_hour#961 AS actual#973, prediction#962, seasonal_naive#963 AS baseline#974]
+                  :     :              +- *(1) ColumnarToRow
+                  :     :                 +- FileScan parquet [node_id#957,forecast_origin_s#958L,hour#959L,target_completed_returns_next_hour#961,prediction#962,seasonal_naive#963] Batched: true, DataFilters: [], Format: Parquet, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/outputs/dispatch_models_v..., PartitionFilters: [], PushedFilters: [], ReadSchema: struct<node_id:string,forecast_origin_s:bigint,hour:bigint,target_completed_returns_next_hour:dou...
+                  :     +- BroadcastExchange HashedRelationBroadcastMode(List(input[0, string, false]),false), [plan_id=1904]
+                  :        +- Filter isnotnull(node_id#2131)
+                  :           +- FileScan json [node_id#2131] Batched: false, DataFilters: [isnotnull(node_id#2131)], Format: JSON, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/data/simulated/campus_v2/..., PartitionFilters: [], PushedFilters: [IsNotNull(node_id)], ReadSchema: struct<node_id:string>
+                  :- Project [actual#16, prediction#18, baseline#17, campus_borrow AS run_id#2271, actual_volume AS actual_volume#2273, CASE WHEN (actual#16 = 0.0) THEN zero WHEN (actual#16 < 5.0) THEN 1-4 ELSE 5+ END AS CASE WHEN (actual = 0) THEN zero WHEN (actual < 5) THEN 1-4 ELSE 5+ END#2274]
+                  :  +- BroadcastHashJoin [node_id#2141], [node_id#2156], LeftOuter, BuildRight, false
+                  :     :- InMemoryTableScan [node_id#2141, actual#16, prediction#18, baseline#17]
+                  :     :     +- InMemoryRelation [node_id#2141, forecast_origin_s#2142L, hour#2143L, actual#16, prediction#18, baseline#17], StorageLevel(disk, memory, deserialized, 1 replicas)
+                  :     :           +- *(1) Project [node_id#0, forecast_origin_s#1L, hour#2L, target_completed_borrows_next_hour#4 AS actual#16, prediction#5, seasonal_naive#6 AS baseline#17]
+                  :     :              +- *(1) ColumnarToRow
+                  :     :                 +- FileScan parquet [node_id#0,forecast_origin_s#1L,hour#2L,target_completed_borrows_next_hour#4,prediction#5,seasonal_naive#6] Batched: true, DataFilters: [], Format: Parquet, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/outputs/dispatch_models_v..., PartitionFilters: [], PushedFilters: [], ReadSchema: struct<node_id:string,forecast_origin_s:bigint,hour:bigint,target_completed_borrows_next_hour:dou...
+                  :     +- BroadcastExchange HashedRelationBroadcastMode(List(input[0, string, false]),false), [plan_id=1907]
+                  :        +- Filter isnotnull(node_id#2156)
+                  :           +- FileScan json [node_id#2156] Batched: false, DataFilters: [isnotnull(node_id#2156)], Format: JSON, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/data/simulated/campus_v2/..., PartitionFilters: [], PushedFilters: [IsNotNull(node_id)], ReadSchema: struct<node_id:string>
+                  +- Project [actual#973, prediction#975, baseline#974, campus_return AS run_id#3084, actual_volume AS actual_volume#3086, CASE WHEN (actual#973 = 0.0) THEN zero WHEN (actual#973 < 5.0) THEN 1-4 ELSE 5+ END AS CASE WHEN (actual = 0) THEN zero WHEN (actual < 5) THEN 1-4 ELSE 5+ END#3087]
+                     +- BroadcastHashJoin [node_id#2166], [node_id#2181], LeftOuter, BuildRight, false
+                        :- InMemoryTableScan [node_id#2166, actual#973, prediction#975, baseline#974]
+                        :     +- InMemoryRelation [node_id#2166, forecast_origin_s#2167L, hour#2168L, actual#973, prediction#975, baseline#974], StorageLevel(disk, memory, deserialized, 1 replicas)
+                        :           +- *(1) Project [node_id#957, forecast_origin_s#958L, hour#959L, target_completed_returns_next_hour#961 AS actual#973, prediction#962, seasonal_naive#963 AS baseline#974]
+                        :              +- *(1) ColumnarToRow
+                        :                 +- FileScan parquet [node_id#957,forecast_origin_s#958L,hour#959L,target_completed_returns_next_hour#961,prediction#962,seasonal_naive#963] Batched: true, DataFilters: [], Format: Parquet, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/outputs/dispatch_models_v..., PartitionFilters: [], PushedFilters: [], ReadSchema: struct<node_id:string,forecast_origin_s:bigint,hour:bigint,target_completed_returns_next_hour:dou...
+                        +- BroadcastExchange HashedRelationBroadcastMode(List(input[0, string, false]),false), [plan_id=1910]
+                           +- Filter isnotnull(node_id#2181)
+                              +- FileScan json [node_id#2181] Batched: false, DataFilters: [isnotnull(node_id#2181)], Format: JSON, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/data/simulated/campus_v2/..., PartitionFilters: [], PushedFilters: [IsNotNull(node_id)], ReadSchema: struct<node_id:string>
+
+== Physical Plan ==
+AdaptiveSparkPlan isFinalPlan=false
++- InMemoryTableScan [run_id#938, dimension#1939, bucket#1940, rows#1923L, actual_count#1924, zero_rows#1925L, underpredicted_volume#1926, model_mae#1927, model_rmse#1928, model_wape#1929, baseline_mae#1930, baseline_rmse#1931, baseline_wape#1932, model_absolute_error_sum#1933, baseline_absolute_error_sum#1934, mae_gain#1935, underpredicted_count#1936L, model_bias#1937, zero_fraction#1938]
+      +- InMemoryRelation [run_id#938, dimension#1939, bucket#1940, rows#1923L, actual_count#1924, zero_rows#1925L, underpredicted_volume#1926, model_mae#1927, model_rmse#1928, model_wape#1929, baseline_mae#1930, baseline_rmse#1931, baseline_wape#1932, model_absolute_error_sum#1933, baseline_absolute_error_sum#1934, mae_gain#1935, underpredicted_count#1936L, model_bias#1937, zero_fraction#1938], StorageLevel(disk, memory, deserialized, 1 replicas)
+            +- AdaptiveSparkPlan isFinalPlan=true
+               +- == Final Plan ==
+                  *(26) HashAggregate(keys=[run_id#938, dimension#1939, bucket#1940], functions=[count(1), sum(actual#16), sum(CASE WHEN (actual#16 = 0.0) THEN 1 ELSE 0 END), sum(greatest((actual#16 - prediction#18), 0.0)), avg(abs((prediction#18 - actual#16))), avg(pow((prediction#18 - actual#16), 2.0)), sum(abs((prediction#18 - actual#16))), avg(abs((baseline#17 - actual#16))), avg(pow((baseline#17 - actual#16), 2.0)), sum(abs((baseline#17 - actual#16))), avg((abs((baseline#17 - actual#16)) - abs((prediction#18 - actual#16)))), sum(CASE WHEN (prediction#18 < actual#16) THEN 1 ELSE 0 END), avg((prediction#18 - actual#16)), avg(CASE WHEN (actual#16 = 0.0) THEN 1.0 ELSE 0.0 END)], output=[run_id#938, dimension#1939, bucket#1940, rows#1923L, actual_count#1924, zero_rows#1925L, underpredicted_volume#1926, model_mae#1927, model_rmse#1928, model_wape#1929, baseline_mae#1930, baseline_rmse#1931, baseline_wape#1932, model_absolute_error_sum#1933, baseline_absolute_error_sum#1934, mae_gain#1935, underpredicted_count#1936L, model_bias#1937, zero_fraction#1938])
+                  +- ShuffleQueryStage 34
+                     +- Exchange hashpartitioning(run_id#938, dimension#1939, bucket#1940, 4), ENSURE_REQUIREMENTS, [plan_id=2872]
+                        +- *(25) HashAggregate(keys=[run_id#938, dimension#1939, bucket#1940], functions=[partial_count(1), partial_sum(actual#16), partial_sum(CASE WHEN (actual#16 = 0.0) THEN 1 ELSE 0 END), partial_sum(greatest((actual#16 - prediction#18), 0.0)), partial_avg(abs((prediction#18 - actual#16))), partial_avg(pow((prediction#18 - actual#16), 2.0)), partial_sum(abs((prediction#18 - actual#16))), partial_avg(abs((baseline#17 - actual#16))), partial_avg(pow((baseline#17 - actual#16), 2.0)), partial_sum(abs((baseline#17 - actual#16))), partial_avg((abs((baseline#17 - actual#16)) - abs((prediction#18 - actual#16)))), partial_sum(CASE WHEN (prediction#18 < actual#16) THEN 1 ELSE 0 END), partial_avg((prediction#18 - actual#16)), partial_avg(CASE WHEN (actual#16 = 0.0) THEN 1.0 ELSE 0.0 END)], output=[run_id#938, dimension#1939, bucket#1940, count#3469L, sum#3470, sum#3471L, sum#3472, sum#3473, count#3474L, sum#3475, count#3476L, sum#3477, sum#3478, count#3479L, sum#3480, count#3481L, sum#3482, sum#3483, count#3484L, sum#3485L, sum#3486, count#3487L, sum#3488, count#3489L])
+                           +- Union
+                              :- *(13) Project [actual#16, prediction#18, baseline#17, campus_borrow AS run_id#938, overall AS dimension#1939, all AS bucket#1940]
+                              :  +- *(13) BroadcastHashJoin [node_id#0], [node_id#721], LeftOuter, BuildRight, false
+                              :     :- TableCacheQueryStage 0
+                              :     :  +- InMemoryTableScan [node_id#0, actual#16, prediction#18, baseline#17]
+                              :     :        +- InMemoryRelation [node_id#0, forecast_origin_s#1L, hour#2L, actual#16, prediction#18, baseline#17], StorageLevel(disk, memory, deserialized, 1 replicas)
+                              :     :              +- *(1) Project [node_id#0, forecast_origin_s#1L, hour#2L, target_completed_borrows_next_hour#4 AS actual#16, prediction#5, seasonal_naive#6 AS baseline#17]
+                              :     :                 +- *(1) ColumnarToRow
+                              :     :                    +- FileScan parquet [node_id#0,forecast_origin_s#1L,hour#2L,target_completed_borrows_next_hour#4,prediction#5,seasonal_naive#6] Batched: true, DataFilters: [], Format: Parquet, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/outputs/dispatch_models_v..., PartitionFilters: [], PushedFilters: [], ReadSchema: struct<node_id:string,forecast_origin_s:bigint,hour:bigint,target_completed_borrows_next_hour:dou...
+                              :     +- BroadcastQueryStage 1
+                              :        +- BroadcastExchange HashedRelationBroadcastMode(List(input[0, string, false]),false), [plan_id=2051]
+                              :           +- *(1) Filter isnotnull(node_id#721)
+                              :              +- FileScan json [node_id#721] Batched: false, DataFilters: [isnotnull(node_id#721)], Format: JSON, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/data/simulated/campus_v2/..., PartitionFilters: [], PushedFilters: [IsNotNull(node_id)], ReadSchema: struct<node_id:string>
+                              :- *(14) Project [actual#973, prediction#975, baseline#974, campus_return AS run_id#1895, overall AS dimension#3031, all AS bucket#3032]
+                              :  +- *(14) BroadcastHashJoin [node_id#957], [node_id#1678], LeftOuter, BuildRight, false
+                              :     :- TableCacheQueryStage 2
+                              :     :  +- InMemoryTableScan [node_id#957, actual#973, prediction#975, baseline#974]
+                              :     :        +- InMemoryRelation [node_id#957, forecast_origin_s#958L, hour#959L, actual#973, prediction#975, baseline#974], StorageLevel(disk, memory, deserialized, 1 replicas)
+                              :     :              +- *(1) Project [node_id#957, forecast_origin_s#958L, hour#959L, target_completed_returns_next_hour#961 AS actual#973, prediction#962, seasonal_naive#963 AS baseline#974]
+                              :     :                 +- *(1) ColumnarToRow
+                              :     :                    +- FileScan parquet [node_id#957,forecast_origin_s#958L,hour#959L,target_completed_returns_next_hour#961,prediction#962,seasonal_naive#963] Batched: true, DataFilters: [], Format: Parquet, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/outputs/dispatch_models_v..., PartitionFilters: [], PushedFilters: [], ReadSchema: struct<node_id:string,forecast_origin_s:bigint,hour:bigint,target_completed_returns_next_hour:dou...
+                              :     +- BroadcastQueryStage 4
+                              :        +- ReusedExchange [node_id#1678], BroadcastExchange HashedRelationBroadcastMode(List(input[0, string, false]),false), [plan_id=2051]
+                              :- *(15) Project [actual#16, prediction#18, baseline#17, campus_borrow AS run_id#2226, day AS day#2228, cast(cast(FLOOR((cast(forecast_origin_s#1942L as double) / 86400.0)) as int) as string) AS day_index#2229]
+                              :  +- *(15) BroadcastHashJoin [node_id#1941], [node_id#1956], LeftOuter, BuildRight, false
+                              :     :- TableCacheQueryStage 5
+                              :     :  +- InMemoryTableScan [node_id#1941, forecast_origin_s#1942L, actual#16, prediction#18, baseline#17]
+                              :     :        +- InMemoryRelation [node_id#1941, forecast_origin_s#1942L, hour#1943L, actual#16, prediction#18, baseline#17], StorageLevel(disk, memory, deserialized, 1 replicas)
+                              :     :              +- *(1) Project [node_id#0, forecast_origin_s#1L, hour#2L, target_completed_borrows_next_hour#4 AS actual#16, prediction#5, seasonal_naive#6 AS baseline#17]
+                              :     :                 +- *(1) ColumnarToRow
+                              :     :                    +- FileScan parquet [node_id#0,forecast_origin_s#1L,hour#2L,target_completed_borrows_next_hour#4,prediction#5,seasonal_naive#6] Batched: true, DataFilters: [], Format: Parquet, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/outputs/dispatch_models_v..., PartitionFilters: [], PushedFilters: [], ReadSchema: struct<node_id:string,forecast_origin_s:bigint,hour:bigint,target_completed_borrows_next_hour:dou...
+                              :     +- BroadcastQueryStage 7
+                              :        +- ReusedExchange [node_id#1956], BroadcastExchange HashedRelationBroadcastMode(List(input[0, string, false]),false), [plan_id=2051]
+                              :- *(16) Project [actual#973, prediction#975, baseline#974, campus_return AS run_id#3040, day AS day#3042, cast(cast(FLOOR((cast(forecast_origin_s#1967L as double) / 86400.0)) as int) as string) AS day_index#3043]
+                              :  +- *(16) BroadcastHashJoin [node_id#1966], [node_id#1981], LeftOuter, BuildRight, false
+                              :     :- TableCacheQueryStage 8
+                              :     :  +- InMemoryTableScan [node_id#1966, forecast_origin_s#1967L, actual#973, prediction#975, baseline#974]
+                              :     :        +- InMemoryRelation [node_id#1966, forecast_origin_s#1967L, hour#1968L, actual#973, prediction#975, baseline#974], StorageLevel(disk, memory, deserialized, 1 replicas)
+                              :     :              +- *(1) Project [node_id#957, forecast_origin_s#958L, hour#959L, target_completed_returns_next_hour#961 AS actual#973, prediction#962, seasonal_naive#963 AS baseline#974]
+                              :     :                 +- *(1) ColumnarToRow
+                              :     :                    +- FileScan parquet [node_id#957,forecast_origin_s#958L,hour#959L,target_completed_returns_next_hour#961,prediction#962,seasonal_naive#963] Batched: true, DataFilters: [], Format: Parquet, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/outputs/dispatch_models_v..., PartitionFilters: [], PushedFilters: [], ReadSchema: struct<node_id:string,forecast_origin_s:bigint,hour:bigint,target_completed_returns_next_hour:dou...
+                              :     +- BroadcastQueryStage 10
+                              :        +- ReusedExchange [node_id#1981], BroadcastExchange HashedRelationBroadcastMode(List(input[0, string, false]),false), [plan_id=2051]
+                              :- *(17) Project [actual#16, prediction#18, baseline#17, campus_borrow AS run_id#2237, hour AS hour#2239, cast(hour#1993L as string) AS hour#2240]
+                              :  +- *(17) BroadcastHashJoin [node_id#1991], [node_id#2006], LeftOuter, BuildRight, false
+                              :     :- TableCacheQueryStage 11
+                              :     :  +- InMemoryTableScan [node_id#1991, hour#1993L, actual#16, prediction#18, baseline#17]
+                              :     :        +- InMemoryRelation [node_id#1991, forecast_origin_s#1992L, hour#1993L, actual#16, prediction#18, baseline#17], StorageLevel(disk, memory, deserialized, 1 replicas)
+                              :     :              +- *(1) Project [node_id#0, forecast_origin_s#1L, hour#2L, target_completed_borrows_next_hour#4 AS actual#16, prediction#5, seasonal_naive#6 AS baseline#17]
+                              :     :                 +- *(1) ColumnarToRow
+                              :     :                    +- FileScan parquet [node_id#0,forecast_origin_s#1L,hour#2L,target_completed_borrows_next_hour#4,prediction#5,seasonal_naive#6] Batched: true, DataFilters: [], Format: Parquet, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/outputs/dispatch_models_v..., PartitionFilters: [], PushedFilters: [], ReadSchema: struct<node_id:string,forecast_origin_s:bigint,hour:bigint,target_completed_borrows_next_hour:dou...
+                              :     +- BroadcastQueryStage 13
+                              :        +- ReusedExchange [node_id#2006], BroadcastExchange HashedRelationBroadcastMode(List(input[0, string, false]),false), [plan_id=2051]
+                              :- *(18) Project [actual#973, prediction#975, baseline#974, campus_return AS run_id#3051, hour AS hour#3053, cast(hour#2018L as string) AS hour#3054]
+                              :  +- *(18) BroadcastHashJoin [node_id#2016], [node_id#2031], LeftOuter, BuildRight, false
+                              :     :- TableCacheQueryStage 14
+                              :     :  +- InMemoryTableScan [node_id#2016, hour#2018L, actual#973, prediction#975, baseline#974]
+                              :     :        +- InMemoryRelation [node_id#2016, forecast_origin_s#2017L, hour#2018L, actual#973, prediction#975, baseline#974], StorageLevel(disk, memory, deserialized, 1 replicas)
+                              :     :              +- *(1) Project [node_id#957, forecast_origin_s#958L, hour#959L, target_completed_returns_next_hour#961 AS actual#973, prediction#962, seasonal_naive#963 AS baseline#974]
+                              :     :                 +- *(1) ColumnarToRow
+                              :     :                    +- FileScan parquet [node_id#957,forecast_origin_s#958L,hour#959L,target_completed_returns_next_hour#961,prediction#962,seasonal_naive#963] Batched: true, DataFilters: [], Format: Parquet, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/outputs/dispatch_models_v..., PartitionFilters: [], PushedFilters: [], ReadSchema: struct<node_id:string,forecast_origin_s:bigint,hour:bigint,target_completed_returns_next_hour:dou...
+                              :     +- BroadcastQueryStage 16
+                              :        +- ReusedExchange [node_id#2031], BroadcastExchange HashedRelationBroadcastMode(List(input[0, string, false]),false), [plan_id=2051]
+                              :- *(19) Project [actual#16, prediction#18, baseline#17, campus_borrow AS run_id#2248, function AS function#2250, function_type#2051]
+                              :  +- *(19) BroadcastHashJoin [node_id#2041], [node_id#2056], LeftOuter, BuildRight, false
+                              :     :- TableCacheQueryStage 17
+                              :     :  +- InMemoryTableScan [node_id#2041, actual#16, prediction#18, baseline#17]
+                              :     :        +- InMemoryRelation [node_id#2041, forecast_origin_s#2042L, hour#2043L, actual#16, prediction#18, baseline#17], StorageLevel(disk, memory, deserialized, 1 replicas)
+                              :     :              +- *(1) Project [node_id#0, forecast_origin_s#1L, hour#2L, target_completed_borrows_next_hour#4 AS actual#16, prediction#5, seasonal_naive#6 AS baseline#17]
+                              :     :                 +- *(1) ColumnarToRow
+                              :     :                    +- FileScan parquet [node_id#0,forecast_origin_s#1L,hour#2L,target_completed_borrows_next_hour#4,prediction#5,seasonal_naive#6] Batched: true, DataFilters: [], Format: Parquet, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/outputs/dispatch_models_v..., PartitionFilters: [], PushedFilters: [], ReadSchema: struct<node_id:string,forecast_origin_s:bigint,hour:bigint,target_completed_borrows_next_hour:dou...
+                              :     +- BroadcastQueryStage 18
+                              :        +- BroadcastExchange HashedRelationBroadcastMode(List(input[1, string, false]),false), [plan_id=2139]
+                              :           +- *(7) Filter isnotnull(node_id#2056)
+                              :              +- FileScan json [function_type#2051,node_id#2056] Batched: false, DataFilters: [isnotnull(node_id#2056)], Format: JSON, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/data/simulated/campus_v2/..., PartitionFilters: [], PushedFilters: [IsNotNull(node_id)], ReadSchema: struct<function_type:string,node_id:string>
+                              :- *(20) Project [actual#973, prediction#975, baseline#974, campus_return AS run_id#3062, function AS function#3064, function_type#2076]
+                              :  +- *(20) BroadcastHashJoin [node_id#2066], [node_id#2081], LeftOuter, BuildRight, false
+                              :     :- TableCacheQueryStage 19
+                              :     :  +- InMemoryTableScan [node_id#2066, actual#973, prediction#975, baseline#974]
+                              :     :        +- InMemoryRelation [node_id#2066, forecast_origin_s#2067L, hour#2068L, actual#973, prediction#975, baseline#974], StorageLevel(disk, memory, deserialized, 1 replicas)
+                              :     :              +- *(1) Project [node_id#957, forecast_origin_s#958L, hour#959L, target_completed_returns_next_hour#961 AS actual#973, prediction#962, seasonal_naive#963 AS baseline#974]
+                              :     :                 +- *(1) ColumnarToRow
+                              :     :                    +- FileScan parquet [node_id#957,forecast_origin_s#958L,hour#959L,target_completed_returns_next_hour#961,prediction#962,seasonal_naive#963] Batched: true, DataFilters: [], Format: Parquet, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/outputs/dispatch_models_v..., PartitionFilters: [], PushedFilters: [], ReadSchema: struct<node_id:string,forecast_origin_s:bigint,hour:bigint,target_completed_returns_next_hour:dou...
+                              :     +- BroadcastQueryStage 21
+                              :        +- ReusedExchange [function_type#2076, node_id#2081], BroadcastExchange HashedRelationBroadcastMode(List(input[1, string, false]),false), [plan_id=2139]
+                              :- *(21) Project [actual#16, prediction#18, baseline#17, campus_borrow AS run_id#2259, node AS node#2261, node_id#2091]
+                              :  +- *(21) BroadcastHashJoin [node_id#2091], [node_id#2106], LeftOuter, BuildRight, false
+                              :     :- TableCacheQueryStage 22
+                              :     :  +- InMemoryTableScan [node_id#2091, actual#16, prediction#18, baseline#17]
+                              :     :        +- InMemoryRelation [node_id#2091, forecast_origin_s#2092L, hour#2093L, actual#16, prediction#18, baseline#17], StorageLevel(disk, memory, deserialized, 1 replicas)
+                              :     :              +- *(1) Project [node_id#0, forecast_origin_s#1L, hour#2L, target_completed_borrows_next_hour#4 AS actual#16, prediction#5, seasonal_naive#6 AS baseline#17]
+                              :     :                 +- *(1) ColumnarToRow
+                              :     :                    +- FileScan parquet [node_id#0,forecast_origin_s#1L,hour#2L,target_completed_borrows_next_hour#4,prediction#5,seasonal_naive#6] Batched: true, DataFilters: [], Format: Parquet, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/outputs/dispatch_models_v..., PartitionFilters: [], PushedFilters: [], ReadSchema: struct<node_id:string,forecast_origin_s:bigint,hour:bigint,target_completed_borrows_next_hour:dou...
+                              :     +- BroadcastQueryStage 24
+                              :        +- ReusedExchange [node_id#2106], BroadcastExchange HashedRelationBroadcastMode(List(input[0, string, false]),false), [plan_id=2051]
+                              :- *(22) Project [actual#973, prediction#975, baseline#974, campus_return AS run_id#3073, node AS node#3075, node_id#2116]
+                              :  +- *(22) BroadcastHashJoin [node_id#2116], [node_id#2131], LeftOuter, BuildRight, false
+                              :     :- TableCacheQueryStage 25
+                              :     :  +- InMemoryTableScan [node_id#2116, actual#973, prediction#975, baseline#974]
+                              :     :        +- InMemoryRelation [node_id#2116, forecast_origin_s#2117L, hour#2118L, actual#973, prediction#975, baseline#974], StorageLevel(disk, memory, deserialized, 1 replicas)
+                              :     :              +- *(1) Project [node_id#957, forecast_origin_s#958L, hour#959L, target_completed_returns_next_hour#961 AS actual#973, prediction#962, seasonal_naive#963 AS baseline#974]
+                              :     :                 +- *(1) ColumnarToRow
+                              :     :                    +- FileScan parquet [node_id#957,forecast_origin_s#958L,hour#959L,target_completed_returns_next_hour#961,prediction#962,seasonal_naive#963] Batched: true, DataFilters: [], Format: Parquet, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/outputs/dispatch_models_v..., PartitionFilters: [], PushedFilters: [], ReadSchema: struct<node_id:string,forecast_origin_s:bigint,hour:bigint,target_completed_returns_next_hour:dou...
+                              :     +- BroadcastQueryStage 27
+                              :        +- ReusedExchange [node_id#2131], BroadcastExchange HashedRelationBroadcastMode(List(input[0, string, false]),false), [plan_id=2051]
+                              :- *(23) Project [actual#16, prediction#18, baseline#17, campus_borrow AS run_id#2271, actual_volume AS actual_volume#2273, CASE WHEN (actual#16 = 0.0) THEN zero WHEN (actual#16 < 5.0) THEN 1-4 ELSE 5+ END AS CASE WHEN (actual = 0) THEN zero WHEN (actual < 5) THEN 1-4 ELSE 5+ END#2274]
+                              :  +- *(23) BroadcastHashJoin [node_id#2141], [node_id#2156], LeftOuter, BuildRight, false
+                              :     :- TableCacheQueryStage 28
+                              :     :  +- InMemoryTableScan [node_id#2141, actual#16, prediction#18, baseline#17]
+                              :     :        +- InMemoryRelation [node_id#2141, forecast_origin_s#2142L, hour#2143L, actual#16, prediction#18, baseline#17], StorageLevel(disk, memory, deserialized, 1 replicas)
+                              :     :              +- *(1) Project [node_id#0, forecast_origin_s#1L, hour#2L, target_completed_borrows_next_hour#4 AS actual#16, prediction#5, seasonal_naive#6 AS baseline#17]
+                              :     :                 +- *(1) ColumnarToRow
+                              :     :                    +- FileScan parquet [node_id#0,forecast_origin_s#1L,hour#2L,target_completed_borrows_next_hour#4,prediction#5,seasonal_naive#6] Batched: true, DataFilters: [], Format: Parquet, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/outputs/dispatch_models_v..., PartitionFilters: [], PushedFilters: [], ReadSchema: struct<node_id:string,forecast_origin_s:bigint,hour:bigint,target_completed_borrows_next_hour:dou...
+                              :     +- BroadcastQueryStage 30
+                              :        +- ReusedExchange [node_id#2156], BroadcastExchange HashedRelationBroadcastMode(List(input[0, string, false]),false), [plan_id=2051]
+                              +- *(24) Project [actual#973, prediction#975, baseline#974, campus_return AS run_id#3084, actual_volume AS actual_volume#3086, CASE WHEN (actual#973 = 0.0) THEN zero WHEN (actual#973 < 5.0) THEN 1-4 ELSE 5+ END AS CASE WHEN (actual = 0) THEN zero WHEN (actual < 5) THEN 1-4 ELSE 5+ END#3087]
+                                 +- *(24) BroadcastHashJoin [node_id#2166], [node_id#2181], LeftOuter, BuildRight, false
+                                    :- TableCacheQueryStage 31
+                                    :  +- InMemoryTableScan [node_id#2166, actual#973, prediction#975, baseline#974]
+                                    :        +- InMemoryRelation [node_id#2166, forecast_origin_s#2167L, hour#2168L, actual#973, prediction#975, baseline#974], StorageLevel(disk, memory, deserialized, 1 replicas)
+                                    :              +- *(1) Project [node_id#957, forecast_origin_s#958L, hour#959L, target_completed_returns_next_hour#961 AS actual#973, prediction#962, seasonal_naive#963 AS baseline#974]
+                                    :                 +- *(1) ColumnarToRow
+                                    :                    +- FileScan parquet [node_id#957,forecast_origin_s#958L,hour#959L,target_completed_returns_next_hour#961,prediction#962,seasonal_naive#963] Batched: true, DataFilters: [], Format: Parquet, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/outputs/dispatch_models_v..., PartitionFilters: [], PushedFilters: [], ReadSchema: struct<node_id:string,forecast_origin_s:bigint,hour:bigint,target_completed_returns_next_hour:dou...
+                                    +- BroadcastQueryStage 33
+                                       +- ReusedExchange [node_id#2181], BroadcastExchange HashedRelationBroadcastMode(List(input[0, string, false]),false), [plan_id=2051]
+               +- == Initial Plan ==
+                  HashAggregate(keys=[run_id#938, dimension#1939, bucket#1940], functions=[count(1), sum(actual#16), sum(CASE WHEN (actual#16 = 0.0) THEN 1 ELSE 0 END), sum(greatest((actual#16 - prediction#18), 0.0)), avg(abs((prediction#18 - actual#16))), avg(pow((prediction#18 - actual#16), 2.0)), sum(abs((prediction#18 - actual#16))), avg(abs((baseline#17 - actual#16))), avg(pow((baseline#17 - actual#16), 2.0)), sum(abs((baseline#17 - actual#16))), avg((abs((baseline#17 - actual#16)) - abs((prediction#18 - actual#16)))), sum(CASE WHEN (prediction#18 < actual#16) THEN 1 ELSE 0 END), avg((prediction#18 - actual#16)), avg(CASE WHEN (actual#16 = 0.0) THEN 1.0 ELSE 0.0 END)], output=[run_id#938, dimension#1939, bucket#1940, rows#1923L, actual_count#1924, zero_rows#1925L, underpredicted_volume#1926, model_mae#1927, model_rmse#1928, model_wape#1929, baseline_mae#1930, baseline_rmse#1931, baseline_wape#1932, model_absolute_error_sum#1933, baseline_absolute_error_sum#1934, mae_gain#1935, underpredicted_count#1936L, model_bias#1937, zero_fraction#1938])
+                  +- Exchange hashpartitioning(run_id#938, dimension#1939, bucket#1940, 4), ENSURE_REQUIREMENTS, [plan_id=1916]
+                     +- HashAggregate(keys=[run_id#938, dimension#1939, bucket#1940], functions=[partial_count(1), partial_sum(actual#16), partial_sum(CASE WHEN (actual#16 = 0.0) THEN 1 ELSE 0 END), partial_sum(greatest((actual#16 - prediction#18), 0.0)), partial_avg(abs((prediction#18 - actual#16))), partial_avg(pow((prediction#18 - actual#16), 2.0)), partial_sum(abs((prediction#18 - actual#16))), partial_avg(abs((baseline#17 - actual#16))), partial_avg(pow((baseline#17 - actual#16), 2.0)), partial_sum(abs((baseline#17 - actual#16))), partial_avg((abs((baseline#17 - actual#16)) - abs((prediction#18 - actual#16)))), partial_sum(CASE WHEN (prediction#18 < actual#16) THEN 1 ELSE 0 END), partial_avg((prediction#18 - actual#16)), partial_avg(CASE WHEN (actual#16 = 0.0) THEN 1.0 ELSE 0.0 END)], output=[run_id#938, dimension#1939, bucket#1940, count#3469L, sum#3470, sum#3471L, sum#3472, sum#3473, count#3474L, sum#3475, count#3476L, sum#3477, sum#3478, count#3479L, sum#3480, count#3481L, sum#3482, sum#3483, count#3484L, sum#3485L, sum#3486, count#3487L, sum#3488, count#3489L])
+                        +- Union
+                           :- Project [actual#16, prediction#18, baseline#17, campus_borrow AS run_id#938, overall AS dimension#1939, all AS bucket#1940]
+                           :  +- BroadcastHashJoin [node_id#0], [node_id#721], LeftOuter, BuildRight, false
+                           :     :- InMemoryTableScan [node_id#0, actual#16, prediction#18, baseline#17]
+                           :     :     +- InMemoryRelation [node_id#0, forecast_origin_s#1L, hour#2L, actual#16, prediction#18, baseline#17], StorageLevel(disk, memory, deserialized, 1 replicas)
+                           :     :           +- *(1) Project [node_id#0, forecast_origin_s#1L, hour#2L, target_completed_borrows_next_hour#4 AS actual#16, prediction#5, seasonal_naive#6 AS baseline#17]
+                           :     :              +- *(1) ColumnarToRow
+                           :     :                 +- FileScan parquet [node_id#0,forecast_origin_s#1L,hour#2L,target_completed_borrows_next_hour#4,prediction#5,seasonal_naive#6] Batched: true, DataFilters: [], Format: Parquet, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/outputs/dispatch_models_v..., PartitionFilters: [], PushedFilters: [], ReadSchema: struct<node_id:string,forecast_origin_s:bigint,hour:bigint,target_completed_borrows_next_hour:dou...
+                           :     +- BroadcastExchange HashedRelationBroadcastMode(List(input[0, string, false]),false), [plan_id=1877]
+                           :        +- Filter isnotnull(node_id#721)
+                           :           +- FileScan json [node_id#721] Batched: false, DataFilters: [isnotnull(node_id#721)], Format: JSON, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/data/simulated/campus_v2/..., PartitionFilters: [], PushedFilters: [IsNotNull(node_id)], ReadSchema: struct<node_id:string>
+                           :- Project [actual#973, prediction#975, baseline#974, campus_return AS run_id#1895, overall AS dimension#3031, all AS bucket#3032]
+                           :  +- BroadcastHashJoin [node_id#957], [node_id#1678], LeftOuter, BuildRight, false
+                           :     :- InMemoryTableScan [node_id#957, actual#973, prediction#975, baseline#974]
+                           :     :     +- InMemoryRelation [node_id#957, forecast_origin_s#958L, hour#959L, actual#973, prediction#975, baseline#974], StorageLevel(disk, memory, deserialized, 1 replicas)
+                           :     :           +- *(1) Project [node_id#957, forecast_origin_s#958L, hour#959L, target_completed_returns_next_hour#961 AS actual#973, prediction#962, seasonal_naive#963 AS baseline#974]
+                           :     :              +- *(1) ColumnarToRow
+                           :     :                 +- FileScan parquet [node_id#957,forecast_origin_s#958L,hour#959L,target_completed_returns_next_hour#961,prediction#962,seasonal_naive#963] Batched: true, DataFilters: [], Format: Parquet, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/outputs/dispatch_models_v..., PartitionFilters: [], PushedFilters: [], ReadSchema: struct<node_id:string,forecast_origin_s:bigint,hour:bigint,target_completed_returns_next_hour:dou...
+                           :     +- BroadcastExchange HashedRelationBroadcastMode(List(input[0, string, false]),false), [plan_id=1880]
+                           :        +- Filter isnotnull(node_id#1678)
+                           :           +- FileScan json [node_id#1678] Batched: false, DataFilters: [isnotnull(node_id#1678)], Format: JSON, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/data/simulated/campus_v2/..., PartitionFilters: [], PushedFilters: [IsNotNull(node_id)], ReadSchema: struct<node_id:string>
+                           :- Project [actual#16, prediction#18, baseline#17, campus_borrow AS run_id#2226, day AS day#2228, cast(cast(FLOOR((cast(forecast_origin_s#1942L as double) / 86400.0)) as int) as string) AS day_index#2229]
+                           :  +- BroadcastHashJoin [node_id#1941], [node_id#1956], LeftOuter, BuildRight, false
+                           :     :- InMemoryTableScan [node_id#1941, forecast_origin_s#1942L, actual#16, prediction#18, baseline#17]
+                           :     :     +- InMemoryRelation [node_id#1941, forecast_origin_s#1942L, hour#1943L, actual#16, prediction#18, baseline#17], StorageLevel(disk, memory, deserialized, 1 replicas)
+                           :     :           +- *(1) Project [node_id#0, forecast_origin_s#1L, hour#2L, target_completed_borrows_next_hour#4 AS actual#16, prediction#5, seasonal_naive#6 AS baseline#17]
+                           :     :              +- *(1) ColumnarToRow
+                           :     :                 +- FileScan parquet [node_id#0,forecast_origin_s#1L,hour#2L,target_completed_borrows_next_hour#4,prediction#5,seasonal_naive#6] Batched: true, DataFilters: [], Format: Parquet, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/outputs/dispatch_models_v..., PartitionFilters: [], PushedFilters: [], ReadSchema: struct<node_id:string,forecast_origin_s:bigint,hour:bigint,target_completed_borrows_next_hour:dou...
+                           :     +- BroadcastExchange HashedRelationBroadcastMode(List(input[0, string, false]),false), [plan_id=1883]
+                           :        +- Filter isnotnull(node_id#1956)
+                           :           +- FileScan json [node_id#1956] Batched: false, DataFilters: [isnotnull(node_id#1956)], Format: JSON, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/data/simulated/campus_v2/..., PartitionFilters: [], PushedFilters: [IsNotNull(node_id)], ReadSchema: struct<node_id:string>
+                           :- Project [actual#973, prediction#975, baseline#974, campus_return AS run_id#3040, day AS day#3042, cast(cast(FLOOR((cast(forecast_origin_s#1967L as double) / 86400.0)) as int) as string) AS day_index#3043]
+                           :  +- BroadcastHashJoin [node_id#1966], [node_id#1981], LeftOuter, BuildRight, false
+                           :     :- InMemoryTableScan [node_id#1966, forecast_origin_s#1967L, actual#973, prediction#975, baseline#974]
+                           :     :     +- InMemoryRelation [node_id#1966, forecast_origin_s#1967L, hour#1968L, actual#973, prediction#975, baseline#974], StorageLevel(disk, memory, deserialized, 1 replicas)
+                           :     :           +- *(1) Project [node_id#957, forecast_origin_s#958L, hour#959L, target_completed_returns_next_hour#961 AS actual#973, prediction#962, seasonal_naive#963 AS baseline#974]
+                           :     :              +- *(1) ColumnarToRow
+                           :     :                 +- FileScan parquet [node_id#957,forecast_origin_s#958L,hour#959L,target_completed_returns_next_hour#961,prediction#962,seasonal_naive#963] Batched: true, DataFilters: [], Format: Parquet, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/outputs/dispatch_models_v..., PartitionFilters: [], PushedFilters: [], ReadSchema: struct<node_id:string,forecast_origin_s:bigint,hour:bigint,target_completed_returns_next_hour:dou...
+                           :     +- BroadcastExchange HashedRelationBroadcastMode(List(input[0, string, false]),false), [plan_id=1886]
+                           :        +- Filter isnotnull(node_id#1981)
+                           :           +- FileScan json [node_id#1981] Batched: false, DataFilters: [isnotnull(node_id#1981)], Format: JSON, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/data/simulated/campus_v2/..., PartitionFilters: [], PushedFilters: [IsNotNull(node_id)], ReadSchema: struct<node_id:string>
+                           :- Project [actual#16, prediction#18, baseline#17, campus_borrow AS run_id#2237, hour AS hour#2239, cast(hour#1993L as string) AS hour#2240]
+                           :  +- BroadcastHashJoin [node_id#1991], [node_id#2006], LeftOuter, BuildRight, false
+                           :     :- InMemoryTableScan [node_id#1991, hour#1993L, actual#16, prediction#18, baseline#17]
+                           :     :     +- InMemoryRelation [node_id#1991, forecast_origin_s#1992L, hour#1993L, actual#16, prediction#18, baseline#17], StorageLevel(disk, memory, deserialized, 1 replicas)
+                           :     :           +- *(1) Project [node_id#0, forecast_origin_s#1L, hour#2L, target_completed_borrows_next_hour#4 AS actual#16, prediction#5, seasonal_naive#6 AS baseline#17]
+                           :     :              +- *(1) ColumnarToRow
+                           :     :                 +- FileScan parquet [node_id#0,forecast_origin_s#1L,hour#2L,target_completed_borrows_next_hour#4,prediction#5,seasonal_naive#6] Batched: true, DataFilters: [], Format: Parquet, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/outputs/dispatch_models_v..., PartitionFilters: [], PushedFilters: [], ReadSchema: struct<node_id:string,forecast_origin_s:bigint,hour:bigint,target_completed_borrows_next_hour:dou...
+                           :     +- BroadcastExchange HashedRelationBroadcastMode(List(input[0, string, false]),false), [plan_id=1889]
+                           :        +- Filter isnotnull(node_id#2006)
+                           :           +- FileScan json [node_id#2006] Batched: false, DataFilters: [isnotnull(node_id#2006)], Format: JSON, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/data/simulated/campus_v2/..., PartitionFilters: [], PushedFilters: [IsNotNull(node_id)], ReadSchema: struct<node_id:string>
+                           :- Project [actual#973, prediction#975, baseline#974, campus_return AS run_id#3051, hour AS hour#3053, cast(hour#2018L as string) AS hour#3054]
+                           :  +- BroadcastHashJoin [node_id#2016], [node_id#2031], LeftOuter, BuildRight, false
+                           :     :- InMemoryTableScan [node_id#2016, hour#2018L, actual#973, prediction#975, baseline#974]
+                           :     :     +- InMemoryRelation [node_id#2016, forecast_origin_s#2017L, hour#2018L, actual#973, prediction#975, baseline#974], StorageLevel(disk, memory, deserialized, 1 replicas)
+                           :     :           +- *(1) Project [node_id#957, forecast_origin_s#958L, hour#959L, target_completed_returns_next_hour#961 AS actual#973, prediction#962, seasonal_naive#963 AS baseline#974]
+                           :     :              +- *(1) ColumnarToRow
+                           :     :                 +- FileScan parquet [node_id#957,forecast_origin_s#958L,hour#959L,target_completed_returns_next_hour#961,prediction#962,seasonal_naive#963] Batched: true, DataFilters: [], Format: Parquet, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/outputs/dispatch_models_v..., PartitionFilters: [], PushedFilters: [], ReadSchema: struct<node_id:string,forecast_origin_s:bigint,hour:bigint,target_completed_returns_next_hour:dou...
+                           :     +- BroadcastExchange HashedRelationBroadcastMode(List(input[0, string, false]),false), [plan_id=1892]
+                           :        +- Filter isnotnull(node_id#2031)
+                           :           +- FileScan json [node_id#2031] Batched: false, DataFilters: [isnotnull(node_id#2031)], Format: JSON, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/data/simulated/campus_v2/..., PartitionFilters: [], PushedFilters: [IsNotNull(node_id)], ReadSchema: struct<node_id:string>
+                           :- Project [actual#16, prediction#18, baseline#17, campus_borrow AS run_id#2248, function AS function#2250, function_type#2051]
+                           :  +- BroadcastHashJoin [node_id#2041], [node_id#2056], LeftOuter, BuildRight, false
+                           :     :- InMemoryTableScan [node_id#2041, actual#16, prediction#18, baseline#17]
+                           :     :     +- InMemoryRelation [node_id#2041, forecast_origin_s#2042L, hour#2043L, actual#16, prediction#18, baseline#17], StorageLevel(disk, memory, deserialized, 1 replicas)
+                           :     :           +- *(1) Project [node_id#0, forecast_origin_s#1L, hour#2L, target_completed_borrows_next_hour#4 AS actual#16, prediction#5, seasonal_naive#6 AS baseline#17]
+                           :     :              +- *(1) ColumnarToRow
+                           :     :                 +- FileScan parquet [node_id#0,forecast_origin_s#1L,hour#2L,target_completed_borrows_next_hour#4,prediction#5,seasonal_naive#6] Batched: true, DataFilters: [], Format: Parquet, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/outputs/dispatch_models_v..., PartitionFilters: [], PushedFilters: [], ReadSchema: struct<node_id:string,forecast_origin_s:bigint,hour:bigint,target_completed_borrows_next_hour:dou...
+                           :     +- BroadcastExchange HashedRelationBroadcastMode(List(input[1, string, false]),false), [plan_id=1895]
+                           :        +- Filter isnotnull(node_id#2056)
+                           :           +- FileScan json [function_type#2051,node_id#2056] Batched: false, DataFilters: [isnotnull(node_id#2056)], Format: JSON, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/data/simulated/campus_v2/..., PartitionFilters: [], PushedFilters: [IsNotNull(node_id)], ReadSchema: struct<function_type:string,node_id:string>
+                           :- Project [actual#973, prediction#975, baseline#974, campus_return AS run_id#3062, function AS function#3064, function_type#2076]
+                           :  +- BroadcastHashJoin [node_id#2066], [node_id#2081], LeftOuter, BuildRight, false
+                           :     :- InMemoryTableScan [node_id#2066, actual#973, prediction#975, baseline#974]
+                           :     :     +- InMemoryRelation [node_id#2066, forecast_origin_s#2067L, hour#2068L, actual#973, prediction#975, baseline#974], StorageLevel(disk, memory, deserialized, 1 replicas)
+                           :     :           +- *(1) Project [node_id#957, forecast_origin_s#958L, hour#959L, target_completed_returns_next_hour#961 AS actual#973, prediction#962, seasonal_naive#963 AS baseline#974]
+                           :     :              +- *(1) ColumnarToRow
+                           :     :                 +- FileScan parquet [node_id#957,forecast_origin_s#958L,hour#959L,target_completed_returns_next_hour#961,prediction#962,seasonal_naive#963] Batched: true, DataFilters: [], Format: Parquet, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/outputs/dispatch_models_v..., PartitionFilters: [], PushedFilters: [], ReadSchema: struct<node_id:string,forecast_origin_s:bigint,hour:bigint,target_completed_returns_next_hour:dou...
+                           :     +- BroadcastExchange HashedRelationBroadcastMode(List(input[1, string, false]),false), [plan_id=1898]
+                           :        +- Filter isnotnull(node_id#2081)
+                           :           +- FileScan json [function_type#2076,node_id#2081] Batched: false, DataFilters: [isnotnull(node_id#2081)], Format: JSON, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/data/simulated/campus_v2/..., PartitionFilters: [], PushedFilters: [IsNotNull(node_id)], ReadSchema: struct<function_type:string,node_id:string>
+                           :- Project [actual#16, prediction#18, baseline#17, campus_borrow AS run_id#2259, node AS node#2261, node_id#2091]
+                           :  +- BroadcastHashJoin [node_id#2091], [node_id#2106], LeftOuter, BuildRight, false
+                           :     :- InMemoryTableScan [node_id#2091, actual#16, prediction#18, baseline#17]
+                           :     :     +- InMemoryRelation [node_id#2091, forecast_origin_s#2092L, hour#2093L, actual#16, prediction#18, baseline#17], StorageLevel(disk, memory, deserialized, 1 replicas)
+                           :     :           +- *(1) Project [node_id#0, forecast_origin_s#1L, hour#2L, target_completed_borrows_next_hour#4 AS actual#16, prediction#5, seasonal_naive#6 AS baseline#17]
+                           :     :              +- *(1) ColumnarToRow
+                           :     :                 +- FileScan parquet [node_id#0,forecast_origin_s#1L,hour#2L,target_completed_borrows_next_hour#4,prediction#5,seasonal_naive#6] Batched: true, DataFilters: [], Format: Parquet, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/outputs/dispatch_models_v..., PartitionFilters: [], PushedFilters: [], ReadSchema: struct<node_id:string,forecast_origin_s:bigint,hour:bigint,target_completed_borrows_next_hour:dou...
+                           :     +- BroadcastExchange HashedRelationBroadcastMode(List(input[0, string, false]),false), [plan_id=1901]
+                           :        +- Filter isnotnull(node_id#2106)
+                           :           +- FileScan json [node_id#2106] Batched: false, DataFilters: [isnotnull(node_id#2106)], Format: JSON, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/data/simulated/campus_v2/..., PartitionFilters: [], PushedFilters: [IsNotNull(node_id)], ReadSchema: struct<node_id:string>
+                           :- Project [actual#973, prediction#975, baseline#974, campus_return AS run_id#3073, node AS node#3075, node_id#2116]
+                           :  +- BroadcastHashJoin [node_id#2116], [node_id#2131], LeftOuter, BuildRight, false
+                           :     :- InMemoryTableScan [node_id#2116, actual#973, prediction#975, baseline#974]
+                           :     :     +- InMemoryRelation [node_id#2116, forecast_origin_s#2117L, hour#2118L, actual#973, prediction#975, baseline#974], StorageLevel(disk, memory, deserialized, 1 replicas)
+                           :     :           +- *(1) Project [node_id#957, forecast_origin_s#958L, hour#959L, target_completed_returns_next_hour#961 AS actual#973, prediction#962, seasonal_naive#963 AS baseline#974]
+                           :     :              +- *(1) ColumnarToRow
+                           :     :                 +- FileScan parquet [node_id#957,forecast_origin_s#958L,hour#959L,target_completed_returns_next_hour#961,prediction#962,seasonal_naive#963] Batched: true, DataFilters: [], Format: Parquet, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/outputs/dispatch_models_v..., PartitionFilters: [], PushedFilters: [], ReadSchema: struct<node_id:string,forecast_origin_s:bigint,hour:bigint,target_completed_returns_next_hour:dou...
+                           :     +- BroadcastExchange HashedRelationBroadcastMode(List(input[0, string, false]),false), [plan_id=1904]
+                           :        +- Filter isnotnull(node_id#2131)
+                           :           +- FileScan json [node_id#2131] Batched: false, DataFilters: [isnotnull(node_id#2131)], Format: JSON, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/data/simulated/campus_v2/..., PartitionFilters: [], PushedFilters: [IsNotNull(node_id)], ReadSchema: struct<node_id:string>
+                           :- Project [actual#16, prediction#18, baseline#17, campus_borrow AS run_id#2271, actual_volume AS actual_volume#2273, CASE WHEN (actual#16 = 0.0) THEN zero WHEN (actual#16 < 5.0) THEN 1-4 ELSE 5+ END AS CASE WHEN (actual = 0) THEN zero WHEN (actual < 5) THEN 1-4 ELSE 5+ END#2274]
+                           :  +- BroadcastHashJoin [node_id#2141], [node_id#2156], LeftOuter, BuildRight, false
+                           :     :- InMemoryTableScan [node_id#2141, actual#16, prediction#18, baseline#17]
+                           :     :     +- InMemoryRelation [node_id#2141, forecast_origin_s#2142L, hour#2143L, actual#16, prediction#18, baseline#17], StorageLevel(disk, memory, deserialized, 1 replicas)
+                           :     :           +- *(1) Project [node_id#0, forecast_origin_s#1L, hour#2L, target_completed_borrows_next_hour#4 AS actual#16, prediction#5, seasonal_naive#6 AS baseline#17]
+                           :     :              +- *(1) ColumnarToRow
+                           :     :                 +- FileScan parquet [node_id#0,forecast_origin_s#1L,hour#2L,target_completed_borrows_next_hour#4,prediction#5,seasonal_naive#6] Batched: true, DataFilters: [], Format: Parquet, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/outputs/dispatch_models_v..., PartitionFilters: [], PushedFilters: [], ReadSchema: struct<node_id:string,forecast_origin_s:bigint,hour:bigint,target_completed_borrows_next_hour:dou...
+                           :     +- BroadcastExchange HashedRelationBroadcastMode(List(input[0, string, false]),false), [plan_id=1907]
+                           :        +- Filter isnotnull(node_id#2156)
+                           :           +- FileScan json [node_id#2156] Batched: false, DataFilters: [isnotnull(node_id#2156)], Format: JSON, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/data/simulated/campus_v2/..., PartitionFilters: [], PushedFilters: [IsNotNull(node_id)], ReadSchema: struct<node_id:string>
+                           +- Project [actual#973, prediction#975, baseline#974, campus_return AS run_id#3084, actual_volume AS actual_volume#3086, CASE WHEN (actual#973 = 0.0) THEN zero WHEN (actual#973 < 5.0) THEN 1-4 ELSE 5+ END AS CASE WHEN (actual = 0) THEN zero WHEN (actual < 5) THEN 1-4 ELSE 5+ END#3087]
+                              +- BroadcastHashJoin [node_id#2166], [node_id#2181], LeftOuter, BuildRight, false
+                                 :- InMemoryTableScan [node_id#2166, actual#973, prediction#975, baseline#974]
+                                 :     +- InMemoryRelation [node_id#2166, forecast_origin_s#2167L, hour#2168L, actual#973, prediction#975, baseline#974], StorageLevel(disk, memory, deserialized, 1 replicas)
+                                 :           +- *(1) Project [node_id#957, forecast_origin_s#958L, hour#959L, target_completed_returns_next_hour#961 AS actual#973, prediction#962, seasonal_naive#963 AS baseline#974]
+                                 :              +- *(1) ColumnarToRow
+                                 :                 +- FileScan parquet [node_id#957,forecast_origin_s#958L,hour#959L,target_completed_returns_next_hour#961,prediction#962,seasonal_naive#963] Batched: true, DataFilters: [], Format: Parquet, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/outputs/dispatch_models_v..., PartitionFilters: [], PushedFilters: [], ReadSchema: struct<node_id:string,forecast_origin_s:bigint,hour:bigint,target_completed_returns_next_hour:dou...
+                                 +- BroadcastExchange HashedRelationBroadcastMode(List(input[0, string, false]),false), [plan_id=1910]
+                                    +- Filter isnotnull(node_id#2181)
+                                       +- FileScan json [node_id#2181] Batched: false, DataFilters: [isnotnull(node_id#2181)], Format: JSON, Location: InMemoryFileIndex(1 paths)[file:/Users/Zhuanz/Documents/ChatGPT/大数据处理 2/data/simulated/campus_v2/..., PartitionFilters: [], PushedFilters: [IsNotNull(node_id)], ReadSchema: struct<node_id:string>

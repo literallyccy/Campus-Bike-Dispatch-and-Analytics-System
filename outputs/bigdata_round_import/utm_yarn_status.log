@@ -1,0 +1,27 @@
+2026-11-12 12:22:12,469 INFO client.DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at master/172.18.0.2:8032
+2026-11-12 12:22:13,525 INFO conf.Configuration: resource-types.xml not found
+2026-11-12 12:22:13,526 INFO resource.ResourceUtils: Unable to find 'resource-types.xml'.
+Application Report : 
+	Application-Id : application_1794485197662_0001
+	Application-Name : CampusOrdersDataProcessing
+	Application-Type : SPARK
+	User : root
+	Queue : default
+	Application Priority : 0
+	Start-Time : 1794485456681
+	Finish-Time : 1794486004223
+	Progress : 100%
+	State : FINISHED
+	Final-State : SUCCEEDED
+	Tracking-URL : N/A
+	RPC Port : -1
+	AM Host : 172.18.0.3
+	Aggregate Resource Allocation : 1614351 MB-seconds, 1574 vcore-seconds
+	Aggregate Resource Preempted : 0 MB-seconds, 0 vcore-seconds
+	Log Aggregation Status : DISABLED
+	Diagnostics : 
+	Unmanaged Application : false
+	Application Node Label Expression : <Not set>
+	AM container Node Label Expression : <DEFAULT_PARTITION>
+	TimeoutType : LIFETIME	ExpiryTime : UNLIMITED	RemainingTime : -1seconds
+

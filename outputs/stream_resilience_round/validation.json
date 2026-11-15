@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "checks": {
+    "negative_inventory_isolated": true,
+    "fleet_excess_isolated": true,
+    "next_valid_batch_processed": true,
+    "duplicate_idempotency": true,
+    "inventory_restored": true,
+    "restart_and_replayed_event_idempotency": true,
+    "fleet_conservation": true,
+    "mixed_conflicting_batch_atomic_rollback": true,
+    "malformed_input_no_files_written": true
+  },
+  "scope": "Actual isolated local Spark file stream and restart; no production or cluster guarantee"
+}
